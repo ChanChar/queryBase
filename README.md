@@ -21,8 +21,8 @@ queryBase is a clone of Stack Overflow built on Rails and Backbone. Users can:
 * [View Wireframes][views]
 * [DB schema][schema]
 
-[views]: ./docs/views.md
-[schema]: ./docs/schema.md
+[views]: ./project_proposal/docs/views.md
+[schema]: ./project_proposal/docs/schema.md
 
 ## Implementation Timeline
 
@@ -76,8 +76,8 @@ update user profile page to display points/badges, etc.
 - [ ] User pictures, profile page header image background
 - [ ] Data analysis (most popular tags, trends, etc)
 
-[phase-one]: ./docs/phases/phase1.md
-[phase-two]: ./docs/phases/phase2.md
-[phase-three]: ./docs/phases/phase3.md
-[phase-four]: ./docs/phases/phase4.md
-[phase-five]: ./docs/phases/phase5.md
+[phase-one]: ./project_proposal/docs/phases/phase1.md
+[phase-two]: ./project_proposal/docs/phases/phase2.md
+[phase-three]: ./project_proposal/docs/phases/phase3.md
+[phase-four]: ./project_proposal/docs/phases/phase4.md
+[phase-five]: ./project_proposal/docs/phases/phase5.md
