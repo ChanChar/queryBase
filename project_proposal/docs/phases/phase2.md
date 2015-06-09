@@ -4,10 +4,10 @@
 ### Models
 
 ### Controllers
-Api::QuestionsController (create, destroy, index, show, update)
-Api::AnswersController (create, destroy, show, update)
-Api::CommentsController (create, destroy, show, update)
-Api::UsersController (create, destroy, show, update)
+* Api::QuestionsController (create, destroy, index, show, update)
+* Api::AnswersController (create, destroy, show, update)
+* Api::CommentsController (create, destroy, show, update)
+* Api::UsersController (create, destroy, show, update)
 
 ### Views
 * questions/show.json.jbuilder
