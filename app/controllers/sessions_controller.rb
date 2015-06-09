@@ -1,5 +1,4 @@
 class SessionsController < ApplicationController
-
   def new
   end
 
@@ -19,5 +18,4 @@ class SessionsController < ApplicationController
     sign_out!
     redirect_to new_session_url
   end
-
 end

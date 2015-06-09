@@ -23,13 +23,13 @@ best        | boolean   | not null, default: false
 
 ## Comments
 ### May be replaced by acts_as_commentable
-column name    | data type | details
----------------|-----------|-----------------------
-id             | integer   | not null, primary key
-commenter_id   | integer   | not null, foreign key (references users)
-body           | string    | not null
-type           | string    | not null
-commentable_id | integer   | not null
+column name      | data type | details
+-----------------|-----------|-----------------------
+id               | integer   | not null, primary key
+commenter_id     | integer   | not null, foreign key (references users)
+body             | string    | not null
+commentable_type | string    | not null
+commentable_id   | integer   | not null
 
 ## tags
 column name | data type | details

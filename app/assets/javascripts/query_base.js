@@ -4,7 +4,11 @@ window.QueryBase = {
   Views: {},
   Routers: {},
   initialize: function() {
-    alert('Hello from Backbone!');
+    new QueryBase.Routers.Router({
+      $rootEl: $('#main')
+    });
+
+    Backbone.history.start();
   }
 };
 
