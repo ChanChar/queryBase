@@ -1,2 +1,21 @@
 
-<p><%= question.title %></p>
+<div class="row">
+  <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
+    <p class='text-center index-counter'> <%= question.escape('votes') %> </p>
+    <h6 class='subheader counter-text'>Votes</h6>
+  </a>
+
+  <a class="answer-count small-1 columns" href='#questions/<%= question.id %>'>
+    <p class='text-center answer-counter'> <%= question.answers().length %> </p>
+    <h6 class='answer-text'>Answers</h6>
+  </a>
+  <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
+    <p class='text-center index-counter'> <%= question.escape('views') %> </p>
+    <h6 class='subheader counter-text'>Views</h6>
+  </a>
+  <a class="small-8 columns" href='#questions/<%= question.id %>'>
+    <p class='question-title'><%= question.escape('title') %></p>
+  </a>
+
+  <hr>
+</div>

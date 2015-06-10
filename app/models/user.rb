@@ -19,7 +19,7 @@ class User < ActiveRecord::Base
 
   has_many :questions, class_name: 'Question', foreign_key: :asker_id
   has_many :answers, class_name: 'Answer', foreign_key: :answerer_id
-  has_many :comments, as: :commentable
+  has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
 
   after_initialize :ensure_session_token
 

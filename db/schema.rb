@@ -20,7 +20,8 @@ ActiveRecord::Schema.define(version: 20150609204219) do
     t.integer  "question_id",                 null: false
     t.integer  "answerer_id",                 null: false
     t.integer  "points",      default: 0,     null: false
-    t.boolean  "best",        default: false, null: false
+    t.boolean  "best",        default: false
+    t.text     "body",                        null: false
     t.datetime "created_at",                  null: false
     t.datetime "updated_at",                  null: false
   end
@@ -42,7 +43,7 @@ ActiveRecord::Schema.define(version: 20150609204219) do
   create_table "questions", force: :cascade do |t|
     t.integer  "asker_id",                    null: false
     t.string   "title",                       null: false
-    t.string   "description"
+    t.text     "description"
     t.boolean  "answered",    default: false, null: false
     t.integer  "votes",       default: 0,     null: false
     t.integer  "views",       default: 0,     null: false

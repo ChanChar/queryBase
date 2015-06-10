@@ -7,10 +7,16 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   routes: {
     // '': 'landing',
-    '': 'index',
-    'questions/new': 'new',
-    'questions/:id': 'show',
-    'questions/:id/edit': 'edit',
+
+    '': 'questionIndex',
+    'questions/new': 'questionNew',
+    'questions/:id': 'questionShow',
+    'questions/:id/edit': 'questionEdit',
+
+    'users': 'usersIndex',
+    'users/:id': 'userShow',
+    'users/:id/edit': 'userEdit'
+
   },
 
   landing: function () {
@@ -18,23 +24,39 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this._swapView(landingView);
   },
 
-  index: function () {
+  questionIndex: function () {
     this.questions.fetch();
     var questionIndexView = new QueryBase.Views.QuestionsIndex({
       collection: this.questions
     });
-
     this._swapView(questionIndexView);
+  },
+
+  questionNew: function () {
+    var newQuestion = new QueryBase.Models.Question();
+    var questionNewView = new QueryBase.Views.QuestionNew({
+      model: newQuestion, collection: this.questions
+    });
+    this._swapView(questionNewView);
+  },
+
+  questionShow: function (id) {
+    var showQuestion = this.questions.getOrFetch(id);
+    var questionShowView = new QueryBase.Views.QuestionShow({
+      model: showQuestion
+    });
+    this._swapView(questionShowView);
   },
 
   _swapView: function (view) {
     this._currentView && this._currentView.remove();
     this._currentView = view;
-    this.$rootEl.html(view.render().$el);
+    this.$rootEl.html(view.$el);
+    view.render();
   }
 
-
-
-
-
+  // question show
+  // onrender function
+  // this.$().sortable();
+  // Backbone.CompositeView.prototypr.onRender.call(this);
 });

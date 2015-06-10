@@ -18,12 +18,13 @@ module Api
     end
 
     def index
-      @questions = current_user.questions
-      render json: @questions
+      @questions = Question.all
+      # render json: @questions
+      render :index
     end
 
     def show
-      @question = Question.includes(:answers, :commments, answers: :comments)
+      @question = Question.includes(:answers, :comments, answers: :comments)
                   .find(params[:id])
 
       # TODO: make show available to all but also pass info if user is owner

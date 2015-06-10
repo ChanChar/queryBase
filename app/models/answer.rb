@@ -12,7 +12,7 @@
 #
 
 class Answer < ActiveRecord::Base
-  validates :question_id, :answerer_id, :points, :best, presence: true
+  validates :question_id, :answerer_id, :points, presence: true
 
   belongs_to :answerer, class_name: 'User', foreign_key: :answerer_id
   belongs_to :question, class_name: 'Question', foreign_key: :question_id

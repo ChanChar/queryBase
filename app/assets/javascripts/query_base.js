@@ -8,7 +8,7 @@ window.QueryBase = {
     var navbarView = new QueryBase.Views.NavBar({
       router: router
     });
-    
+
     $('#navbar').html(navbarView.render().$el);
     Backbone.history.start();
   }

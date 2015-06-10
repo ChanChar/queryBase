@@ -14,16 +14,22 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
     var questionIndexContent = this.template();
     this.$el.html(questionIndexContent);
     this.attachSubviews();
+    // this.onRender
     return this;
   },
 
+  // onRender: function () {
+  // this.$(jsadlad).addClass('')
+  // Backbone.CompositeView.prototype.onRender.call(this);
+  // },
+
   addQuestionView: function (question) {
     var questionSubview = new QueryBase.Views.QuestionIndexItem({ model: question });
-    this.addSubview('.questions-index-items', questionSubview);
+    this.addSubview('.question-index-items', questionSubview);
   },
 
   removeQuestionView: function (question) {
-    this.removeSubview('.questions-index-items', question);
+    this.removeSubview('.question-index-items', question);
   }
 
 });
