@@ -12,5 +12,14 @@
  *
 */
 
- @import "bootstrap-sprockets";
- @import "bootstrap";
+@import "foundation_and_overrides";
+
+// Navbar
+
+.menu-links {
+  margin-top: 25px;
+}
+
+.menu-links .button {
+  margin: 3px;
+}

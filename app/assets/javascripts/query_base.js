@@ -4,10 +4,12 @@ window.QueryBase = {
   Views: {},
   Routers: {},
   initialize: function() {
-    new QueryBase.Routers.Router({
-      $rootEl: $('#main')
+    var router = new QueryBase.Routers.Router({ $rootEl: $('#main') });
+    var navbarView = new QueryBase.Views.NavBar({
+      router: router
     });
-
+    
+    $('#navbar').html(navbarView.render().$el);
     Backbone.history.start();
   }
 };

@@ -12,10 +12,10 @@
 //
 //= require jquery
 //= require jquery_ujs
+//= require foundation
 //= require jquery.serializejson
 //= require underscore
 //= require backbone
-//= require bootstrap
 //= require query_base
 //= require_tree ../templates
 //= require_tree ./utils
@@ -24,3 +24,5 @@
 //= require_tree ./views
 //= require_tree ./routers
 //= require_tree .
+
+$(function(){ $(document).foundation(); });
