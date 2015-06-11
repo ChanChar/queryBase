@@ -7,11 +7,18 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.answers = this.model.answers();
     this.comments = this.model.comments();
+
     this.listenTo(this.model, 'sync', this.render);
+
     this.listenTo(this.answers, 'add', this.addAnswerView);
     this.listenTo(this.answers, 'remove', this.removeAnswerView);
+    this.listenTo(this.comments, 'add', this.addCommentView);
+    this.listenTo(this.comments, 'remove', this.removeCommentView);
+
     this.addAnswerForm();
     this.addCommentForm();
+
+    this.comments.each(this.addCommentView.bind(this));
     this.answers.each(this.addAnswerView.bind(this));
   },
 
@@ -35,6 +42,15 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
 
   removeAnswerView: function (answer) {
     this.removeModelSubview('.answers', answer);
+  },
+
+  addCommentView: function (comment) {
+    var commentSubview = new QueryBase.Views.CommentShow({ model: comment });
+    this.addSubview('.question-comments', commentSubview);
+  },
+
+  removeCommentView: function (comment) {
+    this.removeModelSubview('.question-comments', comment);
   },
 
   toggleCommentForm: function () {

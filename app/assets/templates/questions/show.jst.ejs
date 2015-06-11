@@ -21,19 +21,14 @@
       </div>
 
       <label>Comments:
-        <div class="question-comments">
-          <% question.comments().each(function (comment) { %>
-            <p class='question-comment'> <%= comment.escape('body') %> </p>
-          <% }) %>
-        </div>
+        <div class="question-comments"></div>
       </label>
 
-      <!-- Add a comment pop up link -->
       <a class='show-comment-form'>Add a comment</a>
       <div class="question-comment-form hide"></div>
 
-      <!-- use pluralize or find a js inflector -->
-      <h5><%= question.answers().length %> Answer(s)</h5>
+      <% var numQuestions = question.answers().length %>
+      <h5><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></h5>
 
       <div class="answers"></div>
 
