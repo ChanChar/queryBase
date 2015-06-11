@@ -8,11 +8,9 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
-      p 'here in save'
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
-      p 'here in errors'
       render :new
     end
   end

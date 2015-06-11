@@ -13,7 +13,4 @@ QueryBase.Views.CommentShow = Backbone.View.extend({
     this.$el.html(commentContent);
     return this;
   },
-
-
-
 });

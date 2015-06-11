@@ -13,6 +13,4 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     this.$el.html(answerContent);
     return this;
   },
-
-
 });
