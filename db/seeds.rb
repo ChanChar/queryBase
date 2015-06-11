@@ -15,4 +15,4 @@ Question.create(asker_id: 1, title: 'What are composite views in Backbone?',
 Answer.create(question_id: 1, answerer_id: 2, body: 'It is any function that uses variables that were neither passed in or created within the function.')
 Answer.create(question_id: 2, answerer_id: 1, best: true, points: 50, body: 'You know nothing Jon Snow.')
 
-Comment.create(commenter_id: 3, commentable_type: 'question', commentable_id: 1, body: 'Do you have any examples that you want to have clarified?')
+Comment.create(commenter_id: 3, commentable_type: 'Question', commentable_id: 1, body: 'Do you have any examples that you want to have clarified?')

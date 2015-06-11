@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  asker_id    :integer          not null
 #  title       :string           not null
-#  description :string
+#  description :text
 #  answered    :boolean          default(FALSE), not null
 #  votes       :integer          default(0), not null
 #  views       :integer          default(0), not null

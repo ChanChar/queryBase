@@ -26,19 +26,15 @@ module Api
     def show
       @question = Question.includes(:answers, :comments, answers: :comments)
                   .find(params[:id])
-
       # TODO: make show available to all but also pass info if user is owner
-      if @question.belongs_to?(current_user)
-        render :show
-      else
-        render json: ["You aren't the creator of this question."], status: 403
-      end
+      render :show
     end
 
     private
 
     def question_params
-      params.require(:question).permit(:title)
+      # TODO: remember to add tags
+      params.require(:question).permit(:title, :description)
     end
   end
 end

@@ -7,6 +7,10 @@ QueryBase.Models.Question = Backbone.Model.extend({
       this.answers().set(response.answers, { parse: true });
       delete response.answers;
     }
+    if (response.comments) {
+      this.comments().set(response.comments);
+      delete response.comments;
+    }
 
     return response;
   },
@@ -17,5 +21,13 @@ QueryBase.Models.Question = Backbone.Model.extend({
     }
 
     return this._answers;
+  },
+
+  comments: function () {
+    if (!this._comments) {
+      this._comments = new QueryBase.Collections.Comments([], { question: this });
+    }
+
+    return this._comments;
   }
 });

@@ -1,15 +1,15 @@
 QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
 
-  tagName: 'form',
-  className: 'new-question',
   template: JST['questions/new'],
+
+  className: 'new-question',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
   },
 
   events: {
-    'submit form.new-question': 'createQuestion'
+    'submit form': 'createQuestion'
   },
 
   render: function () {
@@ -19,13 +19,15 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
   },
 
   // test this function;
-  createQuestion: function () {
-    var params = this.$el.serializeJSON();
+  createQuestion: function (event) {
+    event.preventDefault();
+
+    var params = this.$('form').serializeJSON();
     var questions = this.collection;
     var question = this.model.set(params);
-    this.model.fetch({}, {
+    question.save({}, {
       success: function () {
-        questions.add(question, { merge: true });
+        questions.add(question);
         Backbone.history.navigate('questions/' + question.id, { trigger: true });
       }
     });

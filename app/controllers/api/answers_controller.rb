@@ -1,7 +1,7 @@
 module Api
   class AnswersController < ApiController
     def create
-      @answer = current_question.answers.new(answer_params)
+      @answer = current_user.answers.new(answer_params)
 
       if @answer.save
         render json: @answer
@@ -17,7 +17,7 @@ module Api
     end
 
     def update
-      @answer = current_question.answers.find(params[:id])
+      @answer = current_user.answers.find(params[:id])
 
       if @answer.update_attributes(answer_params)
         render json: @answer
@@ -33,12 +33,12 @@ module Api
         @answer = Answer.find(params[:id])
         @question = @answer.question
       elsif params[:answer]
-        @question = Board.find(params[:answer][:board_id])
+        @question = Question.find(params[:answer][:question_id])
       end
     end
 
     def answer_params
-      params.require(:answer).permit(:title, :board_id, :ord)
+      params.require(:answer).permit(:body, :question_id)
     end
   end
 end

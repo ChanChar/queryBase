@@ -5,7 +5,7 @@
 #  id          :integer          not null, primary key
 #  asker_id    :integer          not null
 #  title       :string           not null
-#  description :string
+#  description :text
 #  answered    :boolean          default(FALSE), not null
 #  votes       :integer          default(0), not null
 #  views       :integer          default(0), not null
@@ -18,6 +18,7 @@ class Question < ActiveRecord::Base
 
   belongs_to :asker, class_name: 'User', foreign_key: :asker_id
   has_many :comments, as: :commentable
+  has_many :tags, as: :taggable
   has_many :answers, class_name: 'Answer',
                      foreign_key: :question_id,
                      dependent: :destroy

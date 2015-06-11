@@ -72,8 +72,24 @@
 .has-answer {
   background: #16a085;
   color: white;
+
+  &:hover {
+    background: darken(#16a085, 10%);
+  }
+
+  h6, p {
+    color: white;
+  }
+
 }
 
-.has-answer h6 {
-  color: white;
+// Forms
+.hide {
+  display: none;
+}
+
+// Question show
+
+.question-vote, .question-details {
+  width: 100%;
 }

@@ -6,13 +6,14 @@
 #  question_id :integer          not null
 #  answerer_id :integer          not null
 #  points      :integer          default(0), not null
-#  best        :boolean          default(FALSE), not null
+#  best        :boolean          default(FALSE)
+#  body        :text             not null
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #
 
 class Answer < ActiveRecord::Base
-  validates :question_id, :answerer_id, :points, presence: true
+  validates :question_id, :body, :answerer_id, presence: true
 
   belongs_to :answerer, class_name: 'User', foreign_key: :answerer_id
   belongs_to :question, class_name: 'Question', foreign_key: :question_id

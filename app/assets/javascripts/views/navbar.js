@@ -18,9 +18,6 @@ QueryBase.Views.NavBar = Backbone.View.extend({
   //   $.ajax({
   //     type: "DELETE",
   //     url: '/session',
-  //     success: function {
-  //       // redirect here?
-  //     }
   //   });
   // }
 

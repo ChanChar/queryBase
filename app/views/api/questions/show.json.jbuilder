@@ -2,7 +2,9 @@ json.extract!(@question, :title, :asker_id, :description, :answered,
               :votes, :views, :created_at, :updated_at)
 
 json.comments do
-  json.array!(@question.comments)
+  json.array!(@question.comments) do |comment|
+    json.merge! comment.attributes
+  end
 end
 
 json.answers do
