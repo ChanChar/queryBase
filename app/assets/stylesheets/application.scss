@@ -14,6 +14,16 @@
 
 @import "foundation_and_overrides";
 
+.vertical-align {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.centered-form {
+  height: 100%;
+}
+
 // Navbar
 
 .menu-links {

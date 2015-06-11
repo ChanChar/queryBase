@@ -12,13 +12,12 @@ QueryBase.Views.NavBar = Backbone.View.extend({
     'click a.sign-out': 'signOut',
   },
 
-  // signOut: function (event) {
-  //   event.preventDefault();
-  //
-  //   $.ajax({
-  //     type: "DELETE",
-  //     url: '/session',
-  //   });
-  // }
+  signOut: function (event) {
+
+    $.ajax({
+      type: "DELETE",
+      url: '/session',
+    });
+  }
 
 });

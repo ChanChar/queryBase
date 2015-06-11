@@ -1,27 +1,33 @@
+<title>Log In</title>
 
-<div class="row centered-form">
-    <title>Log In</title>
+<div class="row centered-form vertical-align">
     <div class="row text-center">
       <h1>Sign In</h1>
     </div>
-    <form action="/session" method="post">
+
+    <form action="/session" method="post" data-abide>
 
       <input type="hidden" name="authenticity_token"
         value="<%= form_authenticity_token %>">
 
       <div class="row">
         <div class="small-6 small-centered columns">
+          <label><small>required</small>
             <input type="text" name="user[email]"
-              class="text-center" placeholder="Email" />
-            <!-- <small class="error"></small> -->
+              class="text-center" placeholder="Email" required />
+          </label>
+            <small class="error">Please enter your email.</small>
 
         </div>
       </div>
 
       <div class="row">
         <div class="small-6 small-centered columns">
-            <input type="password" name="user[password]"
-              class="text-center" placeholder="Password" />
+            <label><small>required</small></label>
+              <input type="password" name="user[password]"
+                class="text-center" placeholder="Password" required />
+            </label>
+              <small class="error">Please enter your password.</small>
         </div>
       </div>
 
@@ -29,6 +35,7 @@
         <div class="small-6 small-centered text-center columns">
           <input type='submit' aria-label="submit form" class="button">
           <a aria-label="submit form" href="<%= new_user_path %>" class="button">New User</a>
+          <a aria-label="submit form" href="<%= new_user_path %>" class="button">Guest</a>
         </div>
       </div>
 

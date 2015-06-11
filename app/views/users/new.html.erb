@@ -1,9 +1,10 @@
 <title>New User</title>
-<div class="row text-center">
-  <h1>Sign Up</h1>
-</div>
 
-<div class="row centered-form">
+<div class="row centered-form vertical-align">
+    <div class="row text-center">
+      <h1>Sign Up</h1>
+    </div>
+
     <form action="/users" method="post" data-abide>
 
       <input type="hidden" name="authenticity_token"
@@ -15,7 +16,7 @@
               <input type="email" name="user[email]"
                 class="text-center" placeholder="Email" required />
             </label>
-            <small class="error">An email address is required.</small>
+            <small class="error">An email is required.</small>
         </div>
       </div>
 
