@@ -42,7 +42,9 @@ QueryBase.Models.Answer = Backbone.Model.extend({
 
   vote: function () {
     if (!this._vote) {
-      this._vote = new QueryBase.Models.Vote({ votable_type: 'Question' });
+      this._vote = new QueryBase.Models.Vote({ votable_type: 'Answer' });
     }
+
+    return this._vote;
   }
 });

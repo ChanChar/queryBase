@@ -19,7 +19,6 @@ ActiveRecord::Schema.define(version: 20150611170726) do
   create_table "answers", force: :cascade do |t|
     t.integer  "question_id",                 null: false
     t.integer  "answerer_id",                 null: false
-    t.integer  "points",      default: 0,     null: false
     t.boolean  "best",        default: false
     t.text     "body",                        null: false
     t.datetime "created_at",                  null: false

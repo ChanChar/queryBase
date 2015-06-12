@@ -3,7 +3,6 @@ class CreateAnswers < ActiveRecord::Migration
     create_table :answers do |t|
       t.integer :question_id, null: false
       t.integer :answerer_id, null: false
-      t.integer :points, null: false, default: 0
       t.boolean :best, default: false
       t.text :body, null: false
 

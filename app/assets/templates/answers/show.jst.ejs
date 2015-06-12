@@ -1,13 +1,15 @@
-<div class="small-1 columns">
-  <div class="answer-vote"></div>
-</div>
-<div class="answer-item small-11 small-offset-1 columns">
-  <p class=body><%= answer.escape('body') %></p>
-  <a class='delete-answer'>Delete</a>
+<div class="row">
+  <div class="small-1 columns">
+    <div class="answer-vote"></div>
+  </div>
+  <div class="answer-item small-11 columns">
+    <p class=body><%= answer.escape('body') %></p>
+    <a class='delete-answer'>Delete</a>
 
-  <div class="answer-comments"></div>
+    <div class="answer-comments"></div>
 
-  <a class='show-answer-comment-form'>Add a comment</a>
-  <div class="new-answer-comment hide"></div>
+    <a class='show-answer-comment-form'>Add a comment</a>
+    <div class="new-answer-comment hide"></div>
+  <hr>
+  </div>
 </div>
-<hr>

@@ -48,6 +48,7 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
 
   toggleCommentForm: function () {
     this.$('.new-answer-comment').toggleClass('hide');
+    this.$('.new-answer-comment textarea').focus();
   },
 
   addCommentForm: function () {

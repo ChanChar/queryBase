@@ -5,7 +5,6 @@
 #  id          :integer          not null, primary key
 #  question_id :integer          not null
 #  answerer_id :integer          not null
-#  points      :integer          default(0), not null
 #  best        :boolean          default(FALSE)
 #  body        :text             not null
 #  created_at  :datetime         not null

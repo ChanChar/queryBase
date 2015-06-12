@@ -15,8 +15,6 @@ class Vote < ActiveRecord::Base
   validates :voter_id, :value, :votable_type, :votable_id, presence: true
   validates :voter_id, uniqueness: { scope: [:votable_id, :votable_type] }
 
-  
-
   belongs_to :votable, polymorphic: true
   belongs_to :voter, class_name: 'User', foreign_key: 'voter_id'
 end
