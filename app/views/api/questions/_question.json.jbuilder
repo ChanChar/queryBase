@@ -1,6 +1,9 @@
 json.merge! question.attributes
 json.score question.score
-
+json.tag_list question.tags
+json.asker do
+  json.extract! User.find(question.asker_id), :email
+end
 
 if @vote
   json.vote do

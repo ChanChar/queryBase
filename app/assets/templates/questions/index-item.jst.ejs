@@ -1,21 +1,32 @@
 
 <div class="row">
-  <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
-    <p class='text-center index-counter'> <%= question.get('score') %> </p>
-    <h6 class='subheader counter-text'>Votes</h6>
-  </a>
+    <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
+      <p class='text-center index-counter'> <%= question.get('score') %> </p>
+      <h6 class='subheader counter-text'>Votes</h6>
+    </a>
 
-  <a class="answer-count small-1 columns" href='#questions/<%= question.id %>'>
-    <p class='text-center answer-counter'> <%= question.answers().length %> </p>
-    <h6 class='answer-text'>Answers</h6>
-  </a>
-  <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
-    <p class='text-center index-counter'> <%= question.escape('views') %> </p>
-    <h6 class='subheader counter-text'>Views</h6>
-  </a>
-  <a class="small-8 columns" href='#questions/<%= question.id %>'>
-    <p class='question-title'><%= question.escape('title') %></p>
-  </a>
+    <a class="answer-count small-1 columns" href='#questions/<%= question.id %>'>
+      <p class='text-center answer-counter'> <%= question.answers().length %> </p>
+      <h6 class='answer-text'>Answers</h6>
+    </a>
+    <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
+      <p class='text-center index-counter'> <%= question.escape('views') %> </p>
+      <h6 class='subheader counter-text'>Views</h6>
+    </a>
 
-  <hr>
+    <a class="small-9 columns" href='#questions/<%= question.id %>'>
+      <p class='question-title'><%= question.escape('title') %></p>
+    </a>
+
+    <div class="small-7 columns">
+
+      <% tags.each(function (tag) { %>
+        <a class='tag' href='#tags/<%= tag.escape('id') %>'><%= tag.escape('name') %></a>
+      <% }) %>
+    </div>
+
+    <a class="user-info right" href="#users/<%= question.escape('asker_id') %>">
+      <%= question.get('asker').email.slice(0, 10) %>...</a>
 </div>
+
+<hr>

@@ -16,13 +16,11 @@ class Question < ActiveRecord::Base
 
   belongs_to :asker, class_name: 'User', foreign_key: :asker_id
   has_many :comments, as: :commentable, dependent: :destroy
-  has_many :tags, as: :taggable, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
-
+  acts_as_taggable
   has_many :answers, class_name: 'Answer',
                      foreign_key: :question_id,
                      dependent: :destroy
-
   def belongs_to?(user)
     user.id == asker_id
   end

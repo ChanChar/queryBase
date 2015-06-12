@@ -15,6 +15,10 @@
 @import "foundation_and_overrides";
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700);
 
+* {
+    font-family: Lora;
+}
+
 body {
   background-color: #ecf0f1;
 }
@@ -79,21 +83,35 @@ body {
   }
 }
 
+.subnav {
+  text-align: right;
+  .button {
+    padding: 8px;
+  }
+}
+
 #navbar {
   margin-bottom: 15px;
 }
 
 // Question Index Items
 
+.question-index-item {
+  hr {
+    margin: 10px auto;
+    width: 80%;
+  }
+}
+
 .counter-text, .index-counter {
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
   color: #bdc3c7;
 }
 
 .question-attr, .answer-count {
   padding: 5px;
-  margin: 5px;
+  margin: 0px 0px 5px 0px;
 }
 
 .index-counter, .answer-counter {
@@ -105,13 +123,14 @@ body {
 }
 
 .answer-text, .answer-counter {
-  font-size: 14px;
+  font-size: 12px;
   text-align: center;
 }
 
 .question-title {
   font-size: 18px;
   padding: 5px;
+  margin-bottom: 0px;
 }
 
 .has-answer {
@@ -126,6 +145,22 @@ body {
     color: white;
   }
 
+}
+
+.user-info {
+  font-size: 13px;
+}
+
+.tag {
+  background-color: #16a085;
+  color: #ecf0f1;
+  font-size: 14px;
+  padding: 2px;
+
+  &:hover {
+    background-color: darken(#16a085, 15%);
+    color: #ecf0f1;
+  }
 }
 
 // Forms

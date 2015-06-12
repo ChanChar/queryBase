@@ -33,6 +33,11 @@ QueryBase.Models.Question = Backbone.Model.extend({
     }
     this.vote().set('votable_id', response.id);
 
+    if (response.tag_list) {
+      this.tag_list().set(response.tag_list);
+      delete response.tag_list;
+    }
+
     return response;
   },
 
@@ -58,5 +63,13 @@ QueryBase.Models.Question = Backbone.Model.extend({
     }
 
     return this._vote;
+  },
+
+  tag_list: function () {
+    if (!this._tag_list) {
+      this._tag_list = new QueryBase.Collections.Tags([], { question: this });
+    }
+
+    return this._tag_list;
   }
 });

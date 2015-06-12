@@ -1,6 +1,5 @@
 QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
 
-  tagName: 'div',
   className: 'show-question',
   template: JST['questions/show'],
 

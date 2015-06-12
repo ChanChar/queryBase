@@ -7,11 +7,11 @@
 ## Minimum Viable Product
 queryBase is a clone of Stack Overflow built on Rails and Backbone. Users can:
 
-- [ ] Create an account
-- [ ] Create sessions (log in)
-- [ ] Post questions (title, description, tags)
+- [x] Create an account
+- [x] Create sessions (log in)
+- [x] Post questions (title, description, tags)
 - [ ] Answer questions (and choose the 'best' answer)
-- [ ] Post comments to question or answers
+- [x] Post comments to question or answers
 - [ ] View questions, answers, comments, user profiles
 - [ ] Follow questions
 - [ ] Search for questions by tag, keyword (eg. title)

@@ -23,17 +23,17 @@ module Api
     end
 
     def show
-      @question = Question.includes(:answers, :comments,
+      @question = Question.includes(:asker, :answers, :comments,
                                     answers: :comments).find(params[:id])
       @vote = @question.votes.find_by(voter_id: current_user.id)
+      @tags = @question.tags
       render :show
     end
 
     private
 
     def question_params
-      # TODO: remember to add tags
-      params.require(:question).permit(:title, :description)
+      params.require(:question).permit(:title, :description, :tag_list)
     end
   end
 end
