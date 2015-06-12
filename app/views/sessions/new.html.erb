@@ -1,33 +1,31 @@
 <title>Log In</title>
 
-<video autoplay muted loop id="signin-video">
-  <source src="media/coffee-signin.mp4" type="video/mp4">
+<video autobuffer autoplay loop id="signin-video"
+  src="https://pdlvimeocdn-a.akamaihd.net/10849/063/343647377.mp4?token2=1434101206_2e620242d9a7ad9be2ebfe4abf561340&aksessionid=95f53c618795f10ea1f3eb802e2b8f3f3d790e541434086806">
 </video>
 
 <div class="row centered-form vertical-align">
-    <div class="row text-center">
-      <h1>Sign In</h1>
-      <medium>and enjoy that cup of coffee.</medium>
-    </div>
 
-    <form action="/session" method="post" data-abide>
+    <form action="/session" method="post" class='signin-form' data-abide>
+      <div class="text-center">
+        <h1>Sign In</h1>
+      </div>
 
       <input type="hidden" name="authenticity_token"
         value="<%= form_authenticity_token %>">
 
       <div class="row">
-        <div class="small-6 small-centered columns">
+        <div class="small-8 small-centered columns">
           <label><small>required</small>
             <input type="text" name="user[email]"
               class="text-center" placeholder="Email" required />
           </label>
             <small class="error">Please enter your email.</small>
-
         </div>
       </div>
 
       <div class="row">
-        <div class="small-6 small-centered columns">
+        <div class="small-8 small-centered columns">
             <label><small>required</small></label>
               <input type="password" name="user[password]"
                 class="text-center" placeholder="Password" required />
@@ -35,12 +33,14 @@
               <small class="error">Please enter your password.</small>
         </div>
       </div>
+      <input type="hidden" name="user[email]" value="jonsnow@thewall.com">
+      <input type="hidden" name="user[password]" value="nothing">
 
       <div class="row">
         <div class="small-6 small-centered text-center columns">
           <input type='submit' aria-label="submit form" class="button">
           <a aria-label="submit form" href="<%= new_user_path %>" class="button">New User</a>
-          <a aria-label="submit form" href="<%= new_user_path %>" class="button">Guest</a>
+          <input type="submit" class="button" value="Guest">
         </div>
       </div>
 

@@ -13,6 +13,11 @@
 */
 
 @import "foundation_and_overrides";
+@import url(http://fonts.googleapis.com/css?family=Lora:400,700);
+
+body {
+  background-color: #ecf0f1;
+}
 
 // Logins & Signups
 
@@ -26,8 +31,24 @@
   height: 100%;
 }
 
+.signin-form {
+  background: transparentize(#bdc3c7, .4);
+  width: 78%;
+  margin: 0 auto;
+  border-radius: 2px;
+
+  h1 {
+    font-family: 'Lora', serif;
+    padding-top: 15px;
+    color: white;
+  }
+
+}
+
+
+
 #signin-video {
-position: fixed;
+  position: fixed;
   top: 50%;
   left: 50%;
   min-width: 100%;
@@ -37,7 +58,7 @@ position: fixed;
   z-index: -100;
   -webkit-transform: translateX(-50%) translateY(-50%);
   transform: translateX(-50%) translateY(-50%);
-  background: url(polina.jpg) no-repeat;
+  // background: url(polina.jpg) no-repeat;
   background-size: cover;
 }
 
