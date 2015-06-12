@@ -21,6 +21,4 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
     return question;
   },
 
-  // include comparator?
-
 });

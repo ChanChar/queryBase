@@ -118,3 +118,39 @@
     margin: 2px;
   }
 }
+
+// Vote form
+
+.vote-count h3 {
+  padding: auto auto
+}
+
+.upvote-button, .downvote-button {
+  border-color: black transparent;
+  border-style: solid;
+  height: 0px;
+  width: 0px;
+  margin: auto auto;
+}
+
+.upvote-button {
+  border-width: 0px 20px 20px 20px;
+  &:hover {
+    border-color: #27ae60 transparent;
+  }
+}
+
+.downvote-button {
+	border-width: 20px 20px 0px 20px;
+  &:hover {
+    border-color: #e74c3c transparent;
+  }
+}
+
+.upvoted {
+  border-color: #27ae60 transparent;
+}
+
+.downvoted {
+  border-color: #e74c3c transparent;
+}

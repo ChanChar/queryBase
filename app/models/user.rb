@@ -21,6 +21,10 @@ class User < ActiveRecord::Base
   has_many :answers, class_name: 'Answer', foreign_key: :answerer_id
   has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
 
+  has_many :votes, class_name: 'Vote', foreign_key: :voter_id
+  has_many :question_votes, through: :votes, source: :votable
+  has_many :answer_votes, through: :votes, source: :votable
+
   after_initialize :ensure_session_token
 
   def self.find_by_credentials(user_params)
@@ -47,6 +51,29 @@ class User < ActiveRecord::Base
   def generate_session_token
     SecureRandom.urlsafe_base64(16)
   end
+
+  # Returns a hash of questions that the user has voted on.
+  # def voted_questions
+  #   zipped_votes = votes.pluck(:question_id).zip(votes)
+  #   votes_hash = {}
+  #
+  #   zipped_votes.each do |(id, vote)|
+  #     votes_hash[id] = vote
+  #   end
+  #
+  #   votes_hash
+  # end
+  #
+  # def voted_answers
+  #   zipped_answers = votes.pluck(:answer_id).zip(votes)
+  #   votes_hash = {}
+  #
+  #   zipped_answers.each do |(id, vote)|
+  #     votes_hash[id] = vote
+  #   end
+  #
+  #   votes_hash
+  # end
 
   private
 

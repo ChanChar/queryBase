@@ -19,5 +19,9 @@ class Answer < ActiveRecord::Base
   belongs_to :question, class_name: 'Question', foreign_key: :question_id
 
   has_many :comments, as: :commentable
+  has_many :votes, as: :votable
 
+  def score
+    votes.inject(0) { |total, vote| total + vote.value }
+  end
 end

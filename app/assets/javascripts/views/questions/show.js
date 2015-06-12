@@ -7,6 +7,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.answers = this.model.answers();
     this.comments = this.model.comments();
+    this.votes = this.model.votes();
 
     this.listenTo(this.model, 'sync', this.render);
 
@@ -14,9 +15,11 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.listenTo(this.answers, 'remove', this.removeAnswerView);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'remove', this.removeCommentView);
+    this.listenTo(this.votes, 'add remove', this.updateVoteCount);
 
     this.addAnswerForm();
     this.addCommentForm();
+    this.addVoteForm();
 
     this.comments.each(this.addCommentView.bind(this));
     this.answers.each(this.addAnswerView.bind(this));
@@ -25,7 +28,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   events: {
     'submit .answer-form': 'createAnswer',
     'submit .question-comment-form': 'createComment',
-    'click a.show-comment-form': 'toggleCommentForm'
+    'click a.show-comment-form': 'toggleCommentForm',
   },
 
   render: function () {
@@ -33,6 +36,15 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.$el.html(showQuestionContent);
     this.attachSubviews();
     return this;
+  },
+
+  addVoteForm: function () {
+    var voteSubview = new QueryBase.Views.VoteForm({ model: this.model });
+    this.addSubview('.question-vote', voteSubview);
+  },
+
+  updateVoteCount: function (delta) {
+    this.model.set("votes", this.model.get("votes") + delta);
   },
 
   addAnswerView: function (answer) {

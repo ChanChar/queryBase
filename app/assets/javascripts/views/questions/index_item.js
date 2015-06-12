@@ -6,7 +6,6 @@ QueryBase.Views.QuestionIndexItem = Backbone.CompositeView.extend({
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);
-    // this.answerBox();
   },
 
   render: function () {

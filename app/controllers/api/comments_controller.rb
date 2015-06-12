@@ -30,17 +30,8 @@ class Api::CommentsController < ApplicationController
 
   private
 
-  # def current_question
-  #   if params[:id]
-  #     @comment = Comment.find(params[:id])
-  #     @question = @comment.question
-  #   elsif params[:comment]
-  #     @question = Question.find(params[:comment][:question_id])
-  #   end
-  # end
-
   def comment_params
-    params.require(:comment).permit(:body, :question_id)
+    params.require(:comment).permit(:body, :question_id, :answer_id)
   end
 
   def find_commentable

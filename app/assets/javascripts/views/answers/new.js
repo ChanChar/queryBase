@@ -13,4 +13,5 @@ QueryBase.Views.AnswerForm = Backbone.View.extend({
     this.$el.html(answerContent);
     return this;
   },
+
 });
