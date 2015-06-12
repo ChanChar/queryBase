@@ -73,9 +73,8 @@ QueryBase.Views.VoteForm = Backbone.View.extend({
     }
   },
 
-  // does this work?
+  // TODO: test
   updateVoteCount: function (delta) {
-    debugger;
     this.model.set("votes", this.model.get("votes") + delta);
   },
 

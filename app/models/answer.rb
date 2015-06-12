@@ -22,6 +22,6 @@ class Answer < ActiveRecord::Base
   has_many :votes, as: :votable
 
   def score
-    votes.inject(0) { |total, vote| total + vote.value }
+    votes.sum(:value)
   end
 end

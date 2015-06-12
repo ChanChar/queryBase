@@ -9,7 +9,6 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     // '': 'landing',
 
     '': 'questionIndex',
-    'questions/new': 'questionNew',
     'questions/:id': 'questionShow',
     'questions/:id/edit': 'questionEdit',
 
@@ -30,14 +29,6 @@ QueryBase.Routers.Router = Backbone.Router.extend({
       collection: this.questions
     });
     this._swapView(questionIndexView);
-  },
-
-  questionNew: function () {
-    var newQuestion = new QueryBase.Models.Question();
-    var questionNewView = new QueryBase.Views.QuestionNew({
-      model: newQuestion, collection: this.questions
-    });
-    this._swapView(questionNewView);
   },
 
   questionShow: function (id) {

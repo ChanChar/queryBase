@@ -18,7 +18,6 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
     return this;
   },
 
-  // test this function;
   createQuestion: function (event) {
     event.preventDefault();
 
@@ -28,6 +27,7 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
     question.save({}, {
       success: function () {
         questions.add(question);
+        $('#reveal-question-form').foundation('reveal', 'close');
         Backbone.history.navigate('questions/' + question.id, { trigger: true });
       }
     });

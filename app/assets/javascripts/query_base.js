@@ -6,7 +6,7 @@ window.QueryBase = {
   initialize: function() {
     var router = new QueryBase.Routers.Router({ $rootEl: $('#main') });
     var navbarView = new QueryBase.Views.NavBar({
-      router: router
+      router: router,
     });
 
     $('#navbar').html(navbarView.render().$el);

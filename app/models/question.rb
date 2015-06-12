@@ -30,6 +30,6 @@ class Question < ActiveRecord::Base
   end
 
   def score
-    votes.inject(0) { |total, vote| total + vote.value }
+    votes.sum(:value)
   end
 end
