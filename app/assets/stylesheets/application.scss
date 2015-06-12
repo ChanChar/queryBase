@@ -137,6 +137,9 @@ body {
   width: 100%;
 }
 
+// Answers
+
+
 // Comments
 
 .question-comments {
@@ -154,6 +157,21 @@ body {
 
   .break {
     margin: 2px;
+  }
+}
+
+.answer-comment {
+  .body {
+    margin-bottom: 0px;
+  }
+
+  .delete-comment {
+    color: #95a5a6;
+    font-size: 14px;
+
+    &:hover {
+      color: #c0392b;
+    }
   }
 }
 

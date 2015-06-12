@@ -1,18 +1,26 @@
+<!-- Only questions have answerer_ids -->
 
-<% if (question) { %>
-  <input type="hidden" name="question_id" value="<%= question.escape('id') %>">
-<% } else { %>
-  <input type="hidden" name="answer_id" value="<%= answer.escape('id') %>">
+<% if (model) { %>
+  <% if (model.escape('asker_id')) { %>
+    <form class="question-comment-form">
+    <input type="hidden" name="question_id" value="<%= model.id %>">
+
+  <% } else { %>
+    <form class="answer-comment-form">
+    <input type="hidden" name="answer_id" value="<%= model.id %>">
+  <% } %>
+
+    <div class="row">
+      <div class="large-12 columns">
+        <textarea placeholder="" name='comment[body]'></textarea>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-12 columns">
+        <input type='submit' class="button tiny success" value='Post Comment'>
+      </div>
+    </div>
+  </form>
+
 <% } %>
-
-<div class="row">
-  <div class="large-12 columns">
-    <textarea placeholder="" name='comment[body]'></textarea>
-  </div>
-</div>
-
-<div class="row">
-  <div class="small-12 columns">
-    <input type='submit' class="button tiny success" value='Post Comment'>
-  </div>
-</div>

@@ -66,26 +66,26 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   toggleCommentForm: function () {
-    this.$('div.question-comment-form').toggleClass('hide');
+    this.$('div.new-question-comment').toggleClass('hide');
   },
 
   addCommentForm: function () {
     var commentFormView = new QueryBase.Views.CommentForm({ model: this.model });
-    this.addSubview('.question-comment-form', commentFormView);
+    this.addSubview('div.new-question-comment', commentFormView);
   },
 
   // TODO: refactor too long, messy.
   createComment: function (event) {
     event.preventDefault();
     var questionView = this;
-    var commentParams = this.$('.question-comment-form form').serializeJSON();
+    var commentParams = this.$('.new-question-comment .question-comment-form').serializeJSON();
     var comments = this.comments;
     var newComment = new QueryBase.Models.Comment();
     newComment.set(commentParams);
     newComment.save({}, {
       success: function () {
         comments.add(newComment);
-        questionView.$('.question-form form textarea').val('');
+        questionView.$('.new-question-comment question-comment-form textarea').val('');
         Backbone.history.navigate('dummyView');
         Backbone.history.navigate('#questions/' + questionView.model.id, { trigger: true });
       }

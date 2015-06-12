@@ -23,16 +23,18 @@
       </label>
 
       <a class='show-comment-form'>Add a comment</a>
-      <div class="question-comment-form hide"></div>
+      <div class="new-question-comment hide"></div>
 
       <% var numQuestions = question.answers().length %>
-      <h5><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></h5>
-
-      <div class="answers"></div>
-
-      <h5>Your Answer</h5>
-      <div class="answer-form"></div>
+        <h4 class><u><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></u></h4>
     </div>
+  </div>
+
+  <div class="answers rows"></div>
+
+  <div class="small-11 columns small-offset-1 columns">
+    <h5>Your Answer</h5>
+    <div class="answer-form"></div>
   </div>
 
 </div>
