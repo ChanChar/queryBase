@@ -42,14 +42,12 @@ ActiveRecord::Schema.define(version: 20150611170726) do
   add_index "comments", ["commenter_id"], name: "index_comments_on_commenter_id", using: :btree
 
   create_table "questions", force: :cascade do |t|
-    t.integer  "asker_id",                    null: false
-    t.string   "title",                       null: false
+    t.integer  "asker_id",                null: false
+    t.string   "title",                   null: false
     t.text     "description"
-    t.boolean  "answered",    default: false, null: false
-    t.integer  "votes",       default: 0,     null: false
-    t.integer  "views",       default: 0,     null: false
-    t.datetime "created_at",                  null: false
-    t.datetime "updated_at",                  null: false
+    t.integer  "views",       default: 0, null: false
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
   add_index "questions", ["asker_id"], name: "index_questions_on_asker_id", using: :btree

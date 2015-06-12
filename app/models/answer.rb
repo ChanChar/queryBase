@@ -18,8 +18,8 @@ class Answer < ActiveRecord::Base
   belongs_to :answerer, class_name: 'User', foreign_key: :answerer_id
   belongs_to :question, class_name: 'Question', foreign_key: :question_id
 
-  has_many :comments, as: :commentable
-  has_many :votes, as: :votable
+  has_many :comments, as: :commentable, dependent: :destroy
+  has_many :votes, as: :votable, dependent: :destroy
 
   def score
     votes.sum(:value)

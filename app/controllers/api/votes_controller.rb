@@ -18,6 +18,16 @@ module Api
       render json: {}
     end
 
+    def update
+      @vote = current_user.votes.find(params[:id])
+
+      if @vote.update(vote_params)
+        render json: @vote
+      else
+        render json: @vote.errors.full_messages, status: :unprocessable_entity
+      end
+    end
+
     private
 
     def vote_params
@@ -26,11 +36,7 @@ module Api
     end
 
     def find_votable
-      params.each do |name, value|
-        return $1.classify.constantize.find(value) if name =~ /(.+)_id/
-      end
-
-      nil
+      params['votable_type'].constantize.find(params['votable_id'])
     end
   end
 end

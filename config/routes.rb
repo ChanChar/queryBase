@@ -8,6 +8,6 @@ Rails.application.routes.draw do
     resources :questions, except: [:new]
     resources :answers, only: [:create, :show, :edit, :destroy]
     resources :comments, only: [:create, :show, :edit, :destroy]
-    resources :votes, only: [:create, :destroy]
+    resources :votes, only: [:create, :destroy, :update]
   end
 end

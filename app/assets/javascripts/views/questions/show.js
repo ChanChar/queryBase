@@ -7,7 +7,6 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.answers = this.model.answers();
     this.comments = this.model.comments();
-    this.votes = this.model.votes();
 
     this.listenTo(this.model, 'sync', this.render);
 
@@ -15,7 +14,8 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.listenTo(this.answers, 'remove', this.removeAnswerView);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'remove', this.removeCommentView);
-    this.listenTo(this.votes, 'add remove', this.updateVoteCount);
+
+    // this.listenTo(this.votes, 'add remove', this.updateVoteCount);
 
     this.addAnswerForm();
     this.addCommentForm();
@@ -43,9 +43,9 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addSubview('.question-vote', voteSubview);
   },
 
-  updateVoteCount: function (delta) {
-    this.model.set("votes", this.model.get("votes") + delta);
-  },
+  // updateVoteCount: function (delta) {
+  //   this.model.set("votes", this.model.get("votes") + delta);
+  // },
 
   addAnswerView: function (answer) {
     var answerSubview = new QueryBase.Views.AnswerShow({ model: answer });
@@ -74,7 +74,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addSubview('div.new-question-comment', commentFormView);
   },
 
-  // TODO: refactor too long, messy.
+  // TODO: refactor
   createComment: function (event) {
     event.preventDefault();
     var questionView = this;
@@ -97,7 +97,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addSubview('.answer-form', answerFormView);
   },
 
-  // refactor this method. Too many vars and too many methods within it.
+  // TODO: refactor
   createAnswer: function (event) {
     event.preventDefault();
     var questionView = this;

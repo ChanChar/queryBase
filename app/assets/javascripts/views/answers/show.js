@@ -12,21 +12,16 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     this.listenTo(this.comments, 'remove', this.deleteCommentView);
 
     this.addCommentForm();
-    // this.addVoteForm();
+    this.addVoteForm();
 
     this.comments.each(this.addCommentView.bind(this));
   },
 
   events: {
-    'click .delete-comment': 'deleteComment',
+    'click .delete-answer': 'deleteAnswer',
     'submit .answer-comment-form': 'createComment',
     'click a.show-answer-comment-form': 'toggleCommentForm',
-    // 'submit': 'testform'
   },
-  //
-  // testform: function (event) {
-  //   debugger;
-  // },
 
   render: function () {
     var answerContent = this.template({ answer: this.model });
@@ -81,6 +76,4 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     var voteSubview = new QueryBase.Views.VoteForm({ model: this.model });
     this.addSubview('.answer-vote', voteSubview);
   },
-
-
 });

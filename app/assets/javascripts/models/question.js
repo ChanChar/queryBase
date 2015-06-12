@@ -2,6 +2,20 @@ QueryBase.Models.Question = Backbone.Model.extend({
 
   urlRoot: 'api/questions',
 
+  defaults: {
+    score: 0,
+  },
+
+  upvote: function () {
+    var score = this.get('score');
+    this.set('score', score + 1);
+  },
+
+  downvote: function () {
+    var score = this.get('score');
+    this.set('score', score - 1);
+  },
+
   parse: function (response) {
     if (response.answers) {
       this.answers().set(response.answers, { parse: true });
@@ -13,15 +27,11 @@ QueryBase.Models.Question = Backbone.Model.extend({
       delete response.comments;
     }
 
-    if (response.votes) {
-      this.votes().set(response.votes);
-      delete response.votes;
-    }
-
     if (response.vote) {
       this.vote().set(response.vote);
       delete response.vote;
     }
+    this.vote().set('votable_id', response.id);
 
     return response;
   },
@@ -40,14 +50,6 @@ QueryBase.Models.Question = Backbone.Model.extend({
     }
 
     return this._comments;
-  },
-
-  votes: function () {
-    if (!this._votes) {
-      this._votes = new QueryBase.Collections.Votes([], { question: this });
-    }
-
-    return this._votes;
   },
 
   vote: function () {

@@ -5,7 +5,7 @@ QueryBase.Views.VoteForm = Backbone.View.extend({
   className: 'vote-buttons',
 
   initialize: function () {
-    this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync change:score', this.render);
   },
 
   events: {
@@ -16,30 +16,34 @@ QueryBase.Views.VoteForm = Backbone.View.extend({
   render: function () {
     var voteContent = this.template({ model: this.model });
     this.$el.html(voteContent);
+    this.updateButtons();
     return this;
   },
 
   upVote: function () {
+
     if (this.model.vote().isNew()) {
-      this.model.vote().save({ 'question_id': this.model.id, 'value': 1 }, {
+      this.model.vote().save({ 'value': 1 }, {
         success: function() {
-          this.updateVoteCount(1);
+          this.model.upvote();
           this.$('.upvote-button').addClass('upvoted');
         }.bind(this)
       });
-    } else if (this.model.vote().value == -1) {
-      this.model.vote().save({ 'question_id': this.model.id, 'value': 1 }, {
+    } else if (this.model.vote().get('value') == -1) {
+      this.model.vote().save({ 'value': 1 }, {
         success: function() {
-          this.updateVoteCount(2);
+          this.model.upvote();
+          this.model.upvote();
           this.$('.upvote-button').addClass('upvoted');
           this.$('.downvote-button').removeClass('downvoted');
-        }
+        }.bind(this)
       });
     } else {
       this.model.vote().destroy({
         success: function (model) {
+          this.model.downvote();
           model.unset("id");
-          this.updateVoteCount(-1);
+          model.unset("value");
           this.$('.upvote-button').removeClass('upvoted');
         }.bind(this)
       });
@@ -48,34 +52,38 @@ QueryBase.Views.VoteForm = Backbone.View.extend({
 
   downVote: function () {
     if (this.model.vote().isNew()) {
-      this.model.vote().save({ 'question_id': this.model.id, 'value': -1 }, {
+      this.model.vote().save({ 'value': -1 }, {
         success: function() {
-          this.updateVoteCount(-1);
+          this.model.downvote();
           this.$('.upvote-button').removeClass('upvoted');
         }.bind(this)
       });
-    } else if (this.model.vote().value == 1) {
-      this.model.vote().save({ 'question_id': this.model.id, 'value': -1 }, {
+    } else if (this.model.vote().get('value') == 1) {
+      this.model.vote().save({ 'value': -1 }, {
         success: function() {
-          this.updateVoteCount(-2);
+          this.model.downvote();
+          this.model.downvote();
           this.$('.upvote-button').removeClass('upvoted');
           this.$('.downvote-button').addClass('downvoted');
-        }
+        }.bind(this)
       });
     } else {
       this.model.vote().destroy({
         success: function (model) {
           model.unset("id");
-          this.updateVoteCount(-1);
+          model.unset('value');
+          this.model.upvote();
           this.$('.downvote-button').removeClass('downvoted');
         }.bind(this)
       });
     }
   },
 
-  // TODO: test
-  updateVoteCount: function (delta) {
-    this.model.set("votes", this.model.get("votes") + delta);
+  updateButtons: function () {
+    if (this.model.vote().escape('value') == 1) {
+      this.$('.upvote-button').addClass('upvoted');
+    } else if (this.model.vote().escape('value') == -1) {
+      this.$('.downvote-button').addClass('downvoted');
+    }
   },
-
 });

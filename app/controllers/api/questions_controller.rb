@@ -23,7 +23,7 @@ module Api
     end
 
     def show
-      @question = Question.includes(:votes, :answers, :comments,
+      @question = Question.includes(:answers, :comments,
                                     answers: :comments).find(params[:id])
       @vote = @question.votes.find_by(voter_id: current_user.id)
       render :show

@@ -1,7 +1,7 @@
 
 <div class="row">
   <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
-    <p class='text-center index-counter'> <%= question.vote().get('value') || 0 %> </p>
+    <p class='text-center index-counter'> <%= question.get('score') %> </p>
     <h6 class='subheader counter-text'>Votes</h6>
   </a>
 

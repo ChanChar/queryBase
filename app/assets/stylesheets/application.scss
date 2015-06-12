@@ -142,12 +142,8 @@ body {
 
 // Comments
 
-.question-comments {
+.question-comments, .answer-comments {
   margin-left: 5px;
-}
-
-.question-comments {
-
   margin-bottom: 10px;
 
   .body {
@@ -160,12 +156,12 @@ body {
   }
 }
 
-.answer-comment {
+.answer-item {
   .body {
     margin-bottom: 0px;
   }
 
-  .delete-comment {
+  .delete-answer {
     color: #95a5a6;
     font-size: 14px;
 

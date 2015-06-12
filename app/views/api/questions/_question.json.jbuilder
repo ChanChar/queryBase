@@ -1,5 +1,6 @@
 json.merge! question.attributes
-json.votes question.score
+json.score question.score
+
 
 if @vote
   json.vote do

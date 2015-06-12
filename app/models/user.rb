@@ -22,6 +22,8 @@ class User < ActiveRecord::Base
   has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
 
   has_many :votes, class_name: 'Vote', foreign_key: :voter_id
+
+  # Double check to see if this works
   has_many :question_votes, through: :votes, source: :votable
   has_many :answer_votes, through: :votes, source: :votable
 
@@ -52,6 +54,7 @@ class User < ActiveRecord::Base
     SecureRandom.urlsafe_base64(16)
   end
 
+  #  Optimize votes later
   # Returns a hash of questions that the user has voted on.
   # def voted_questions
   #   zipped_votes = votes.pluck(:question_id).zip(votes)
