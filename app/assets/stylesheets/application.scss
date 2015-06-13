@@ -20,7 +20,18 @@
 }
 
 body {
-  background-color: #ecf0f1
+  background-color: #ecf0f1;
+  background: url("main.jpeg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+
+#main {
+  background: transparentize(#ecf0f1, .15);
+  width: 80%;
+  min-height: 400px;
+  margin: 0 auto;
 }
 
 // Logins & Signups
@@ -35,33 +46,27 @@ body {
   height: 100%;
 }
 
-.signin-form {
-  background: transparentize(#bdc3c7, .4);
+.signin-form, .signup-form {
+  background: transparentize(#ecf0f1, .15);
   width: 78%;
   margin: 0 auto;
   border-radius: 2px;
+  min-height: 60%;
 
   h1 {
     font-family: 'Lora', serif;
     padding-top: 15px;
-    color: white;
+    color: #008CBA;
   }
 
-}
+  .button {
+    background-color: #008CBA;
 
-#signin-video {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  min-width: 100%;
-  min-height: 100%;
-  width: auto;
-  height: auto;
-  z-index: -100;
-  -webkit-transform: translateX(-50%) translateY(-50%);
-  transform: translateX(-50%) translateY(-50%);
-  // background: url(polina.jpg) no-repeat;
-  background-size: cover;
+    &:hover {
+      background-color: lighten(#008CBA, 15%);
+    }
+  }
+
 }
 
 // Navbar
@@ -82,6 +87,10 @@ body {
       transition: all 0.5s ease 0s;
     }
   }
+}
+
+.top-bar {
+  background-color: #34495E;
 }
 
 .subnav {
@@ -203,7 +212,6 @@ body {
 }
 
 .tags-index {
-
   h1 {
     font-family: Lora;
   }
@@ -213,7 +221,6 @@ body {
     margin-bottom: 15px;
   }
 }
-
 
 // Forms
 .hide {
