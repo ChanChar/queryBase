@@ -9,7 +9,8 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
   },
 
   events: {
-    'submit form': 'createQuestion'
+    'submit form': 'createQuestion',
+    'click .cancel': 'cancelCreate'
   },
 
   render: function () {
@@ -32,5 +33,10 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
       }
     });
   },
+
+  cancelCreate: function (event) {
+    event.preventDefault();
+    $('#reveal-question-form').foundation('reveal', 'close');
+  }
 
 });

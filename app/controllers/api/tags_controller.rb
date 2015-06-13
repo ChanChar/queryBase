@@ -1,17 +1,14 @@
 module Api
   class TagsController < ApiController
-
-    def create
-      @tag = Tag.new(tag_params)
-    end
-
     def index
+      @tags = ActsAsTaggableOn::Tag.all
+      render :index
     end
 
-  private
-
-  def tag_params
-  end
-
+    def show
+      @tag = ActsAsTaggableOn::Tag.find(params[:id])
+      @questions = Question.tagged_with(@tag)
+      render :show
+    end
   end
 end

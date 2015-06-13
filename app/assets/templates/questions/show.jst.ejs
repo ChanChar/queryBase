@@ -6,8 +6,7 @@
 
   <div class="small-11 columns">
     <div class="question-details">
-      <h4>
-        <%= question.escape('title') %></h4>
+      <h4><%= question.escape('title') %></h4>
       <hr>
 
       <div class="description">
@@ -15,12 +14,12 @@
       </div>
 
       <div class="tags">
-        <p>Tags subview here</p>
+        <% tags.each(function (tag) { %>
+          <a class='tag' href='#tags/<%= tag.escape('id') %>'><%= tag.escape('name') %></a>
+        <% }) %>
       </div>
 
-      <label>Comments:
-        <div class="question-comments"></div>
-      </label>
+      <div class="question-comments"></div>
 
       <a class='show-comment-form'>Add a comment</a>
       <div class="new-question-comment hide"></div>

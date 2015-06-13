@@ -20,7 +20,7 @@
 }
 
 body {
-  background-color: #ecf0f1;
+  background-color: #ecf0f1
 }
 
 // Logins & Signups
@@ -79,6 +79,7 @@ body {
 
     &:hover {
       background: #2c3e50;
+      transition: all 0.5s ease 0s;
     }
   }
 }
@@ -94,6 +95,25 @@ body {
   margin-bottom: 15px;
 }
 
+// New Question Form Modal
+
+#reveal-question-form {
+  background-color: #ecf0f1;
+  max-width: 65%;
+  border: none;
+  h3 {
+    font-family: Lora;
+  }
+
+  .space {
+    visibility: hidden;
+  }
+
+  .submit-buttons {
+
+  }
+
+}
 // Question Index Items
 
 .question-index-item {
@@ -107,11 +127,11 @@ body {
   font-size: 12px;
   text-align: center;
   color: #bdc3c7;
+  padding-top: 3px;
 }
 
 .question-attr, .answer-count {
-  padding: 5px;
-  margin: 0px 0px 5px 0px;
+  padding: 6px;
 }
 
 .index-counter, .answer-counter {
@@ -123,6 +143,7 @@ body {
 }
 
 .answer-text, .answer-counter {
+  padding-top: 3px;
   font-size: 12px;
   text-align: center;
 }
@@ -139,6 +160,7 @@ body {
 
   &:hover {
     background: darken(#16a085, 10%);
+    transition: all 0.5s ease 0s;
   }
 
   h6, p {
@@ -151,17 +173,47 @@ body {
   font-size: 13px;
 }
 
-.tag {
+.tag, .tag-index-item, .tag-header {
   background-color: #16a085;
   color: #ecf0f1;
-  font-size: 14px;
-  padding: 2px;
+  font-size: 13px;
+  padding: 3px;
 
   &:hover {
-    background-color: darken(#16a085, 15%);
+    transition: all 0.5s ease 0s;
+    background-color: darken(#16a085, 10%);
     color: #ecf0f1;
   }
 }
+
+.tag-header {
+  font-size: 20px;
+  background-color: #f1c40f;
+
+  &:hover {
+    background-color: darken(#f1c40f, 10%);
+  }
+}
+
+.matched-tag {
+  background-color: #f1c40f;
+  &:hover {
+    background-color: darken(#f1c40f, 10%);
+  }
+}
+
+.tags-index {
+
+  h1 {
+    font-family: Lora;
+  }
+
+  .tag-index-item {
+    font-size: 16px;
+    margin-bottom: 15px;
+  }
+}
+
 
 // Forms
 .hide {
@@ -169,6 +221,26 @@ body {
 }
 
 // Question Show
+
+.show-question {
+  h4 {
+    font-family: Lora;
+  }
+
+  hr {
+    margin: 5px 0px;
+  }
+
+  .description {
+    p {
+      margin-bottom: 5px;
+    }
+  }
+
+  .show-comment-form {
+    font-size: 14px;
+  }
+}
 
 .question-vote, .question-details {
   width: 100%;
@@ -203,6 +275,7 @@ body {
     font-size: 14px;
 
     &:hover {
+      transition: all 0.5s ease 0s;
       color: #c0392b;
     }
   }
@@ -225,6 +298,7 @@ body {
 .upvote-button {
   border-width: 0px 20px 20px 20px;
   &:hover {
+    transition: all 0.5s ease 0s;
     border-color: #27ae60 transparent;
   }
 }
@@ -233,6 +307,7 @@ body {
 	border-width: 20px 20px 0px 20px;
   &:hover {
     border-color: #e74c3c transparent;
+    transition: all 0.5s ease 0s;
   }
 }
 

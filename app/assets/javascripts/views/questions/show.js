@@ -6,6 +6,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   initialize: function () {
     this.answers = this.model.answers();
     this.comments = this.model.comments();
+    this.tag_list = this.model.tag_list();
 
     this.listenTo(this.model, 'sync', this.render);
 
@@ -29,7 +30,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var showQuestionContent = this.template({ question: this.model });
+    var showQuestionContent = this.template({ question: this.model, tags: this.tag_list });
     this.$el.html(showQuestionContent);
     this.attachSubviews();
     return this;

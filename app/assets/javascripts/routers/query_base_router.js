@@ -4,6 +4,7 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this.$rootEl = options.$rootEl;
     this.questions = new QueryBase.Collections.Questions();
     this.users = new QueryBase.Collections.Users();
+    this.tagList = new QueryBase.Collections.Tags();
   },
 
   routes: {
@@ -17,12 +18,12 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     'users/:id': 'userShow',
     'users/:id/edit': 'userEdit',
 
-    'tags': 'tagsIndex',
+    'tags': 'tagIndex',
     'tags/:id': 'tagShow',
 
     'unanswered': 'unansweredIndex',
     'badges': 'badgesIndex',
-    
+
   },
 
   landing: function () {
@@ -51,6 +52,24 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     var userShowView = new QueryBase.Views.UserShow({
       model: user
     });
+  },
+
+  tagIndex: function () {
+    this.tagList.fetch();
+    var tagsIndexView = new QueryBase.Views.TagsIndex({
+      collection: this.tagList
+    });
+
+    this._swapView(tagsIndexView);
+  },
+
+  tagShow: function (id) {
+    var tag = this.tagList.getOrFetch(id);
+    var tagShowView = new QueryBase.Views.TagShow({
+      model: tag
+    });
+
+    this._swapView(tagShowView);
   },
 
   _swapView: function (view) {
