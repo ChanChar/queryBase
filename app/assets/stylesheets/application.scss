@@ -275,6 +275,9 @@ body {
 // Question Show
 
 .show-question {
+
+  padding-top: 25px;
+
   h4 {
     font-family: Lora;
   }
@@ -291,6 +294,16 @@ body {
 
   .show-comment-form {
     font-size: 14px;
+  }
+
+  .answer-form {
+    .button {
+      background-color: #2ECC71;
+
+      &:hover {
+        background-color: darken(#2ECC71, 20%);
+      }
+    }
   }
 }
 
@@ -345,6 +358,13 @@ body {
   height: 0px;
   width: 0px;
   margin: auto auto;
+}
+
+.vote-buttons {
+  h3 {
+    font-family: Lora;
+    font-weight: 700;
+  }
 }
 
 .upvote-button {
