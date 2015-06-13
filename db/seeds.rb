@@ -1,6 +1,7 @@
 User.create(email: 'charleschanlee@gmail.com', password: 'password')
 User.create(email: 'jonsnow@thewall.com', password: 'nothing')
 User.create(email: 'tenderlove@ruby.com', password: 'cats4life')
+User.create(email: 'curiousgeorge@monkey.com', password: 'banana')
 
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",
