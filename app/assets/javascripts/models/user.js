@@ -4,6 +4,7 @@ QueryBase.Models.User = Backbone.Model.extend({
 
   defaults: {
     points: 0,
+    badges: 0,
   },
 
   parse: function (response) {

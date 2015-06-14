@@ -13,6 +13,7 @@
 */
 
 @import "foundation_and_overrides";
+@import "users";
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700);
 
 * {
@@ -253,15 +254,6 @@ body {
   }
 }
 
-.tag-header {
-  font-size: 20px;
-  background-color: #f1c40f;
-
-  &:hover {
-    background-color: darken(#f1c40f, 10%);
-  }
-}
-
 .matched-tag {
   background-color: #f1c40f;
   &:hover {
@@ -282,6 +274,27 @@ body {
   .tag-index-item {
     font-size: 16px;
     margin-bottom: 15px;
+  }
+}
+
+.tag-show {
+
+  .tag-header {
+    font-size: 28px;
+    background-color: #f1c40f;
+
+    &:hover {
+      background-color: darken(#f1c40f, 10%);
+    }
+  }
+
+  .row {
+    padding: 10px;
+  }
+
+  h2 {
+    font-family: Lora;
+    color: lighten(#22313F, 15%);
   }
 }
 
@@ -386,7 +399,7 @@ body {
 }
 
 .upvote-button {
-  border-width: 0px 20px 20px 20px;
+  border-width: 0px 15px 15px 15px;
   &:hover {
     transition: all 0.5s ease 0s;
     border-color: #27ae60 transparent;
@@ -394,7 +407,7 @@ body {
 }
 
 .downvote-button {
-	border-width: 20px 20px 0px 20px;
+	border-width: 15px 15px 0px 15px;
   &:hover {
     border-color: #e74c3c transparent;
     transition: all 0.5s ease 0s;
