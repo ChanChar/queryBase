@@ -16,6 +16,12 @@ QueryBase.Models.Question = Backbone.Model.extend({
     this.set('score', score - 1);
   },
 
+  incrementView: function (viewer_id) {
+    var views = this.get('views');
+    this.set('views', views + 1);
+    this.save();
+  },
+
   parse: function (response) {
     if (response.answers) {
       this.answers().set(response.answers, { parse: true });

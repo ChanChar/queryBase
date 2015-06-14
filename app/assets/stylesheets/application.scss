@@ -29,8 +29,8 @@ body {
 
 #main {
   background: transparentize(#ecf0f1, .15);
-  width: 80%;
-  min-height: 400px;
+  width: 90%;
+  min-height: 475px;
   margin: 0 auto;
 }
 
@@ -154,18 +154,30 @@ body {
 
 }
 // Question Index Items
+.questions-index {
+  // overflow-y: auto;
+  // height: 450px;
+}
 
 .question-index-item {
   hr {
     margin: 10px auto;
     width: 80%;
   }
+
+  .timestamp, .user-info {
+    font-size: 13px;
+  }
+
+  .timestamp {
+    color: darken(#bdc3c7, 15%);
+  }
 }
 
 .counter-text, .index-counter {
   font-size: 12px;
   text-align: center;
-  color: #bdc3c7;
+  color: darken(#bdc3c7, 15%);
   padding-top: 3px;
 }
 
@@ -226,10 +238,6 @@ body {
     color: white;
   }
 
-}
-
-.user-info {
-  font-size: 13px;
 }
 
 .tag, .tag-index-item, .tag-header {

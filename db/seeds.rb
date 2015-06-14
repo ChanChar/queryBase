@@ -1,7 +1,7 @@
-User.create(email: 'charleschanlee@gmail.com', password: 'password')
-User.create(email: 'jonsnow@thewall.com', password: 'nothing')
-User.create(email: 'tenderlove@ruby.com', password: 'cats4life')
-User.create(email: 'curiousgeorge@monkey.com', password: 'banana')
+User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password')
+User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing')
+User.create(email: 'tenderlove@ruby.com', username: 'AaarnP', password: 'cats4life')
+User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana')
 
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",

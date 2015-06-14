@@ -4,6 +4,7 @@
 #
 #  id              :integer          not null, primary key
 #  email           :string           not null
+#  username        :string           not null
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -13,14 +14,15 @@
 class User < ActiveRecord::Base
   attr_reader :password
 
-  validates :email, :session_token, presence: true
+  validates :email, :session_token, :username, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
   validates :email, uniqueness: true
 
   has_many :questions, class_name: 'Question', foreign_key: :asker_id
   has_many :answers, class_name: 'Answer', foreign_key: :answerer_id
   has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
-
+  # has_many :views, class_name: 'View', foreign_key: :viewer_id
+  # has_many :viewed_questions, through: :views, source: :question
   has_many :votes, class_name: 'Vote', foreign_key: :voter_id
   has_many :question_votes, through: :votes, source: :votable
   has_many :answer_votes, through: :votes, source: :votable

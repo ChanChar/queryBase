@@ -14,10 +14,11 @@
 class Question < ActiveRecord::Base
   validates :asker_id, :title, :views, presence: true
 
+  acts_as_taggable
   belongs_to :asker, class_name: 'User', foreign_key: :asker_id
   has_many :comments, as: :commentable, dependent: :destroy
   has_many :votes, as: :votable, dependent: :destroy
-  acts_as_taggable
+
   has_many :answers, class_name: 'Answer',
                      foreign_key: :question_id,
                      dependent: :destroy

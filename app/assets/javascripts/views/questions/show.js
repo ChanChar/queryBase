@@ -18,6 +18,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addAnswerForm();
     this.addCommentForm();
     this.addVoteForm();
+    this.incrementView();
 
     this.comments.each(this.addCommentView.bind(this));
     this.answers.each(this.addAnswerView.bind(this));
@@ -34,6 +35,10 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.$el.html(showQuestionContent);
     this.attachSubviews();
     return this;
+  },
+
+  incrementView: function () {
+    this.model.incrementView();
   },
 
   addVoteForm: function () {

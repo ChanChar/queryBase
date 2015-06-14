@@ -18,14 +18,17 @@
       <p class='question-title'><%= question.escape('title') %></p>
     </a>
 
-    <div class="small-7 columns">
+    <div class="small-4 columns">
       <% tags.each(function (tag) { %>
         <a class='tag' href='#tags/<%= tag.escape('id') %>'><%= tag.escape('name') %></a>
       <% }) %>
     </div>
 
-    <a class="user-info right" href="#users/<%= question.escape('asker_id') %>">
-      <%= question.get('asker').email.slice(0, 10) %>...</a>
+    <div class="small-4 columns timestamp">
+      asked <%= question.escape('asked_at') %> ago
+      <a class="user-info" href="#users/<%= question.escape('asker_id') %>">
+        <%= question.get('asker').username %></a>
+    </div>
 </div>
 
 <hr>
