@@ -1,6 +1,6 @@
 QueryBase.Collections.Users = Backbone.Collection.extend({
 
-  url: 'api/users',
+  url: 'users',
   model: QueryBase.Models.User,
 
   getOrFetch: function (id) {

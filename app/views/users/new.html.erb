@@ -10,7 +10,7 @@
         value="<%= form_authenticity_token %>">
 
       <div class="row">
-        <div class="small-6 large-centered columns">
+        <div class="small-8 small-centered columns">
             <label><small>required</small>
               <input type="email" name="user[email]"
                 class="text-center" placeholder="Email" required />
@@ -20,7 +20,7 @@
       </div>
 
       <div class="row">
-        <div class="small-6 large-centered columns">
+        <div class="small-8 small-centered columns">
           <label><small>required</small>
             <input type="password" name="user[password]"
               class="text-center" placeholder="Password" required />
@@ -30,8 +30,8 @@
       </div>
 
       <div class="row">
-        <div class="small-6 small-centered text-center columns">
-          <a type='submit' aria-label="submit form" class="button">Create my account</a>
+        <div class="small-8 small-centered text-center columns">
+          <input type='submit' aria-label="submit form" class="button" value='Create my account'>
           <a aria-label="submit form" href="<%= new_session_path %>" class="button">I already have an account</a>
         </div>
       </div>

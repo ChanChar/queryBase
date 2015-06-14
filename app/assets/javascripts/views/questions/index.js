@@ -1,7 +1,6 @@
 QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
-  tagName: 'div',
-  className: 'container questions-index',
+  className: 'questions-index',
   template: JST['questions/index'],
 
   initialize: function () {
@@ -14,7 +13,6 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
     var questionIndexContent = this.template();
     this.$el.html(questionIndexContent);
     this.attachSubviews();
-    // Add upvote, downvote css function
     return this;
   },
 

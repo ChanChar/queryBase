@@ -137,6 +137,11 @@ body {
     visibility: hidden;
   }
 
+  .preview {
+    font-family: Lora;
+    color: #BFBFBF;
+  }
+
   .submit-buttons {
     .success {
       background-color: #2ECC71;
@@ -259,6 +264,11 @@ body {
 .tags-index {
   h1 {
     font-family: Lora;
+    color: lighten(#22313F, 15%);
+  }
+
+  div {
+    padding: 10px;
   }
 
   .tag-index-item {

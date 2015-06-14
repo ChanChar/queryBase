@@ -14,7 +14,7 @@
         </div>
           <div class="small-11 columns left">
             <label><small>required</small></label>
-            <input type="text" name='question[title]' id="right-label" placeholder="Eg. What is a closure?" required>
+            <input type="text" class='new-question-title' name='question[title]' id="right-label" placeholder="Eg. What is a closure?" required>
             <small class="error">Did you forget to ask a question?</small>
           </div>
       </div>
@@ -24,9 +24,16 @@
   <!-- body  -->
   <div class="row">
     <div class="small-12 columns">
-      <label>Description:
-        <textarea placeholder='' name='question[description]'></textarea>
-      </label>
+      <textarea class='new-question-description' placeholder='Eg. Could someone provide some useful examples of closures used in Javascript?' name='question[description]'></textarea>
+    </div>
+  </div>
+
+  <!-- markdown guide -->
+
+
+  <!-- body preview w/ markdown -->
+  <div class="row">
+    <div class="small-12 columns preview">
     </div>
   </div>
 
@@ -34,7 +41,7 @@
   <div class="row">
     <div class="small-12 columns">
       <label>Tags:
-        <input type="text" name='question[tag_list]' placeholder="Eg. Javascript, Backbone.js" />
+        <input type="text" class='new-question-tags' name='question[tag_list]' placeholder="Eg. Javascript, Backbone.js" />
       </label>
     </div>
   </div>

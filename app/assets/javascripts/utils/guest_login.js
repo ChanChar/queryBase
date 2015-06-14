@@ -9,6 +9,9 @@ window.Guest = {
 		$password = $('#password');
 		$signinButton = $('#signin-button');
 
+    $email.val('');
+    $password.val('');
+
 		this.fillForm($email, 'curiousgeorge@monkey.com', function(){
 			that.fillForm($password, 'banana', function(){
 				$signinButton.click();

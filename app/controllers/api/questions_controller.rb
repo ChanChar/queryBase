@@ -18,13 +18,13 @@ module Api
     end
 
     def index
-      @questions = Question.includes(:votes).all
+      @questions = Question.includes(:votes, :asker, :tags).all
       render :index
     end
 
     def show
-      @question = Question.includes(:asker, :answers, :comments,
-                                    answers: :comments).find(params[:id])
+      @question = Question.includes(:asker, :tags, :votes, :answers, :comments,
+                                    answers: :comments, answers: :votes).find(params[:id])
       @vote = @question.votes.find_by(voter_id: current_user.id)
       @tags = @question.tags
       render :show

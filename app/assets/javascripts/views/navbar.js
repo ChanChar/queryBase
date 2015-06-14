@@ -29,11 +29,10 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
   },
 
   signOut: function (event) {
-
     $.ajax({
       type: "DELETE",
       url: '/session',
     });
-  }
+  },
 
 });

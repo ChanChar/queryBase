@@ -47,6 +47,15 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this._swapView(questionShowView);
   },
 
+  usersIndex: function () {
+    this.users.fetch();
+    var usersIndexView = new QueryBase.Views.UsersIndex({
+      collection: this.users
+    });
+
+    this._swapView(usersIndexView);
+  },
+
   userShow: function (id) {
     var user = this.users.getOrFetch(id);
     var userShowView = new QueryBase.Views.UserShow({
@@ -70,6 +79,15 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     });
 
     this._swapView(tagShowView);
+  },
+
+  unansweredIndex: function () {
+    this.questions.fetch();
+
+    var unansweredIndexView = new QueryBase.Views.UnansweredIndex({
+      collection: this.questions
+    });
+    this._swapView(unansweredIndexView);
   },
 
   _swapView: function (view) {

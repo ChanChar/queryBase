@@ -10,7 +10,8 @@
       <hr>
 
       <div class="description">
-        <p><%= question.escape('description') %></p>
+        <!-- refactor to use escape && still allow markdown -->
+        <p><%= marked(question.get('description')) %></p>
       </div>
 
       <div class="tags">

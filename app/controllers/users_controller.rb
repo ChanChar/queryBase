@@ -2,6 +2,17 @@ class UsersController < ApplicationController
   def new
   end
 
+  def index
+    @users = User.includes(:questions, :answers, :comments, :votes).all
+    render 'api/users/index.json.jbuilder'
+  end
+
+  def show
+    @user = User.includes(:questions, :answers, :comments, :votes)
+            .find(params[:id])
+    render 'api/users/show.json.jbuilder'
+  end
+
   def create
     @user = User.new(user_params)
 
