@@ -11,10 +11,11 @@
 
     <div class="user-stats">
       <div class="row">
-        <p class='user-points'>Points: <%= user.escape('points') %></p>
+        <div class='user-question-points'>Question Score: <%= user.escape('question_points') %></div>
+        <div class='user-answer-points'>Answer Score: <%= user.escape('answer_points') %></div>
       </div>
       <div class="row">
-        <p class='user-badge-number'>Badges: <%= user.escape('badges') %></p>
+        <p class='user-badge-number'>Number of Badges: <%= user.escape('badges') %></p>
       </div>
     </div>
 

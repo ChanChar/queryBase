@@ -39,7 +39,7 @@
         transition: width .5s ease, background-color .5s ease;
       }
     }
-    .user-points, .user-badge-number {
+    .user-points, .user-question-points, .user-answer-points, .user-badge-number {
       color: #949DA4;
 
       // .positive-number {
@@ -84,7 +84,7 @@
 }
 
 .user-page-info {
-  .user-points, .user-badge-number {
-    font-size: 26px;
+  .user-question-points, .user-answer-points, .user-badge-number {
+    font-size: 18px;
   }
 }

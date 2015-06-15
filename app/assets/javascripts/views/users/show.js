@@ -38,4 +38,5 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
   //     this.$('.user-points').addClass('negative-number');
   //   }
   // }
+
 });

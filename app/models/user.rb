@@ -56,8 +56,15 @@ class User < ActiveRecord::Base
   end
 
   def points
-    answer_points.inject(0) { |total, vote| total += vote.value } +
-      question_points.inject(0) { |total, vote| total += vote.value }
+    answer_points_total + question_points_total
+  end
+
+  def answer_points_total
+    answer_points.inject(0) { |total, vote| total += vote.value }
+  end
+
+  def question_points_total
+    question_points.inject(0) { |total, vote| total += vote.value }
   end
 
   #  Optimize votes later
