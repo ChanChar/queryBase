@@ -2,16 +2,80 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
+.earned-check {
+  background-color: #2ECC71;
+  height: 150px;
+  text-align: center;
+  display: table;
+
+  .earned-text {
+    display: table-cell;
+    color: white;
+    vertical-align: middle;
+  }
+}
+
+.badges-index {
+
+  padding: 10px;
+
+  h1 {
+    font-family: Lora;
+    color: lighten(#22313F, 15%);
+  }
+}
+
 .badge-item {
-  .badge-details {
-    .badge-image {
-      width: 90px;
-      height: 90px;
+
+  h4 {
+    font-family: Lora;
+    color: darken(#949DA4, 25%);
+  }
+
+  .badge-title {
+
+    font-family: Lora;
+    color: darken(#949DA4, 25%);
+
+    &:after {
+      content: '';
+      display: block;
+      margin: auto;
+      height: 2px;
+      width: 0px;
+      background: transparent;
+      transition: width .5s ease, background-color .5s ease;
     }
 
+  }
+
+  &:hover {
     .badge-title {
-      font-family: Lora;
-      color: darken(#949DA4, 25%);
+      &:after {
+        width: 50%;
+        background: lighten(#949DA4, 5%);
+      }
     }
+
+    .badge-image {
+      box-shadow: 0px 3px 3px #888888;
+    }
+  }
+
+  .badge-details {
+    .badge-image {
+      width: 150px;
+      height: 100px;
+      transition: box-shadow .5s ease;
+
+      &:hover {
+        box-shadow: 0px 3px 3px #F4D03F;
+      }
+    }
+  }
+
+  .badge-description {
+    text-indent: 50px;
+    color: darken(#949DA4, 25%);
   }
 }

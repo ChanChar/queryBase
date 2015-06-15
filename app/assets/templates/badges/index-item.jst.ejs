@@ -1,22 +1,28 @@
 <div class="badge-item">
   <div class="row">
 
-    <div class="badge-details small-4 columns text-center">
+    <div class="badge-details small-3 columns text-center">
 
       <div class="row">
         <img class='badge-image' src="<%= badge.escape('image_url') %>"/>
       </div>
 
       <div class="row">
-        <h3 class='badge-title'><%= badge.escape('title') %></h3>
+        <h4 class='badge-title'><%= badge.escape('title') %></h4>
       </div>
 
     </div>
 
-    <div class="badge-description small-8 columns">
-      <p><%= badge.escape('description') %></p>
+    <div class="small-6 columns left">
+      <h4>Description:</h4>
+      <p class='badge-description'><%= badge.escape('description') %></p>
     </div>
+
+    <!-- <div class="small-2 columns earned-check">
+      <h4 class='earned-text'>Earned!</h4>
+    </div> -->
 
   </div>
 
 </div>
+<hr>
