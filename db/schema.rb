@@ -29,6 +29,7 @@ ActiveRecord::Schema.define(version: 20150615163830) do
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
 
   create_table "badges", force: :cascade do |t|
+    t.integer  "value",       null: false
     t.string   "title",       null: false
     t.text     "description", null: false
     t.string   "image_url"
@@ -86,6 +87,7 @@ ActiveRecord::Schema.define(version: 20150615163830) do
   create_table "users", force: :cascade do |t|
     t.string   "email",           null: false
     t.string   "username",        null: false
+    t.string   "image_url"
     t.string   "password_digest", null: false
     t.string   "session_token",   null: false
     t.datetime "created_at",      null: false

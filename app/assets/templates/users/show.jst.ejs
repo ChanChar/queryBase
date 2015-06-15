@@ -1,7 +1,12 @@
 <hr>
 <div class="row user-page-info">
   <div class="small-4 columns text-center">
-    <img src="http://placehold.it/200x200" class="profile-image">
+
+    <% if (user.escape('image_url')) { %>
+      <img src="<%= user.escape('image_url') %>" class="profile-image-show">
+    <% } else { %>
+      <img src="http://placehold.it/200x200" class="profile-image-show">
+    <% } %>
   </div>
 
   <div class="small-8 columns">
@@ -25,13 +30,8 @@
   <hr>
   <ul class='inline-list earned-user-badges'>
     <% user.earned_badges().each(function (badge) { %>
-      <li><img src="<%= badge.escape('image_url') %>"></li>
+      <li><a href='#badges'><img class='earned-badge' src="<%= badge.escape('image_url') %>"></a></li>
     <% }); %>
-    <!-- <li><img src="http://placehold.it/90x90"></li>
-    <li><img src="http://placehold.it/90x90"></li>
-    <li><img src="http://placehold.it/90x90"></li>
-    <li><img src="http://placehold.it/90x90"></li>
-    <li><img src="http://placehold.it/90x90"></li> -->
   </ul>
 </div>
 

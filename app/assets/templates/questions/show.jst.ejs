@@ -24,22 +24,26 @@
 
       <div class="asker-info small-4 columns right">
         <div class="row">
+
+          <div class="small-4 columns">
+            <img class='asker-image' src="http://placehold.it/75x75"/>
+          </div>
+
           <div class="small-8 columns">
             <p class='timestamp'>asked <%= question.escape('asked_at') %> ago</p>
             <a class="user-info" href="#users/<%= question.escape('asker_id') %>">
             <%= question.get('asker').username %></a>
           </div>
-          <div class="small-4 columns">
-            <img class='asker-image' src="http://placehold.it/75x75"/>
-          </div>
+
         </div>
       </div>
 
       <div class="small-7 columns">
         <div class="owner-links row">
+          <a class='share-link'>Share</a>
           <% if (question.get('owned')) { %>
-            <a class='delete-link'>Delete</a>
             <a class='edit-link'>Edit</a>
+            <a class='delete-link'>Delete</a>
           <% } %>
         </div>
       </div>

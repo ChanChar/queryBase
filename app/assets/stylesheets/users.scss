@@ -4,26 +4,29 @@
 
 .user-profile-card, .user-page {
 
-  .user-badges {
+  .earned-user-badges, .user-badges {
     padding: 5px;
-    margin-bottom: 5px;
-    &:hover {
-      img {
-        box-shadow: 0px 3px 3px #888888;
-      }
-    }
 
-    img {
-      transition: width 1.5s ease, box-shadow .5s ease;
-
-      &:hover {
-        box-shadow: 0px 3px 3px #F4D03F;
-      }
-    }
-
-    .earned-user-badges {
+    .earned-badge {
       width: 90px;
       height: 90px;
+      transition: box-shadow .5s ease;
+    }
+
+    .earned-badge-item {
+      width: 45px;
+      height: 45px;
+      transition: box-shadow .5s ease;
+    }
+
+    margin-bottom: 5px;
+    &:hover {
+      .earned-badge, .earned-badge-item {
+        box-shadow: 0px 3px 3px #888888;
+        &:hover {
+          box-shadow: 0px 3px 3px #F4D03F;
+        }
+      }
     }
   }
 
@@ -55,10 +58,6 @@
       //   color: #C0392B;
       // }
     }
-
-    .profile-image {
-      transition: width .5s ease, box-shadow .5s ease;
-    }
   }
 
   .user-info:hover, .user-page-info:hover {
@@ -83,9 +82,23 @@
     cursor: pointer;
   }
 
-  .profile-image {
+  .profile-image, .profile-image-show {
     border-radius: 50%;
+    transition: width .5s ease, box-shadow .5s ease;
+    object-fit: cover;
   }
+
+  .profile-image-show {
+    width: 200px;
+    height: 200px;
+  }
+
+  .profile-image {
+    width: 100px;
+    height: 100px;
+  }
+
+
 }
 
 .user-page-info {
