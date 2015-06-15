@@ -58,9 +58,12 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = this.users.getOrFetch(id);
+    this.questions.fetch();
     var userShowView = new QueryBase.Views.UserShow({
-      model: user
+      model: user, collection: this.questions
     });
+
+    this._swapView(userShowView);
   },
 
   tagIndex: function () {

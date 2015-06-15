@@ -6,11 +6,11 @@
 
   <div class="small-8 columns">
     <div class="row">
-      <h5><%= user.escape('username') %></h5>
+      <h5 class='username'><%= user.escape('username') %></h5>
     </div>
     <div class="row inline-list">
-      <li>Points: <%= user.escape('points') %></li>
-      <li>Badges: <%= user.escape('badges') %></li>
+      <li class='user-points'>Points: <%= user.escape('points') %></li>
+      <li class='user-badge-number'>Badges: <%= user.escape('badges') %></li>
     </div>
   </div>
 </div>

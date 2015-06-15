@@ -1,0 +1,37 @@
+<hr>
+<div class="row user-page-info">
+  <div class="small-4 columns text-center">
+    <img src="http://placehold.it/200x200" class="profile-image">
+  </div>
+
+  <div class="small-8 columns">
+    <div class="row">
+      <h2 class='username'><%= user.escape('username') %></h2>
+    </div>
+
+    <div class="user-stats">
+      <div class="row">
+        <p class='user-points'>Points: <%= user.escape('points') %></p>
+      </div>
+      <div class="row">
+        <p class='user-badge-number'>Badges: <%= user.escape('badges') %></p>
+      </div>
+    </div>
+
+  </div>
+</div>
+<div class="row">
+  <hr>
+  <ul class='inline-list user-badges'>
+    <li><img src="http://placehold.it/90x90"></li>
+    <li><img src="http://placehold.it/90x90"></li>
+    <li><img src="http://placehold.it/90x90"></li>
+    <li><img src="http://placehold.it/90x90"></li>
+    <li><img src="http://placehold.it/90x90"></li>
+  </ul>
+</div>
+
+<div class="row">
+  <hr>
+  <div class="asked-questions"></div>
+</div>

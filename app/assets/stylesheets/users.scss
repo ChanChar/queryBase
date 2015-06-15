@@ -2,10 +2,17 @@
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
 
-.user-profile-card {
+.user-profile-card, .user-page {
 
   .user-badges {
     padding: 5px;
+    margin-bottom: 5px;
+    &:hover {
+      img {
+        box-shadow: 0px 3px 3px #888888;
+      }
+    }
+
     img {
       transition: width 1.5s ease, box-shadow .5s ease;
 
@@ -15,10 +22,10 @@
     }
   }
 
-  .user-info {
+  .user-info, .user-page-info {
     text-align: center;
 
-    h5 {
+    .username {
       font-family: Lora;
       color: darken(#949DA4, 25%);
 
@@ -32,8 +39,16 @@
         transition: width .5s ease, background-color .5s ease;
       }
     }
-    li {
+    .user-points, .user-badge-number {
       color: #949DA4;
+
+      // .positive-number {
+      //   color: #2ECC71;
+      // }
+      //
+      // .negative-number {
+      //   color: #C0392B;
+      // }
     }
 
     .profile-image {
@@ -41,11 +56,7 @@
     }
   }
 
-  .badge-highlight {
-    box-shadow: 0px 3px 3px #888888;
-  }
-
-  .user-info:hover {
+  .user-info:hover, .user-page-info:hover {
 
     .profile-image {
       box-shadow: 0px 5px 5px #888888;
@@ -55,16 +66,25 @@
       }
     }
 
-    h5 {
+    .username {
       &:after {
         width: 50%;
-        // color: darken(#949DA4, 15%);
         background: lighten(#949DA4, 5%);
       }
     }
   }
 
+  .user-info:hover {
+    cursor: pointer;
+  }
+
   .profile-image {
     border-radius: 50%;
+  }
+}
+
+.user-page-info {
+  .user-points, .user-badge-number {
+    font-size: 26px;
   }
 }
