@@ -4,7 +4,13 @@ json.asked_at time_ago_in_words(question.created_at)
 
 json.tag_list question.tags
 json.asker do
-  json.extract! User.find(question.asker_id), :username
+  json.extract! User.find(question.asker_id), :id, :username
+end
+
+if current_user.id == question.asker_id
+  json.owned do
+    json.extract! current_user, :id, :username
+  end
 end
 
 if @vote
@@ -15,8 +21,14 @@ end
 
 json.comments do
   json.array!(question.comments) do |comment|
+    if current_user.id == comment.commenter_id
+      json.owned do
+        json.extract! current_user, :id, :username
+      end
+    end
     json.merge! comment.attributes
   end
+
 end
 
 json.answers do
@@ -41,6 +53,11 @@ json.answers do
     json.comments do
       json.array!(answer.comments) do |comment|
         json.merge! comment.attributes
+        if current_user.id == comment.commenter_id
+          json.owned do
+            json.extract! current_user, :id, :username
+          end
+        end
       end
     end
   end

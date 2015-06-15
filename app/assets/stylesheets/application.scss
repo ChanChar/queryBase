@@ -314,7 +314,7 @@ body {
 
   padding-top: 25px;
 
-  h4 {
+  h4, h5 {
     font-family: Lora;
   }
 
@@ -327,6 +327,32 @@ body {
       margin-bottom: 5px;
     }
   }
+
+  .asker-info {
+
+    margin-bottom: 5px;
+
+    &:hover {
+      .asker-image {
+        transition: width 1.5s ease, box-shadow .5s ease;
+        box-shadow: 0px 3px 3px #888888;
+
+        &:hover {
+          box-shadow: 0px 3px 3px #F4D03F;
+        }
+      }
+    }
+
+    .timestamp, .user-info {
+      font-size: 13px;
+      margin-bottom: 0px;
+    }
+
+    .timestamp {
+      color: darken(#bdc3c7, 15%);
+    }
+  }
+
 
   .show-comment-form {
     font-size: 14px;
@@ -370,15 +396,25 @@ body {
   .body {
     margin-bottom: 0px;
   }
+}
 
-  .delete-answer {
-    color: #95a5a6;
-    font-size: 14px;
+.delete-link {
+  color: #95a5a6;
+  font-size: 14px;
+  transition: color 0.5s ease 0s;
 
-    &:hover {
-      transition: all 0.5s ease 0s;
-      color: #c0392b;
-    }
+  &:hover {
+    color: #c0392b;
+  }
+}
+
+.edit-link {
+  color: #95a5a6;
+  font-size: 14px;
+  transition: color 0.5s ease 0s;
+
+  &:hover {
+    color: #F7CA18;
   }
 }
 

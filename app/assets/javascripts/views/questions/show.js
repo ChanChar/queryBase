@@ -28,6 +28,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     'submit .answer-form': 'createAnswer',
     'submit .question-comment-form': 'createComment',
     'click a.show-comment-form': 'toggleCommentForm',
+    'click .delete-link': 'deleteQuestion'
   },
 
   render: function () {
@@ -111,6 +112,15 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
         questionView.$('.answer-form form textarea').val('');
         Backbone.history.navigate('dummyView');
         Backbone.history.navigate('#questions/' + questionView.model.id, { trigger: true });
+      }
+    });
+  },
+
+  deleteQuestion: function (event) {
+    event.preventDefault();
+    this.model.destroy({
+      success: function () {
+        Backbone.history.navigate('/#questions', { trigger: true });
       }
     });
   }

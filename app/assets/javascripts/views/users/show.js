@@ -6,22 +6,23 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
 
     this.listenTo(this.model, 'sync', this.render);
-    this.listenTo(this.collection, 'sync', this.render);
-    this.listenTo(this.askedQuestions, 'add', this.addQuestionView);
-    this.listenTo(this.askedQuestions, 'remove', this.removeQuestionView);
+    this.listenTo(this.collection, 'add', this.addQuestionView);
+    this.listenTo(this.collection, 'remove', this.removeQuestionView);
+    this.collection.each(this.addQuestionView.bind(this));
   },
 
   render: function () {
     var userContent = this.template({ user: this.model });
     // this.highlightPoints();
     this.$el.html(userContent);
-    this.askedQuestions = this.collection.where({ 'asker_id': this.model.id });
-    this.askedQuestions.forEach(this.addQuestionView.bind(this));
     this.attachSubviews();
     return this;
   },
 
   addQuestionView: function (question) {
+    if(question.get('asker_id') != this.model.id) {
+      return;
+    }
     var questionSubview = new QueryBase.Views.QuestionIndexItem({ model: question });
     this.addSubview('.asked-questions', questionSubview);
   },

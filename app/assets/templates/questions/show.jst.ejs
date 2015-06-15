@@ -13,12 +13,36 @@
         <p><%= marked(question.get('description')) %></p>
       </div>
 
-      <div class="tags">
-        <% tags.each(function (tag) { %>
-          <a class='tag' href='#tags/<%= tag.escape('id') %>'><%= tag.escape('name') %></a>
-        <% }) %>
+      <!-- <div class="row"> -->
+      <div class="small-7 columns">
+        <div class="tags row">
+          <% tags.each(function (tag) { %>
+            <a class='tag' href='#tags/<%= tag.escape('id') %>'><%= tag.escape('name') %></a>
+          <% }) %>
+        </div>
       </div>
 
+      <div class="asker-info small-4 columns right">
+        <div class="row">
+          <div class="small-8 columns">
+            <p class='timestamp'>asked <%= question.escape('asked_at') %> ago</p>
+            <a class="user-info" href="#users/<%= question.escape('asker_id') %>">
+            <%= question.get('asker').username %></a>
+          </div>
+          <div class="small-4 columns">
+            <img class='asker-image' src="http://placehold.it/75x75"/>
+          </div>
+        </div>
+      </div>
+
+      <div class="small-7 columns">
+        <div class="owner-links row">
+          <% if (question.get('owned')) { %>
+            <a class='delete-link'>Delete</a>
+            <a class='edit-link'>Edit</a>
+          <% } %>
+        </div>
+      </div>
 
       <hr>
       <div class="question-comments"></div>
