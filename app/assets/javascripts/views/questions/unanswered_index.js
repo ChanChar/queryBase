@@ -5,7 +5,7 @@ QueryBase.Views.UnansweredIndex = Backbone.CompositeView.extend({
   template: JST['questions/unanswered-index'],
 
   initialize: function () {
-    this.listenTo(this.collection, 'sync', this.render);
+    this.listenTo(this.unansweredQuestions, 'sync', this.render);
     this.listenTo(this.unansweredQuestions, 'add', this.addQuestionView);
     this.listenTo(this.unansweredQuestions, 'remove', this.removeQuestionView);
   },

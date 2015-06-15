@@ -26,7 +26,7 @@
         content: '';
         display: block;
         margin: auto;
-        height: 2px;
+        height: 1px;
         width: 0px;
         background: transparent;
         transition: width .5s ease, background-color .5s ease;
@@ -58,8 +58,8 @@
     h5 {
       &:after {
         width: 50%;
-        color: darken(#949DA4, 15%);
-        background: darken(#949DA4, 15%);
+        // color: darken(#949DA4, 15%);
+        background: lighten(#949DA4, 5%);
       }
     }
   }

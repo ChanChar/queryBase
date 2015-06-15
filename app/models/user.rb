@@ -21,11 +21,12 @@ class User < ActiveRecord::Base
   has_many :questions, class_name: 'Question', foreign_key: :asker_id
   has_many :answers, class_name: 'Answer', foreign_key: :answerer_id
   has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
-  # has_many :views, class_name: 'View', foreign_key: :viewer_id
-  # has_many :viewed_questions, through: :views, source: :question
   has_many :votes, class_name: 'Vote', foreign_key: :voter_id
   has_many :question_votes, through: :votes, source: :votable
   has_many :answer_votes, through: :votes, source: :votable
+
+  has_many :question_points, through: :questions, source: :votes
+  has_many :answer_points, through: :answers, source: :votes
 
   after_initialize :ensure_session_token
 
@@ -55,7 +56,8 @@ class User < ActiveRecord::Base
   end
 
   def points
-    answers.inject(0) { |total, answer| total += answer.score }
+    answer_points.inject(0) { |total, vote| total += vote.value } +
+      question_points.inject(0) { |total, vote| total += vote.value }
   end
 
   #  Optimize votes later
