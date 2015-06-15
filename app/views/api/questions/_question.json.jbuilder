@@ -23,6 +23,12 @@ json.answers do
   json.array!(question.answers) do |answer|
     json.merge! answer.attributes
 
+    if current_user.id == answer.answerer_id
+      json.owned do
+        json.extract! current_user, :id, :username
+      end
+    end
+
     json.score answer.score
     vote = answer.votes.find_by(voter_id: current_user.id)
 

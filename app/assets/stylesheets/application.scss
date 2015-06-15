@@ -50,9 +50,9 @@ body {
 .name {
   h1 {
     a {
+      transition: color 0.5s ease 0s;
       &:hover {
         color: #19B5FE;
-        transition: color 0.5s ease 0s;
       }
     }
   }
@@ -60,9 +60,9 @@ body {
 
 .top-bar-section li:not(.has-form) a:not(.button) {
   background-color: #22313F;
+  transition: all 0.5s ease 0s;
   &:hover {
     background-color: darken(#22313F, 20%);
-    transition: all 0.5s ease 0s;
   }
 }
 
@@ -229,10 +229,10 @@ body {
 .has-answer {
   background: #2ECC71;
   color: white;
+  transition: background .5s ease 0s;
 
   &:hover {
     background: darken(#2ECC71, 15%);
-    transition: background .5s ease 0s;
   }
 
   h6, p {
@@ -246,9 +246,9 @@ body {
   color: #ecf0f1;
   font-size: 13px;
   padding: 3px;
+  transition: all 0.5s ease 0s;
 
   &:hover {
-    transition: all 0.5s ease 0s;
     background-color: darken(#6BB9F0, 20%);
     color: #ecf0f1;
   }
@@ -380,7 +380,7 @@ body {
 // Vote form
 
 .vote-count h3 {
-  padding: auto auto
+  font-size: 20px;
 }
 
 .upvote-button, .downvote-button {
@@ -389,6 +389,7 @@ body {
   height: 0px;
   width: 0px;
   margin: auto auto;
+  transition: all 0.5s ease 0s;
 }
 
 .vote-buttons {
@@ -401,7 +402,6 @@ body {
 .upvote-button {
   border-width: 0px 15px 15px 15px;
   &:hover {
-    transition: all 0.5s ease 0s;
     border-color: #27ae60 transparent;
   }
 }

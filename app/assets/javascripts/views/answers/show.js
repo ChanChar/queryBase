@@ -56,7 +56,7 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     this.addSubview('.new-answer-comment', commentFormView);
   },
 
-  createComment: function () {
+  createComment: function (event) {
     event.preventDefault();
     var answerView = this;
     var commentParams = this.$('.answer-comment-form').serializeJSON();

@@ -3,8 +3,17 @@
     <div class="answer-vote"></div>
   </div>
   <div class="answer-item small-11 columns">
-    <p class=body><%= answer.escape('body') %></p>
-    <a class='delete-answer'>Delete</a>
+    <p class=body><%= marked(answer.get('body')) %></p>
+
+    <div class="row">
+      <div class="small-8 columns">
+        <% if (answer.get('owned')) { %>
+          <a class='delete-answer'>Delete</a>
+          <a class='delete-answer'>Edit</a>
+        <% } %>
+      </div>
+    </div>
+
 
     <div class="answer-comments"></div>
 
