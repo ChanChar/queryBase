@@ -5,6 +5,7 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this.questions = new QueryBase.Collections.Questions();
     this.users = new QueryBase.Collections.Users();
     this.tagList = new QueryBase.Collections.Tags();
+    this.badges = new QueryBase.Collections.Badges();
   },
 
   routes: {
@@ -91,6 +92,15 @@ QueryBase.Routers.Router = Backbone.Router.extend({
       collection: this.questions
     });
     this._swapView(unansweredIndexView);
+  },
+
+  badgesIndex: function () {
+    this.badges.fetch();
+    var badgesIndexView = new QueryBase.Views.BadgesIndex({
+      collection: this.badges
+    });
+
+    this._swapView(badgesIndexView);
   },
 
   _swapView: function (view) {

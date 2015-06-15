@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20150612222651) do
+ActiveRecord::Schema.define(version: 20150615163830) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -27,6 +27,17 @@ ActiveRecord::Schema.define(version: 20150612222651) do
 
   add_index "answers", ["answerer_id"], name: "index_answers_on_answerer_id", using: :btree
   add_index "answers", ["question_id"], name: "index_answers_on_question_id", using: :btree
+
+  create_table "badges", force: :cascade do |t|
+    t.string   "title",       null: false
+    t.text     "description", null: false
+    t.string   "image_url"
+    t.integer  "user_id"
+    t.datetime "created_at",  null: false
+    t.datetime "updated_at",  null: false
+  end
+
+  add_index "badges", ["user_id"], name: "index_badges_on_user_id", using: :btree
 
   create_table "comments", force: :cascade do |t|
     t.integer  "commenter_id"

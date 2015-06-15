@@ -17,7 +17,9 @@ QueryBase.Views.UsersIndex = Backbone.CompositeView.extend({
   },
 
   addUserView: function (user) {
-    var userSubview = new QueryBase.Views.UserIndexItem({ model: user });
+    var userSubview = new QueryBase.Views.UserIndexItem({
+      model: user
+    });
     this.addSubview('.user-index-items', userSubview);
   },
 

@@ -10,6 +10,12 @@ json.questions_asked do
   end
 end
 
+json.earned_badges do
+  json.array!(user.badges) do |badge|
+    json.partial! 'api/badges/badge', badge: badge
+  end
+end
+
 json.answers do
   json.array!(user.answers) do |answer|
     json.merge! answer.attributes

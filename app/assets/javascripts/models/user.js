@@ -26,6 +26,11 @@ QueryBase.Models.User = Backbone.Model.extend({
       delete response.comments;
     }
 
+    if (response.earned_badges) {
+      this.earned_badges().set(response.earned_badges);
+      delete response.earned_badges;
+    }
+
     return response;
   },
 
@@ -52,4 +57,12 @@ QueryBase.Models.User = Backbone.Model.extend({
 
     return this._comments;
   },
+
+  earned_badges: function () {
+    if (!this._earned_badges) {
+      this._earned_badges = new QueryBase.Collections.Badges([], { user: this });
+    }
+
+    return this._earned_badges;
+  }
 });

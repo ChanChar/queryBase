@@ -1,0 +1,17 @@
+// Place all the styles related to the badges controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.badge-item {
+  .badge-details {
+    .badge-image {
+      width: 90px;
+      height: 90px;
+    }
+
+    .badge-title {
+      font-family: Lora;
+      color: darken(#949DA4, 25%);
+    }
+  }
+}
