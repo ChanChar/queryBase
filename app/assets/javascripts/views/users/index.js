@@ -16,6 +16,18 @@ QueryBase.Views.UsersIndex = Backbone.CompositeView.extend({
     return this;
   },
 
+  renderSearchResults: function (users) {
+    var usersIndexContent = this.template();
+    this.collection.each(this.removeUserView.bind(this));
+    users.forEach(this.addUserView.bind(this));
+    this.attachSubviews();
+    return this;
+  },
+
+  events: {
+    'keyup .user-search': 'searchUsers',
+  },
+
   addUserView: function (user) {
     var userSubview = new QueryBase.Views.UserIndexItem({
       model: user
@@ -24,6 +36,21 @@ QueryBase.Views.UsersIndex = Backbone.CompositeView.extend({
   },
 
   removeUserView: function (user) {
-    this.removeSubview('.user-index-items', user);
+    this.removeModelSubview('.user-index-items', user);
+  },
+
+  searchUsers: function(event) {
+    var usersIndexView = this;
+    _.debounce(usersIndexView.filterUsers(), 500);
+  },
+
+  filterUsers: function () {
+    var searchParams = new RegExp($('.user-search').val(), 'gi'); // g=global, i=case insensitive
+    var foundUsers = this.collection.filter(function (user) {
+      return searchParams.test(user.get('username'));
+    });
+
+    this.renderSearchResults(foundUsers);
   }
+
 });
