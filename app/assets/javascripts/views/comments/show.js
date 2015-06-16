@@ -2,7 +2,7 @@ QueryBase.Views.CommentShow = Backbone.View.extend({
 
   template: JST['comments/show'],
 
-  tagName: 'comment',
+  className: 'comment',
 
   initialize: function () {
     this.listenTo(this.model, 'sync', this.render);

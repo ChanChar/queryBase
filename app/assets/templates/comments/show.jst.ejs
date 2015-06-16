@@ -1,2 +1,10 @@
-<p class='body'><%= comment.escape('body') %></p>
+<p class='body'>
+
+  <%= comment.escape('body') %> -
+
+  <a href="#users/<%= comment.escape('commenter_id') %>" class='commenter-name'>
+    <%= comment.escape('commenter') %>
+  </a>
+
+</p>
 <hr class='break'>

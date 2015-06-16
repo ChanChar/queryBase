@@ -54,17 +54,9 @@
       <a class='show-comment-form'>Add a comment</a>
       <div class="new-question-comment hide"></div>
 
-      <% var numQuestions = question.answers().length %>
-        <h5 class='num-answers'><u><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></u></h5>
+      <h5 class='num-answers'><%= answers.length %> <%= pluralize('Answer', answers.length) %></h5>
     </div>
   </div>
 </div>
 
 <div class="answers"></div>
-
-<div class="row">
-  <div class="small-11 columns small-offset-1 columns">
-    <h5>Your Answer</h5>
-    <div class="answer-form"></div>
-  </div>
-</div>

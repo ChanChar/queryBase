@@ -9,30 +9,26 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.tag_list = this.model.tag_list();
 
     this.listenTo(this.model, 'sync', this.render);
-
-    this.listenTo(this.answers, 'add', this.addAnswerView);
-    this.listenTo(this.answers, 'remove', this.removeAnswerView);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'remove', this.removeCommentView);
 
-    this.addAnswerForm();
+    this.addAnswersView();
+    // this.addCommentsView();
     this.addCommentForm();
     this.addVoteForm();
     this.incrementView();
 
     this.comments.each(this.addCommentView.bind(this));
-    this.answers.each(this.addAnswerView.bind(this));
   },
 
   events: {
-    'submit .answer-form': 'createAnswer',
     'submit .question-comment-form': 'createComment',
     'click a.show-comment-form': 'toggleCommentForm',
     'click .delete-link': 'deleteQuestion'
   },
 
   render: function () {
-    var showQuestionContent = this.template({ question: this.model, tags: this.tag_list });
+    var showQuestionContent = this.template({ question: this.model, tags: this.tag_list, answers: this.answers });
     this.$el.html(showQuestionContent);
     this.attachSubviews();
     return this;
@@ -47,14 +43,15 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addSubview('.question-vote', voteSubview);
   },
 
-  addAnswerView: function (answer) {
-    var answerSubview = new QueryBase.Views.AnswerShow({ model: answer });
-    this.addSubview('.answers', answerSubview);
+  addAnswersView: function () {
+    var answersSubview = new QueryBase.Views.AnswersView({ collection: this.answers, model: this.model });
+    this.addSubview('.answers', answersSubview);
   },
 
-  removeAnswerView: function (answer) {
-    this.removeModelSubview('.answers', answer);
-  },
+  // addCommentsView: function () {
+  //   var commentsSubview = new QueryBase.Views.CommentsView({ collection: this.comments, model: this.model })
+  //   this.addSubview('.question-comments')
+  // },
 
   addCommentView: function (comment) {
     var commentSubview = new QueryBase.Views.CommentShow({ model: comment });
@@ -87,29 +84,6 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
       success: function () {
         comments.add(newComment);
         questionView.$('.new-question-comment question-comment-form textarea').val('');
-        Backbone.history.navigate('dummyView');
-        Backbone.history.navigate('#questions/' + questionView.model.id, { trigger: true });
-      }
-    });
-  },
-
-  addAnswerForm: function () {
-    var answerFormView = new QueryBase.Views.AnswerForm({ model: this.model });
-    this.addSubview('.answer-form', answerFormView);
-  },
-
-  // TODO: refactor
-  createAnswer: function (event) {
-    event.preventDefault();
-    var questionView = this;
-    var answerParams = this.$('.answer-form form').serializeJSON();
-    var answers = this.answers;
-    var newAnswer = new QueryBase.Models.Answer();
-    newAnswer.set(answerParams);
-    newAnswer.save({}, {
-      success: function () {
-        answers.add(newAnswer);
-        questionView.$('.answer-form form textarea').val('');
         Backbone.history.navigate('dummyView');
         Backbone.history.navigate('#questions/' + questionView.model.id, { trigger: true });
       }
