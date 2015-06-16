@@ -21,9 +21,19 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
   },
 
   renderSearchResults: function (questions) {
+
     var questionsIndexContent = this.template();
     this.collection.each(this.removeQuestionView.bind(this));
-    questions.forEach(this.addQuestionView.bind(this));
+
+    if (questions.length > 0) {
+      questions.forEach(this.addQuestionView.bind(this));
+    } else {
+      // fix this later!
+      // this.removeSubview('.question-index-items');
+      // var emptySearchView = new QueryBase.Views.EmptySearch();
+      // this.addSubview('.question-index-items', emptySearchView);
+    }
+
     this.attachSubviews();
     return this;
   },
