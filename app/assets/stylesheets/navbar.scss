@@ -1,0 +1,64 @@
+.menu-links {
+  margin-top: 25px;
+
+  .button-group li .button {
+    border-left: 0px;
+    background-color: #6BB9F0;
+    margin: 3px;
+    &:hover {
+      background: darken(#6BB9F0, 20%);
+      transition: all 0.5s ease 0s;
+    }
+  }
+}
+
+.top-bar {
+  background-color: #22313F;
+}
+
+.subnav {
+  text-align: right;
+
+  .active-nav {
+    background-color: darken(#6BB9F0, 35%) !important; // fix.
+  }
+
+  .button {
+    padding: 8px;
+  }
+}
+
+#navbar {
+  margin-bottom: 15px;
+}
+
+// New Question Form Modal
+
+#reveal-question-form {
+  background-color: #ecf0f1;
+  max-width: 65%;
+  border: none;
+  h3 {
+    font-family: Lora;
+  }
+
+  .space {
+    visibility: hidden;
+  }
+
+  .preview {
+    font-family: Lora;
+    color: #BFBFBF;
+  }
+
+  .submit-buttons {
+    .success {
+      background-color: #2ECC71;
+      &:hover {
+        background-color: darken(#2ECC71, 20%);
+        transition: all 0.5s ease 0s;
+      }
+    }
+  }
+
+}

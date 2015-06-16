@@ -9,10 +9,13 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     this.questions = new QueryBase.Collections.Questions();
     this.addQuestionForm();
 
-    this.listenTo(this.router, 'change:route', this.markNavActive);
-    // listen to router for changes in route
-    // function that marks link as active based on route
+    this.listenTo(this.router, 'route', this.markNavActive);
+  },
 
+  markNavActive: function (route) {
+    this.$('.button.small').removeClass('active-nav');
+    var routeFocus = '.' + route;
+    this.$(routeFocus).addClass('active-nav');
   },
 
   render: function () {
