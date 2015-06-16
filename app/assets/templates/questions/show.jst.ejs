@@ -10,7 +10,7 @@
       <hr>
 
       <div class="description">
-        <p><%= marked(question.get('description')) %></p>
+        <p><%= marked(question.get('description') || '') %></p>
       </div>
 
       <!-- <div class="row"> -->
@@ -55,7 +55,7 @@
       <div class="new-question-comment hide"></div>
 
       <% var numQuestions = question.answers().length %>
-        <h4 class><u><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></u></h4>
+        <h5 class='num-answers'><u><%= numQuestions %> <%= pluralize('Answer', numQuestions) %></u></h5>
     </div>
   </div>
 </div>

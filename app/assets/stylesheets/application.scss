@@ -168,7 +168,7 @@ body {
   }
 
   .timestamp, .user-info {
-    font-size: 13px;
+    font-size: 0.813em;
   }
 
   .timestamp {
@@ -176,7 +176,7 @@ body {
   }
 
   .question-title {
-    font-size: 16px;
+    font-size: 1em;
     padding: 5px 5px 3px 5px;
     margin-bottom: 0px;
     color: #6BB9F0;
@@ -207,7 +207,7 @@ body {
 }
 
 .counter-text, .index-counter {
-  font-size: 12px;
+  font-size: 0.75em;
   text-align: center;
   color: darken(#bdc3c7, 15%);
   padding-top: 3px;
@@ -227,7 +227,7 @@ body {
 
 .answer-text, .answer-counter {
   padding-top: 3px;
-  font-size: 12px;
+  font-size: 0.750em;
   text-align: center;
 }
 
@@ -249,7 +249,7 @@ body {
 .tag, .tag-index-item, .tag-header {
   background-color: #6BB9F0;
   color: #ecf0f1;
-  font-size: 13px;
+  font-size: 0.813em;
   padding: 3px;
   transition: all 0.5s ease 0s;
 
@@ -277,7 +277,7 @@ body {
   }
 
   .tag-index-item {
-    font-size: 16px;
+    font-size: 1em;
     margin-bottom: 15px;
   }
 }
@@ -285,7 +285,7 @@ body {
 .tag-show {
 
   .tag-header {
-    font-size: 28px;
+    font-size: 1em;
     background-color: #f1c40f;
 
     &:hover {
@@ -333,12 +333,11 @@ body {
     margin-bottom: 5px;
     .asker-image {
       border-radius: 50%;
-
+      transition: box-shadow .5s ease;
     }
 
     &:hover {
       .asker-image {
-        transition: width 1.5s ease, box-shadow .5s ease;
         box-shadow: 0px 3px 3px #888888;
 
         &:hover {
@@ -348,7 +347,7 @@ body {
     }
 
     .timestamp, .user-info {
-      font-size: 13px;
+      font-size: 0.813em;
       margin-bottom: 0px;
     }
 
@@ -358,8 +357,8 @@ body {
   }
 
 
-  .show-comment-form {
-    font-size: 14px;
+  .show-comment-form, .show-answer-comment-form {
+    font-size: 0.875em;
   }
 
   .answer-form {
@@ -392,7 +391,7 @@ body {
   margin-bottom: 10px;
 
   .body {
-    font-size: 14px;
+    font-size: 0.875em;
     margin-bottom: 2px;
   }
 
@@ -409,7 +408,7 @@ body {
 
 .delete-link {
   color: #95a5a6;
-  font-size: 14px;
+  font-size: 0.875em;
   transition: color 0.5s ease 0s;
 
   &:hover {
@@ -419,7 +418,7 @@ body {
 
 .edit-link {
   color: #95a5a6;
-  font-size: 14px;
+  font-size: 0.875em;
   transition: color 0.5s ease 0s;
 
   &:hover {
@@ -429,7 +428,7 @@ body {
 
 .share-link {
   color: #95a5a6;
-  font-size: 14px;
+  font-size: 0.875em;
   transition: color 0.5s ease 0s;
 
   &:hover {
@@ -440,7 +439,7 @@ body {
 // Vote form
 
 .vote-count h3 {
-  font-size: 20px;
+  font-size: 1.250em;
 }
 
 .upvote-button, .downvote-button {

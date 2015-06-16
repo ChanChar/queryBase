@@ -1,9 +1,9 @@
 window.Guest = {
-  initialize: function(){
+  initialize: function () {
   		$(".guest-button").on( "click", this.guestLogin.bind(this) );
   	},
 
-	guestLogin: function(){
+	guestLogin: function () {
 		var that = this;
 		$email = $('#email');
 		$password = $('#password');
@@ -12,16 +12,16 @@ window.Guest = {
     $email.val('');
     $password.val('');
 
-		this.fillForm($email, 'curiousgeorge@monkey.com', function(){
-			that.fillForm($password, 'banana', function(){
+		this.fillForm($email, 'curiousgeorge@monkey.com', function () {
+			that.fillForm( $password, 'banana', function () {
 				$signinButton.click();
 			});
 		});
 	},
 
-	fillForm: function($el, word, callback){
+	fillForm: function ($el, word, callback) {
 
-		var typing = setInterval(function(){
+		var typing = setInterval( function () {
 			$el.val( $el.val() + word.slice(0, 1) );
 			word = word.substr(1);
 

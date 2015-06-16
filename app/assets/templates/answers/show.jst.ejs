@@ -3,7 +3,7 @@
     <div class="answer-vote"></div>
   </div>
   <div class="answer-item small-11 columns">
-    <p class=body><%= marked(answer.get('body')) %></p>
+    <p class=body><%= marked(answer.get('body') || '') %></p>
 
     <div class="row">
       <div class="small-8 columns">

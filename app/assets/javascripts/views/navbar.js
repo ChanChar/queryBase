@@ -2,9 +2,17 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
 
   template: JST['navbar/navbar'],
 
-  initialize: function () {
+
+
+  initialize: function (options) {
+    this.router = options.router;
     this.questions = new QueryBase.Collections.Questions();
     this.addQuestionForm();
+
+    this.listenTo(this.router, 'change:route', this.markNavActive);
+    // listen to router for changes in route
+    // function that marks link as active based on route
+
   },
 
   render: function () {
