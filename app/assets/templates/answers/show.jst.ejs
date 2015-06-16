@@ -22,14 +22,18 @@
     <div class="answerer-info small-4 columns right">
       <div class="row">
 
-        <div class="small-4 columns">
-          <img class='answerer-image' src="http://placehold.it/75x75"/>
+        <div class="small-4 columns image-container">
+          <% if (answer.get('answerer_image_url')) { %>
+            <img class='answerer-image' src="<%= answer.get('answerer_image_url') %>"/>
+          <% } else { %>
+            <img class='answerer-image' src="http://placehold.it/75x75"/>
+          <% } %>
         </div>
 
-        <div class="answerer-username small-8 columns">
-          <p class='timestamp'>asked <%= answer.escape('answered_at') %> ago</p>
+        <div class="answerer-username small-8 columns left">
           <a class="user-info" href="#users/<%= answer.escape('answerer_id') %>">
           <%= answer.escape('answerer_username') %></a>
+          <p class='timestamp'>answered <%= answer.escape('answered_at') %> ago</p>
         </div>
 
       </div>

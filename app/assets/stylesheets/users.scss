@@ -62,7 +62,7 @@
 
   .user-info:hover, .user-page-info:hover {
 
-    .profile-image {
+    .profile-image, .profile-image-show {
       box-shadow: 0px 5px 5px #888888;
 
       &:hover {
@@ -97,8 +97,6 @@
     width: 100px;
     height: 100px;
   }
-
-
 }
 
 .user-page-info {

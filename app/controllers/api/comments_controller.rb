@@ -6,7 +6,7 @@ module Api
       @comment.commenter_id = current_user.id
 
       if @comment.save
-        render json: @comment
+        render :create
       else
         render json: @comment.errors.full_messages, status: :unprocessable_entity
       end

@@ -22,17 +22,21 @@
         </div>
       </div>
 
-      <div class="asker-info small-4 columns right">
-        <div class="row">
+      <div class="asker-info small-5 columns right">
+        <div class="row asker-info-row">
 
-          <div class="small-4 columns">
-            <img class='asker-image' src="http://placehold.it/75x75"/>
+          <div class="small-4 columns asker-image-container">
+            <% if (question.get('asker').image_url) { %>
+              <img class='asker-image right' src="<%= question.get('asker').image_url %>"/>
+            <% } else { %>
+              <img class='asker-image right' src="http://placehold.it/75x75"/>
+            <% } %>
           </div>
 
-          <div class="small-8 columns">
-            <p class='timestamp'>asked <%= question.escape('asked_at') %> ago</p>
+          <div class="small-8 columns timestamp-container left">
             <a class="user-info" href="#users/<%= question.escape('asker_id') %>">
             <%= question.get('asker').username %></a>
+            <p class='timestamp'>asked <%= question.escape('asked_at') %> ago</p>
           </div>
 
         </div>

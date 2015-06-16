@@ -4,7 +4,7 @@ module Api
       @answer = current_user.answers.new(answer_params)
 
       if @answer.save
-        render json: @answer
+        render :create
       else
         render json: @answer.errors.full_messages, status: :unprocessable_entity
       end
@@ -20,7 +20,7 @@ module Api
       @answer = current_user.answers.find(params[:id])
 
       if @answer.update_attributes(answer_params)
-        render json: @answer
+        render :create
       else
         render json: @answer.errors.full_messages, status: :unprocessable_entity
       end

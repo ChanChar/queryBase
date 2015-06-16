@@ -2,9 +2,13 @@
 
   <%= comment.escape('body') %> -
 
-  <a href="#users/<%= comment.escape('commenter_id') %>" class='commenter-name'>
-    <%= comment.escape('commenter') %>
-  </a>
+  <% if (comment.get('owned')) { %>
+    <a class='comment-delete-link'>Delete</a>
+  <% } else { %>
+    <a href="#users/<%= comment.escape('commenter_id') %>" class='commenter-name'>
+      <%= comment.escape('commenter') %></a>
+  <% } %>
+
 
 </p>
 <hr class='break'>

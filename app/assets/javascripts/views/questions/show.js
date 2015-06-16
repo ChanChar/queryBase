@@ -24,7 +24,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   events: {
     'submit .question-comment-form': 'createComment',
     'click a.show-comment-form': 'toggleCommentForm',
-    'click .delete-link': 'deleteQuestion'
+    'click .delete-link': 'deleteQuestion',
   },
 
   render: function () {
