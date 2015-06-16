@@ -3,19 +3,39 @@
     <div class="answer-vote"></div>
   </div>
   <div class="answer-item small-11 columns">
-    <p class=body><%= marked(answer.get('body') || '') %></p>
 
     <div class="row">
-      <div class="small-8 columns">
+      <div class="small-12 columns">
+        <%= marked(answer.get('body') || '') %>
+      </div>
+    </div>
+
+    <div class="row">
+      <div class="small-6 columns">
         <% if (answer.get('owned')) { %>
-          <a class='delete-link'>Delete</a>
-          <a class='edit-link'>Edit</a>
+          <a class='answer-delete-link'>Delete</a>
+          <a class='answer-edit-link'>Edit</a>
         <% } %>
       </div>
     </div>
 
+    <div class="answerer-info small-4 columns right">
+      <div class="row">
 
-    <div class="answer-comments"></div>
+        <div class="small-4 columns">
+          <img class='answerer-image' src="http://placehold.it/75x75"/>
+        </div>
+
+        <div class="answerer-username small-8 columns">
+          <p class='timestamp'>asked <%= answer.escape('answered_at') %> ago</p>
+          <a class="user-info" href="#users/<%= answer.escape('answerer_id') %>">
+          <%= answer.escape('answerer_username') %></a>
+        </div>
+
+      </div>
+    </div>
+
+    <div class="answer-comments small-12 columns"></div>
 
     <a class='show-answer-comment-form'>Add a comment</a>
     <div class="new-answer-comment hide"></div>

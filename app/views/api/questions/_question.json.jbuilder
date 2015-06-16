@@ -34,6 +34,8 @@ end
 json.answers do
   json.array!(question.answers) do |answer|
     json.merge! answer.attributes
+    json.answered_at time_ago_in_words(answer.created_at)
+    json.answerer_username answer.answerer.username
 
     if current_user.id == answer.answerer_id
       json.owned do

@@ -1,0 +1,38 @@
+.answer {
+  .answer-item p {
+    margin-bottom: 0px;
+  }
+
+  .answerer-info {
+    margin-bottom: 5px;
+    .answerer-image {
+      border-radius: 3%;
+      width: 50px;
+      height: 50px;
+      transition: box-shadow .5s ease;
+    }
+
+    .answerer-username {
+      padding: 0px;
+    }
+
+    &:hover {
+      .answerer-image {
+        box-shadow: 0px 3px 3px #888888;
+
+        &:hover {
+          box-shadow: 0px 3px 3px #F4D03F;
+        }
+      }
+    }
+
+    .timestamp, .user-info {
+      font-size: 0.813em;
+      margin-bottom: 0px;
+    }
+
+    .timestamp {
+      color: darken(#bdc3c7, 15%);
+    }
+  }
+}
