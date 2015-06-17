@@ -34,7 +34,7 @@ module Api
     end
 
     def update
-      @question = Question.find(params[:id])
+      @question = current_user.questions.find(params[:id])
       if @question.update(question_params)
         render json: @question
       else

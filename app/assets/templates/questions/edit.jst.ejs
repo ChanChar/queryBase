@@ -1,4 +1,4 @@
-<form class='new-question-form' data-abide>
+<form class='question-edit' data-abide>
 
   <a class="close-reveal-modal" aria-label="Close">&#215;</a>
 
@@ -14,7 +14,9 @@
         </div>
           <div class="small-11 columns left">
             <label><small>required</small></label>
-            <input type="text" class='new-question-title' name='question[title]' id="right-label" placeholder="Eg. What is a closure?" required>
+            <input type="text" class='edit-question-title' name='question[title]'
+              id="right-label" placeholder="Eg. What is a closure?"
+                value='<%= question.escape('title') %>' required>
             <small class="error">Did you forget to ask a question?</small>
           </div>
       </div>
@@ -25,7 +27,9 @@
   <div class="row">
     <div class="small-12 columns">
       <label><small>*markdown supported</small></label>
-      <textarea class='new-question-description' placeholder='Eg. Could someone provide some useful examples of closures used in Javascript?' name='question[description]'></textarea>
+      <textarea class='edit-question-description'
+        placeholder='Eg. Could someone provide some useful examples of closures used in Javascript?'
+          name='question[description]'><%= question.escape('description') || '' %></textarea>
     </div>
   </div>
 
@@ -35,6 +39,7 @@
   <!-- body preview w/ markdown -->
   <div class="row">
     <div class="small-12 columns preview">
+      <%= marked(question.get('description') || '') %>
     </div>
   </div>
 
@@ -42,7 +47,8 @@
   <div class="row">
     <div class="small-12 columns">
       <label>Tags:
-        <input type="text" class='new-question-tags' name='question[tag_list]' placeholder="Eg. Javascript, Backbone.js" />
+        <input type="text" class='edit-question-tags' name='question[tag_list]'
+          value='<%= tags %>' placeholder="Eg. Javascript, Backbone.js" />
       </label>
     </div>
   </div>

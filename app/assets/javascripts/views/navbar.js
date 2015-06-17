@@ -14,6 +14,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
 
   events: {
     'click a.sign-out': 'signOut',
+    'click a.show-question-form': 'revealQuestionForm',
   },
 
   markNavActive: function (route) {
@@ -38,6 +39,11 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     });
 
     this.addSubview('#reveal-question-form', questionNewView);
+  },
+
+  revealQuestionForm: function (event) {
+    event.preventDefault();
+    this.$('#reveal-question-form').foundation('reveal', 'open');
   },
 
   signOut: function (event) {

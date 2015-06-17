@@ -9,7 +9,7 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
   },
 
   events: {
-    'submit form': 'createQuestion',
+    'submit form.new-question-form': 'createQuestion',
     'click .cancel': 'cancelCreate',
     'keyup .new-question-description': 'updatePreview',
     'click .close-reveal-modal': 'clearQuestionBody',

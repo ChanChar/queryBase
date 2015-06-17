@@ -46,7 +46,7 @@
         <div class="owner-links row">
           <strike><a class='share-link'>Share</a></strike>
           <% if (question.get('owned')) { %>
-            <strike><a class='edit-link'>Edit</a></strike>
+            <a class='edit-link edit-question-form'>Edit</a>
             <a class='delete-link'>Delete</a>
           <% } %>
         </div>
@@ -64,3 +64,7 @@
 </div>
 
 <div class="answers"></div>
+
+<div id="reveal-edit-question-form" class="reveal-modal" data-reveal
+  aria-labelledby="reveal-edit-question-form" aria-hidden="true" role="dialog">
+</div>

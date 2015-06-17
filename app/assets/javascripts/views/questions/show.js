@@ -15,6 +15,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.addAnswersView();
     this.addCommentForm();
     this.addVoteForm();
+    this.addEditQuestionForm();
     this.incrementView();
 
     this.comments.each(this.addCommentView.bind(this));
@@ -24,6 +25,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     'submit .question-comment-form': 'createComment',
     'click a.show-comment-form': 'toggleCommentForm',
     'click .delete-link': 'deleteQuestion',
+    'click .edit-question-form': 'showEditQuestion'
   },
 
   render: function () {
@@ -33,14 +35,16 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     return this;
   },
 
-  addQuestionForm: function () {
-    this.questions.fetch();
-    var newQuestion = new QueryBase.Models.Question();
-    var questionNewView = new QueryBase.Views.QuestionNew({
-      model: newQuestion, collection: this.questions
+  addEditQuestionForm: function () {
+    var questionEditView = new QueryBase.Views.QuestionEdit({
+      model: this.model
     });
+    this.addSubview('#reveal-edit-question-form', questionEditView);
+  },
 
-    this.addSubview('#reveal-question-form', questionNewView);
+  showEditQuestion: function (event) {
+    event.preventDefault();
+    this.$('#reveal-edit-question-form').foundation('reveal', 'open');
   },
 
   incrementView: function () {
