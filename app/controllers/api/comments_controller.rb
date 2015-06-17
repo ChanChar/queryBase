@@ -1,5 +1,7 @@
 module Api
   class CommentsController < ApiController
+    before_action :require_login
+
     def create
       @commentable = find_commentable
       @comment = @commentable.comments.build(comment_params)
@@ -18,7 +20,6 @@ module Api
       render json: {}
     end
 
-    # how to update polymorphic instances?
     # def update
     #   @comment = current_user.comments.find(params[:id])
     #

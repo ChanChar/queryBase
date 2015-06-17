@@ -23,12 +23,13 @@ QueryBase.Views.AnswersView = Backbone.CompositeView.extend({
   },
 
   addAnswerView: function (answer) {
-    var answerSubview = new QueryBase.Views.AnswerShow({ model: answer });
+    var answerSubview = new QueryBase.Views.AnswerShow({ model: answer, collection: this.collection });
     this.addSubview('.answer-index-items', answerSubview);
   },
 
   removeAnswerView: function (answer) {
     this.removeModelSubview('.answer-index-items', answer);
+    this.render();
   },
 
   addAnswerForm: function () {

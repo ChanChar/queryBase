@@ -16,6 +16,10 @@ QueryBase.Models.Answer = Backbone.Model.extend({
     this.set('score', score - 1);
   },
 
+  markBest: function () {
+    this.set('best', true);
+  },
+
   parse: function (response) {
     if (response.comments) {
       this.comments().set(response.comments);

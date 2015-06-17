@@ -1,5 +1,7 @@
 module Api
   class QuestionsController < ApiController
+    before_action :require_login
+
     def create
       @question = current_user.questions.new(question_params)
 

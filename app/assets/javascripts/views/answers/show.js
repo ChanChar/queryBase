@@ -8,8 +8,10 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     this.comments = this.model.comments();
 
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'sync', this.render);
     this.listenTo(this.comments, 'add', this.addCommentView);
     this.listenTo(this.comments, 'remove', this.deleteCommentView);
+    this.listenTo(this.model, 'sync change:best', this.render);
 
     this.addCommentForm();
     this.addVoteForm();
@@ -21,13 +23,31 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     'click .answer-delete-link': 'deleteAnswer',
     'submit .answer-comment-form': 'createComment',
     'click a.show-answer-comment-form': 'toggleCommentForm',
+    'click .mark-best-link': 'markAnswerBest'
   },
 
   render: function () {
     var answerContent = this.template({ answer: this.model });
     this.$el.html(answerContent);
     this.attachSubviews();
+    this.bestAnswerCheck();
     return this;
+  },
+
+  markAnswerBest: function () {
+    this.collection.resetBestAnswer();
+    this.model.save({ 'best': true }, {
+      success: function () {
+        this.model.markBest();
+      }.bind(this)
+    });
+    Backbone.history.navigate('#questions/' + this.model.escape('question_id'), { trigger: true });
+  },
+
+  bestAnswerCheck: function () {
+    if (this.model.get('best')) {
+      this.$('.best-answer').text('Top');
+    }
   },
 
   deleteAnswer: function (event) {

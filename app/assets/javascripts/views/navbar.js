@@ -12,6 +12,10 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     this.listenTo(this.router, 'route', this.markNavActive);
   },
 
+  events: {
+    'click a.sign-out': 'signOut',
+  },
+
   markNavActive: function (route) {
     this.$('.button.small').removeClass('active-nav');
     var routeFocus = '.' + route;
@@ -25,9 +29,6 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     return this;
   },
 
-  events: {
-    'click a.sign-out': 'signOut',
-  },
 
   addQuestionForm: function () {
     this.questions.fetch();

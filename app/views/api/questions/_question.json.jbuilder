@@ -2,6 +2,8 @@ json.merge! question.attributes
 json.score question.score
 json.asked_at time_ago_in_words(question.created_at)
 
+json.has_best question.answers.any? { |answer| answer.best }
+
 json.tag_list question.tags
 json.asker do
   json.extract! User.find(question.asker_id), :id, :username, :image_url

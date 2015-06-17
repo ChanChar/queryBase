@@ -9,5 +9,8 @@ if current_user.id == answer.answerer_id
   end
 end
 
+if current_user.id == answer.question.asker_id
+  json.question_owned true
+end
+
 json.score answer.score
-vote = answer.votes.find_by(voter_id: current_user.id)

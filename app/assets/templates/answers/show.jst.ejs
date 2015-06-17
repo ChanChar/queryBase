@@ -2,10 +2,11 @@
   <div class="small-1 columns">
     <div class="answer-vote"></div>
   </div>
+
   <div class="answer-item small-11 columns">
 
     <div class="row">
-      <div class="small-12 columns">
+      <div class="small-12 columns answer-body">
         <%= marked(answer.get('body') || '') %>
       </div>
     </div>
@@ -14,7 +15,7 @@
       <div class="small-6 columns">
         <% if (answer.get('owned')) { %>
           <a class='answer-delete-link'>Delete</a>
-          <a class='answer-edit-link'>Edit</a>
+          <strike><a class='answer-edit-link'>Edit</a></strike>
         <% } %>
       </div>
     </div>
@@ -42,6 +43,20 @@
     <div class="answer-comments small-12 columns"></div>
 
     <a class='show-answer-comment-form'>Add a comment</a>
+
+    <% if (answer.get('question_owned')) { %>
+      <!-- owner options -->
+      <% if (answer.get('best')) { %>
+        <p class='best-answer'>Current Best</p>
+      <% } else { %>
+        <a class="mark-best-link">Mark as best</a>
+      <% } %>
+    <% } else { %>
+      <!-- public view -->
+      <% if (answer.get('best')) { %>
+        <p class='best-answer'>Best answer!</p>
+      <% } %>
+    <% } %>
     <div class="new-answer-comment hide"></div>
   <hr>
   </div>

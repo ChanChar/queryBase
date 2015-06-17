@@ -1,5 +1,7 @@
 module Api
   class VotesController < ApplicationController
+    before_action :require_login
+
     def create
       @votable = find_votable
       @vote = @votable.votes.build(vote_params)

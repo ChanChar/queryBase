@@ -13,7 +13,6 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     this.listenTo(this.comments, 'remove', this.removeCommentView);
 
     this.addAnswersView();
-    // this.addCommentsView();
     this.addCommentForm();
     this.addVoteForm();
     this.incrementView();
@@ -34,6 +33,16 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     return this;
   },
 
+  addQuestionForm: function () {
+    this.questions.fetch();
+    var newQuestion = new QueryBase.Models.Question();
+    var questionNewView = new QueryBase.Views.QuestionNew({
+      model: newQuestion, collection: this.questions
+    });
+
+    this.addSubview('#reveal-question-form', questionNewView);
+  },
+
   incrementView: function () {
     this.model.incrementView();
   },
@@ -47,11 +56,6 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
     var answersSubview = new QueryBase.Views.AnswersView({ collection: this.answers, model: this.model });
     this.addSubview('.answers', answersSubview);
   },
-
-  // addCommentsView: function () {
-  //   var commentsSubview = new QueryBase.Views.CommentsView({ collection: this.comments, model: this.model })
-  //   this.addSubview('.question-comments')
-  // },
 
   addCommentView: function (comment) {
     var commentSubview = new QueryBase.Views.CommentShow({ model: comment });

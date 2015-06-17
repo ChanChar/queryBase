@@ -279,6 +279,7 @@ body {
       overflow: hidden;
       height: 100px;
       width: 100px;
+
       .asker-image {
         width: 100%;
       }
@@ -286,7 +287,7 @@ body {
     }
 
     &:hover {
-      .asker-image-container .asker-image {
+      .asker-image-container {
         box-shadow: 0px 3px 3px #888888;
 
         &:hover {
@@ -307,8 +308,21 @@ body {
   }
 
 
-  .show-comment-form, .show-answer-comment-form {
+  .show-comment-form, .show-answer-comment-form, .mark-best-link {
     font-size: 0.875em;
+    color: #59ABE3;
+    transition: color 0.5s ease 0s;
+
+    &:hover {
+      color: darken(#52B3D9, 25%);
+    }
+  }
+
+  .mark-best-link {
+    margin-left: 10px;
+    &:hover {
+      color: #87D37C;
+    }
   }
 
   .answer-form {

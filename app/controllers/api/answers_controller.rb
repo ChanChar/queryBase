@@ -1,5 +1,7 @@
 module Api
   class AnswersController < ApiController
+    before_action :require_login
+
     def create
       @answer = current_user.answers.new(answer_params)
 
@@ -29,7 +31,7 @@ module Api
     private
 
     def answer_params
-      params.require(:answer).permit(:body, :question_id)
+      params.require(:answer).permit(:body, :question_id, :best)
     end
   end
 end
