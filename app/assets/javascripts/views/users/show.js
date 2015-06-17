@@ -12,7 +12,8 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var userContent = this.template({ user: this.model });
+    var questions = this.askedQuestions();
+    var userContent = this.template({ user: this.model, questions: questions });
     // this.highlightPoints();
     this.$el.html(userContent);
     this.attachSubviews();
@@ -20,7 +21,7 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
   },
 
   addQuestionView: function (question) {
-    if(question.get('asker_id') != this.model.id) {
+    if (question.get('asker_id') != this.model.id) {
       return;
     }
     var questionSubview = new QueryBase.Views.QuestionIndexItem({ model: question });
@@ -29,6 +30,18 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
 
   removeQuestionView: function (question) {
     this.removeSubview('.asked-questions', question);
+  },
+
+  askedQuestions: function () {
+    var questions = [];
+    var currentUser = this.model;
+    this.collection.each(function (question) {
+      if (question.get('asker_id') == currentUser.id) {
+        questions.push(question);
+      }
+    });
+
+    return questions;
   }
 
   // implement later.

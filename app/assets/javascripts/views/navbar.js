@@ -8,6 +8,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     this.router = options.router;
     this.questions = new QueryBase.Collections.Questions();
     this.addQuestionForm();
+    this.listenTo(this.model, 'sync', this.render);
 
     this.listenTo(this.router, 'route', this.markNavActive);
   },
@@ -24,7 +25,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var landingContent = this.template();
+    var landingContent = this.template({ user: this.model });
     this.$el.html(landingContent);
     this.attachSubviews();
     return this;

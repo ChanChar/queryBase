@@ -5,8 +5,10 @@ window.QueryBase = {
   Routers: {},
   initialize: function() {
     var router = new QueryBase.Routers.Router({ $rootEl: $('#main') });
+    var currentUser = new QueryBase.Models.User({ id: window.CURRENT_USER_ID });
+    currentUser.fetch();
     var navbarView = new QueryBase.Views.NavBar({
-      router: router,
+      router: router, model: currentUser
     });
 
     $('#navbar').html(navbarView.render().$el);

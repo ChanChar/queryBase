@@ -7,7 +7,7 @@
 
     <a class="answer-count small-1 columns" href='#questions/<%= question.id %>'>
       <p class='text-center answer-counter'> <%= question.answers().length %> </p>
-      <h6 class='answer-text'>Answers</h6>
+      <h6 class='answer-text'><%= pluralize ('Answer', question.answers().length) %></h6>
     </a>
     <a class="question-attr small-1 columns" href='#questions/<%= question.id %>'>
       <p class='text-center index-counter'> <%= question.escape('views') %> </p>

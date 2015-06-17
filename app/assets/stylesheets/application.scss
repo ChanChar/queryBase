@@ -384,7 +384,7 @@ body {
   }
 }
 
-.edit-link, .answer-edit-link {
+.edit-link, .answer-edit-show {
   color: #95a5a6;
   font-size: 0.875em;
   transition: color 0.5s ease 0s;
@@ -447,4 +447,36 @@ body {
 
 .downvoted {
   border-color: #e74c3c transparent;
+}
+
+
+// All modals
+
+#reveal-question-form, #reveal-edit-question-form, #reveal-edit-answer-form {
+  background-color: #ecf0f1;
+  max-width: 65%;
+  border: none;
+  h3 {
+    font-family: Lora;
+  }
+
+  .space {
+    visibility: hidden;
+  }
+
+  .preview {
+    font-family: Lora;
+    color: #BFBFBF;
+  }
+
+  .submit-buttons {
+    .success {
+      background-color: #2ECC71;
+      &:hover {
+        background-color: darken(#2ECC71, 20%);
+        transition: all 0.5s ease 0s;
+      }
+    }
+  }
+
 }

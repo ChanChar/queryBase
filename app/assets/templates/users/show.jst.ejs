@@ -37,5 +37,11 @@
 
 <div class="row">
   <hr>
-  <div class="asked-questions"></div>
+  <% if (questions.length === 0 ) { %>
+    <div class="zero-questions">
+      <h3>You haven't asked any questions yet.</h3>
+    </div>
+  <% } else { %>
+    <div class="asked-questions"></div>
+  <% } %>
 </div>

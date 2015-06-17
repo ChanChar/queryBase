@@ -15,6 +15,7 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
 
     this.addCommentForm();
     this.addVoteForm();
+    this.addEditAnswerForm();
 
     this.comments.each(this.addCommentView.bind(this));
   },
@@ -23,7 +24,9 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
     'click .answer-delete-link': 'deleteAnswer',
     'submit .answer-comment-form': 'createComment',
     'click a.show-answer-comment-form': 'toggleCommentForm',
-    'click .mark-best-link': 'markAnswerBest'
+    'click .mark-best-link': 'markAnswerBest',
+    'click .answer-edit-show': 'showEditAnswer',
+    'click .answerer-info .row': 'showUserPage',
   },
 
   render: function () {
@@ -42,6 +45,22 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
       }.bind(this)
     });
     Backbone.history.navigate('#questions/' + this.model.escape('question_id'), { trigger: true });
+  },
+
+  showUserPage: function () {
+    Backbone.history.navigate('#users/' + this.model.get("answerer_id"), { trigger: true });
+  },
+
+  addEditAnswerForm: function () {
+    var answerEditView = new QueryBase.Views.AnswerEdit({
+      model: this.model
+    });
+    this.addSubview('#reveal-edit-answer-form', answerEditView);
+  },
+
+  showEditAnswer: function (event) {
+    event.preventDefault();
+    this.$('#reveal-edit-answer-form').foundation('reveal', 'open');
   },
 
   bestAnswerCheck: function () {

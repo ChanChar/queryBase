@@ -1,0 +1,35 @@
+<form class='answer-edit' data-abide>
+
+  <a class="close-reveal-modal" aria-label="Close">&#215;</a>
+  <hr>
+
+  <input type="hidden" name="answer[question_id]" value="<%= answer.escape('question_id') %>">
+
+  <!-- body  -->
+  <div class="row">
+    <div class="small-12 columns">
+      <label><small>*markdown supported</small></label>
+      <textarea class='edit-answer-description'
+          name='answer[body]'><%= answer.escape('body') || '' %></textarea>
+    </div>
+  </div>
+
+  <!-- body preview w/ markdown -->
+  <div class="row">
+    <div class="small-12 columns preview">
+      <%= marked(answer.get('body') || '') %>
+    </div>
+  </div>
+
+  <!-- submit button -->
+  <div class="row">
+    <div class="small-3 columns left submit-buttons">
+      <input type='submit' class='button success' value='Update Answer'>
+    </div>
+    <div class="small-3 columns left submit-buttons">
+      <input type='submit' class='button cancel' value='Cancel'>
+    </div>
+  </div>
+
+  <hr>
+</form>
