@@ -46,7 +46,7 @@ QueryBase.Views.AnswerShow = Backbone.CompositeView.extend({
 
   bestAnswerCheck: function () {
     if (this.model.get('best')) {
-      this.$('.best-answer').text('Top');
+      this.$('.best-answer').text('Best Answer');
     }
   },
 

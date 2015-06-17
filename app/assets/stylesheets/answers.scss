@@ -1,6 +1,14 @@
 .answer {
   .answer-item p {
     margin-bottom: 0px;
+
+  }
+
+  .best-answer {
+    font-size: 1.0em;
+    color: #2ECC71;
+    cursor: default;
+    margin-left: 10px;
   }
 
   .answerer-info {

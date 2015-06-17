@@ -47,15 +47,17 @@
     <% if (answer.get('question_owned')) { %>
       <!-- owner options -->
       <% if (answer.get('best')) { %>
-        <p class='best-answer'>Current Best</p>
+        <a class='best-answer'></a>
       <% } else { %>
         <a class="mark-best-link">Mark as best</a>
       <% } %>
+
     <% } else { %>
       <!-- public view -->
       <% if (answer.get('best')) { %>
-        <p class='best-answer'>Best answer!</p>
+        <a class='best-answer'></a>
       <% } %>
+
     <% } %>
     <div class="new-answer-comment hide"></div>
   <hr>
