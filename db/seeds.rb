@@ -1,32 +1,42 @@
 User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password', image_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/681/original/charlie_lee.jpg?1429734840')
-User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing')
-User.create(email: 'tenderlove@ruby.com', username: 'AaarnP', password: 'cats4life')
-User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana')
+User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing', image_url: 'http://rs386.pbsrc.com/albums/oo307/AlbusSPotter/02-Jon-Snow-played-by-Kit-Harington-1.jpg~c200')
+User.create(email: 'tenderlove@ruby.com', username: 'AaarnP', password: 'cats4life', image_url: 'https://pbs.twimg.com/profile_images/378800000325798111/ca48276f8ebbbbac9c6ce83aac3c8548_200x200.jpeg')
+User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
+User.create(email: 'remysharp@gmail.com', username: 'RSharp', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/rem/128.jpg')
+User.create(email: 'bradfrost@gmail.com', username: 'frostyBrad', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg')
+User.create(email: 'adhamdannaway@gmail.com', username: 'adhamdannaway', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')
+User.create(email: 'mania@gmail.com', username: 'maniaaa', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg')
+User.create(email: 'jina@gmail.com', username: 'jina', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg')
+User.create(email: 'peterme@gmail.com', username: 'mehpeter', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/peterme/128.jpg')
+User.create(email: 'ffaabs@gmail.com', username: 'ffabs', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg')
+User.create(email: 'johanton@gmail.com', username: 'jonnys', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/jonatan/128.jpg')
+User.create(email: 'whietlaw@gmail.com', username: 'whitelaw', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/darrellwhitelaw/128.jpg')
+User.create(email: 'dasksh@gmail.com', username: 'daksh', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/dakshbhagya/128.jpg')
 
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",
                 tag_list: 'backbone, javascript, rails, postgresql')
 
-Question.create(asker_id: 1, title: 'What are composite views in Backbone?',
+Question.create(asker_id: 3, title: 'What are composite views in Backbone?',
                 description: 'Is there a better way to break down views in Backbone?',
                 tag_list: 'backbone, view-patterns')
 
-Question.create(asker_id: 1, title: 'How can I use modals in Backbone?',
+Question.create(asker_id: 5, title: 'How can I use modals in Backbone?',
                 description: 'Do I need to set events to trigger a modal show and have the modal itself in the template?',
                 tag_list: 'foundation, html, css')
 
 Question.create(asker_id: 2, title: 'How can I remove the n+1 queries made within jbuilder?',
                 tag_list: 'postgresql, activerecord, rails, database')
 
-Question.create(asker_id: 1, title: 'How can tags be implemented in Rails?',
+Question.create(asker_id: 8, title: 'How can tags be implemented in Rails?',
                 description: 'If there is only one model to attach multiple tags to, can I simply use a has-many relationship with just the tags?',
                 tag_list: 'tags, rails, backbone')
 
-Question.create(asker_id: 1, title: 'Should I use existing gems such as acts_as_taggable or acts_as_commentable?',
+Question.create(asker_id: 10, title: 'Should I use existing gems such as acts_as_taggable or acts_as_commentable?',
                 description: 'I have a largish project and was wondering if usign an existing gem/library would be more efficient compared to rolling out my own system.',
                 tag_list: 'ruby, rails')
 
-Answer.create(question_id: 1, answerer_id: 2, body: 'It is any function that uses variables that were neither passed in or created within the function.')
+Answer.create(question_id: 4, answerer_id: 2, body: 'It is any function that uses variables that were neither passed in or created within the function.')
 
 Comment.create(commenter_id: 3, commentable_type: 'Question', commentable_id: 1, body: 'Do you have any examples that you want to have clarified?')
 
@@ -37,16 +47,37 @@ Badge.create(
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
+  value: 10,
+  title: 'Professional Beginner',
+  description: 'Awarded for taking the first steps in becoming an awesome developer.',
+  image_url: 'http://placehold.it/150x100',
+  user_id: 1)
+
+Badge.create(
   value: 25,
   title: 'Unconscious Incompetence',
   description: 'Awarded for knocking a few questions out of the park.',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
+  value: 25,
+  title: 'Unconscious Incompetence',
+  description: 'Awarded for knocking a few questions out of the park.',
+  image_url: 'http://placehold.it/150x100',
+  user_id: 1)
+
+Badge.create(
   value: 50,
   title: 'Conscious Incompetence ',
   description: 'You understand that you understand nothing.',
   image_url: 'http://placehold.it/150x100')
+
+Badge.create(
+  value: 50,
+  title: 'Conscious Incompetence ',
+  description: 'You understand that you understand nothing.',
+  image_url: 'http://placehold.it/150x100',
+  user_id: 1)
 
 Badge.create(
   value: 100,
