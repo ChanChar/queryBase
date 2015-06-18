@@ -13,7 +13,26 @@ QueryBase.Views.UsersIndex = Backbone.CompositeView.extend({
     var usersIndexContent = this.template();
     this.$el.html(usersIndexContent);
     this.attachSubviews();
+    this.renderMoreUsers();
     return this;
+  },
+
+  renderMoreUsers: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  nextPage: function () {
+  var view = this;
+  if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+    if (view.collection.page_number < view.collection.total_pages) {
+      view.collection.fetch({
+        data: { page: view.collection.page_number + 1 },
+        remove: false
+        });
+      }
+    }
   },
 
   renderSearchResults: function (users) {

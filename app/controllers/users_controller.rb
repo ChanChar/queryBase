@@ -3,7 +3,7 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.includes(:questions, :answers, :comments, :votes).all
+    @users = User.includes(:questions, :answers, :comments, :votes)
     render 'api/users/index.json.jbuilder'
   end
 

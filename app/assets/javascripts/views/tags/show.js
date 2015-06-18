@@ -17,12 +17,32 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
 
   render: function () {
     var tagsIndexContent = this.template({
-      questions: this.questionsWithTag, tag: this.tag
+      questions: this.questionsWithTag, tag: this.tag // remove questions?
     });
+
     this.$el.html(tagsIndexContent);
     this.attachSubviews();
     this.matchTag();
+    this.renderMoreTaggedQuestions();
     return this;
+  },
+
+  renderMoreTaggedQuestions: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  nextPage: function () {
+    var view = this;
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      if (view.questionsWithTag.page_number < view.questionsWithTag.total_pages) {
+        view.questionsWithTag.fetch({
+          data: { page: view.questionsWithTag.page_number + 1 },
+          remove: false
+        });
+      }
+    }
   },
 
   addQuestionView: function (question) {

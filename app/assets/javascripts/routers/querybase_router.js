@@ -9,9 +9,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    // '': 'landing',
 
     '': 'questionIndex',
+    'intro': 'intro',
     'questions/:id': 'questionShow',
     'questions/:id/edit': 'questionEdit',
 
@@ -27,13 +27,15 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   },
 
-  landing: function () {
+  intro: function () {
     var landingView = new QueryBase.Views.Landing();
     this._swapView(landingView);
   },
 
   questionIndex: function () {
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1 },
+    });
     var questionIndexView = new QueryBase.Views.QuestionsIndex({
       collection: this.questions
     });
@@ -68,7 +70,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   tagIndex: function () {
-    this.tagList.fetch();
+    this.tagList.fetch({
+      data: { page: 1 }
+    });
     var tagsIndexView = new QueryBase.Views.TagsIndex({
       collection: this.tagList
     });
@@ -109,9 +113,4 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.$el);
     view.render();
   }
-
-  // question show
-  // onrender function
-  // this.$().sortable();
-  // Backbone.CompositeView.prototypr.onRender.call(this);
 });

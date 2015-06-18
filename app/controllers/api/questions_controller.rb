@@ -20,7 +20,7 @@ module Api
     end
 
     def index
-      @questions = Question.includes(:votes, :asker, :tags).all
+      @questions = Question.includes(:votes, :asker, :tags).page(params[:page])
       render :index
     end
 

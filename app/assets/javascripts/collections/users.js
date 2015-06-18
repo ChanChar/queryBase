@@ -3,6 +3,12 @@ QueryBase.Collections.Users = Backbone.Collection.extend({
   url: 'users',
   model: QueryBase.Models.User,
 
+  parse: function(response) {
+    this.page_number = parseInt(response.page_number);
+    this.total_pages = parseInt(response.total_pages);
+    return response.models;
+  },
+
   getOrFetch: function (id) {
     var user = this.get(id);
     var users = this;

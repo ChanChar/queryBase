@@ -3,6 +3,12 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
   url: 'api/questions',
   model: QueryBase.Models.Question,
 
+  parse: function (response) {
+    this.page_number = parseInt(response.page_number);
+    this.total_pages = parseInt(response.total_pages);
+    return response.models;
+  },
+
   getOrFetch: function (id) {
     var question = this.get(id);
     var questions = this;
@@ -22,7 +28,6 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
   },
 
   comparator: function (question) {
-    globe = this;
     return -question.get('id');
   },
 });
