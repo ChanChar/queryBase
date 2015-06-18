@@ -6,6 +6,7 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
   initialize: function () {
 
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.collection, 'sync', this.collection);
     this.listenTo(this.collection, 'add', this.addQuestionView);
     this.listenTo(this.collection, 'remove', this.removeQuestionView);
     this.collection.each(this.addQuestionView.bind(this));
@@ -16,8 +17,31 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
     var userContent = this.template({ user: this.model, questions: questions });
     // this.highlightPoints();
     this.$el.html(userContent);
+    this.renderMoreAskedQuestions();
     this.attachSubviews();
     return this;
+  },
+
+  renderMoreAskedQuestions: function () {
+    $(window).off("scroll");
+    var throttledCallback = _.throttle(this.nextPage.bind(this), 200);
+    $(window).on("scroll", throttledCallback);
+  },
+
+  nextPage: function () {
+    var view = this;
+    if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
+      if (view.collection.page_number < view.collection.total_pages) {
+        console.log(view.model.get('name'));
+        view.collection.fetch({
+          data: {
+            page: view.collection.page_number + 1,
+            asker_id: view.model.id
+          },
+          remove: false
+        });
+      }
+    }
   },
 
   addQuestionView: function (question) {

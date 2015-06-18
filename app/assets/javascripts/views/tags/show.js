@@ -4,8 +4,8 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
   className: 'tag-show',
 
   initialize: function () {
-    this.tag = this.model.tag();
-    this.questionsWithTag = this.model.questions();
+    this.tag = this.model;
+    this.questionsWithTag = this.collection;
 
     this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.questionsWithTag, 'sync', this.render);
@@ -16,11 +16,12 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    var tagsIndexContent = this.template({
-      questions: this.questionsWithTag, tag: this.tag // remove questions?
+    console.log(this.model.attributes);
+    var tagsShowContent = this.template({
+      tag: this.tag
     });
 
-    this.$el.html(tagsIndexContent);
+    this.$el.html(tagsShowContent);
     this.attachSubviews();
     this.matchTag();
     this.renderMoreTaggedQuestions();
@@ -37,8 +38,12 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.questionsWithTag.page_number < view.questionsWithTag.total_pages) {
+        console.log(view.model.get('name'));
         view.questionsWithTag.fetch({
-          data: { page: view.questionsWithTag.page_number + 1 },
+          data: {
+            page: view.questionsWithTag.page_number + 1,
+            tag_id: view.model.id
+          },
           remove: false
         });
       }

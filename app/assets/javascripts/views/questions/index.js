@@ -39,6 +39,20 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
     }
   },
 
+  searchQuestions: function(event) {
+    var questionsIndexView = this;
+    _.debounce(questionsIndexView.filterQuestions(), 500);
+  },
+
+  filterQuestions: function () {
+    var searchParams = new RegExp($('.questions-search').val(), 'gi'); // g=global, i=case insensitive
+    var foundQuestions = this.collection.filter(function (question) {
+      return searchParams.test(question.get('title'));
+    });
+
+    this.renderSearchResults(foundQuestions);
+  },
+
   renderSearchResults: function (questions) {
 
     var questionsIndexContent = this.template();
@@ -66,18 +80,5 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
     this.removeModelSubview('.question-index-items', question);
   },
 
-  searchQuestions: function(event) {
-    var questionsIndexView = this;
-    _.debounce(questionsIndexView.filterQuestions(), 500);
-  },
-
-  filterQuestions: function () {
-    var searchParams = new RegExp($('.questions-search').val(), 'gi'); // g=global, i=case insensitive
-    var foundQuestions = this.collection.filter(function (question) {
-      return searchParams.test(question.get('title'));
-    });
-
-    this.renderSearchResults(foundQuestions);
-  }
 
 });

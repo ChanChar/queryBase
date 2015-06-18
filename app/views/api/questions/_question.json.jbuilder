@@ -25,7 +25,6 @@ json.comments do
   json.array!(question.comments) do |comment|
     json.partial! 'api/comments/comment', comment: comment
   end
-
 end
 
 json.answers do

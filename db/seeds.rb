@@ -3,6 +3,10 @@ User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'noth
 User.create(email: 'tenderlove@ruby.com', username: 'AaarnP', password: 'cats4life')
 User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana')
 
+75.times do
+  Question.create(asker_id: 1, title: SecureRandom.base64, description: SecureRandom.base64)
+end
+
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",
                 tag_list: 'backbone, javascript, rails, postgresql')

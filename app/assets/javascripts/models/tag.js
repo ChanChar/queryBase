@@ -3,7 +3,7 @@ QueryBase.Models.Tag = Backbone.Model.extend({
 
   parse: function (response) {
     if (response.tag) {
-      this.tag().set(response.tag);
+      this.set(response.tag);
       delete response.tag;
     }
 
@@ -15,17 +15,9 @@ QueryBase.Models.Tag = Backbone.Model.extend({
     return response;
   },
 
-  tag: function () {
-    if (!this._tag) {
-      this._tag = new QueryBase.Models.Tag([], {});
-    }
-
-    return this._tag;
-  },
-
   questions: function () {
     if (!this._questions) {
-      this._questions = new QueryBase.Collections.Questions();
+      this._questions = new QueryBase.Collections.Questions([], {});
     }
 
     return this._questions;

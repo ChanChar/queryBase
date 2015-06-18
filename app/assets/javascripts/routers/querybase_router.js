@@ -61,7 +61,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = this.users.getOrFetch(id);
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1, asker_id: id }
+    });
     var userShowView = new QueryBase.Views.UserShow({
       model: user, collection: this.questions
     });
@@ -82,15 +84,22 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   tagShow: function (id) {
     var tag = this.tagList.getOrFetch(id);
+    console.log(tag.get('name'));
+    this.questions.fetch({
+      data: { page: 1, tag_id: id }
+    });
+
     var tagShowView = new QueryBase.Views.TagShow({
-      model: tag
+      model: tag, collection: this.questions
     });
 
     this._swapView(tagShowView);
   },
 
   unansweredIndex: function () {
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1 }
+    });
 
     var unansweredIndexView = new QueryBase.Views.UnansweredIndex({
       collection: this.questions
