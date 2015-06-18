@@ -480,3 +480,27 @@ body {
   }
 
 }
+
+.hidden {
+  opacity: 0;
+  transition: opacity 0.5s ease;
+}
+
+.back-to-top {
+  opacity: 1;
+  position: fixed;
+  bottom: 3%;
+  right: 3%;
+  width: 150px;
+  z-index: 10000;
+  display: table;
+
+  a {
+    display: table-cell;
+
+    vertical-align: middle;
+    font-family: Lora;
+    background-color: #3498DB;
+    font-size: 0.675em;
+  }
+}

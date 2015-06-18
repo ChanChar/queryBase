@@ -75,7 +75,7 @@ Badge.create(
 Badge.create(
   value: 600,
   title: 'Javascript',
-  description: 'You prefer to be called EC6 from now on.',
+  description: 'You prefer to be called ES6 from now on.',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(

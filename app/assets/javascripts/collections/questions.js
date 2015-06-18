@@ -22,6 +22,7 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
   },
 
   comparator: function (question) {
-    return question.id;
+    globe = this;
+    return -question.get('id');
   },
 });

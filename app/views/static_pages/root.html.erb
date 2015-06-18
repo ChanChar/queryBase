@@ -1,3 +1,4 @@
+<div id='top'></div>
 <div id="navbar">
 
 </div>
@@ -7,4 +8,21 @@
 </div>
 
 <!-- Implement hover back to top button/link -->
-<!-- <a href="#navbar">Back to the top.</a> -->
+<div class="top-scroll hidden">
+  <div class="back-to-top">
+    <a class='button' href="#top">Back to Top</a>
+  </div>
+</div>
+
+
+
+<script>
+  var target = $("#navbar").offset().top;
+  var interval = setInterval(function() {
+    if ($(window).scrollTop() > target) {
+      $('.top-scroll').removeClass('hidden');
+    } else {
+      $('.top-scroll').addClass('hidden');
+    }
+  }, 250);
+</script>
