@@ -21,11 +21,20 @@ module Api
 
     def index
       if params[:tag_id]
-        @questions = Question.includes(:votes, :asker).where('tags.id = ?', params[:tag_id]).joins(:tags).page(params[:page])
+        @questions = Question.includes(:votes, :asker)
+                     .where('tags.id = ?', params[:tag_id]).joins(:tags)
+                     .page(params[:page])
       elsif params[:asker_id]
-        @questions = Question.includes(:votes, :asker).where('asker_id = ?', params[:asker_id]).joins(:asker).page(params[:page])
+        @questions = Question.includes(:votes, :asker, :tags)
+                     .where('asker_id = ?', params[:asker_id]).joins(:asker)
+                     .page(params[:page])
+      elsif params[:search]
+        @questions = Question.includes(:votes, :asker, :votes)
+                     .where('title LIKE (?)', "%#{params[:search]}%")
+                     .page(params[:page])
       else
-        @questions = Question.includes(:votes, :asker, :tags).page(params[:page])
+        @questions = Question.includes(:votes, :asker, :tags)
+                     .page(params[:page])
       end
 
       render :index

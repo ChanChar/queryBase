@@ -4,6 +4,7 @@ class UsersController < ApplicationController
 
   def index
     @users = User.includes(:questions, :answers, :comments, :votes)
+             .page(params[:page])
     render 'api/users/index.json.jbuilder'
   end
 

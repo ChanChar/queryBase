@@ -16,7 +16,6 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
   },
 
   render: function () {
-    console.log(this.model.attributes);
     var tagsShowContent = this.template({
       tag: this.tag
     });

@@ -51,7 +51,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   usersIndex: function () {
-    this.users.fetch();
+    this.users.fetch({
+      data: { page: 1 }
+    });
     var usersIndexView = new QueryBase.Views.UsersIndex({
       collection: this.users
     });
@@ -84,7 +86,6 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   tagShow: function (id) {
     var tag = this.tagList.getOrFetch(id);
-    console.log(tag.get('name'));
     this.questions.fetch({
       data: { page: 1, tag_id: id }
     });
