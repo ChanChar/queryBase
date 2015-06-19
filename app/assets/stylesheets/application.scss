@@ -463,6 +463,11 @@ body {
 
   input, textarea {
     border-style: none;
+    // transition: border-color 1.5s ease 0s;
+    // &:focus {
+    //   border-style: solid;
+    //   border-color: red;
+    // }
   }
 
   .space {

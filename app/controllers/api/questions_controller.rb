@@ -28,9 +28,9 @@ module Api
         @questions = Question.includes(:votes, :asker, :tags)
                      .where('asker_id = ?', params[:asker_id]).joins(:asker)
                      .page(params[:page])
-      elsif params[:search]
+      elsif params[:searchParams]
         @questions = Question.includes(:votes, :asker, :votes)
-                     .where('title LIKE (?)', "%#{params[:search]}%")
+                     .where('LOWER(title) LIKE (?)', "%#{params[:searchParams].downcase}%") # LOWER() read more about this later
                      .page(params[:page])
       else
         @questions = Question.includes(:votes, :asker, :tags)

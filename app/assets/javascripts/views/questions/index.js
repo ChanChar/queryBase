@@ -41,41 +41,9 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
 
   searchQuestions: function(event) {
     var questionsIndexView = this;
-    _.debounce(questionsIndexView.filterQuestions(), 100);
-  },
-
-  filterQuestions: function () {
-    // var searchParams = new RegExp($('.questions-search').val(), 'gi'); // g=global, i=case insensitive
     var searchParams = $('.questions-search').val();
-    var all_questions = new QueryBase.Collections.Questions();
-    var indexView = this;
-    var questions = all_questions.fetch({
-      data: { search: searchParams, page: 1 },
-      success: function() {
-        // var foundQuestions = questions.filter(function (question) {
-        //   return searchParams.test(question.get('title'));
-        // });
-
-        indexView.renderSearchResults(questions);
-      }});
-  },
-
-  renderSearchResults: function (questions) {
-
-    var questionsIndexContent = this.template();
-    this.collection.each(this.removeQuestionView.bind(this));
-
-    if (questions.length > 0) {
-      questions.forEach(this.addQuestionView.bind(this));
-    } else {
-      // fix this later!
-      // this.removeSubview('.question-index-items');
-      // var emptySearchView = new QueryBase.Views.EmptySearch();
-      // this.addSubview('.question-index-items', emptySearchView);
-    }
-
-    this.attachSubviews();
-    return this;
+    this.collection.search(searchParams);
+    // _.debounce(this.renderSearchResults(questions), 500);
   },
 
   addQuestionView: function (question) {
@@ -86,6 +54,4 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
   removeQuestionView: function (question) {
     this.removeModelSubview('.question-index-items', question);
   },
-
-
 });

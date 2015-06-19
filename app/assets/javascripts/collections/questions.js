@@ -9,6 +9,25 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
     return response.models;
   },
 
+  fetchNextPage: function (options) {
+    this.fetchParams.page += 1;
+    this.fetch(_.extend({ data: this.fetchParams }, options));
+  },
+
+  search: function (str) {
+    if (str == this.fetchParams.searchParams) {
+      this.fetchNextPage({ remove: false });
+    } else {
+      // refactor
+      this.fetchParams.searchParams = str;
+      this.fetchParams.page = 0;
+      this.fetchNextPage({ remove: true });
+    }
+    return this;
+  },
+
+  fetchParams: { searchParams: "", page: 0 },
+
   getOrFetch: function (id) {
     var question = this.get(id);
     var questions = this;
