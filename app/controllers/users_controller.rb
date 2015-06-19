@@ -3,7 +3,15 @@ class UsersController < ApplicationController
   end
 
   def index
-    @users = User.includes(:questions, :answers, :comments, :votes).all
+    if params[:searchParams]
+      @users = User.includes(:questions, :answers, :comments, :votes)
+               .where('LOWER(username) LIKE (?)', "%#{params[:searchParams].downcase}%") # LOWER() read more about this later
+               .page(params[:page])
+    else
+      @users = User.includes(:questions, :answers, :comments, :votes)
+               .page(params[:page])
+    end
+
     render 'api/users/index.json.jbuilder'
   end
 

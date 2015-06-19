@@ -20,7 +20,23 @@ module Api
     end
 
     def index
-      @questions = Question.includes(:votes, :asker, :tags).all
+      if params[:tag_id]
+        @questions = Question.includes(:votes, :asker)
+                     .where('tags.id = ?', params[:tag_id]).joins(:tags)
+                     .page(params[:page])
+      elsif params[:asker_id]
+        @questions = Question.includes(:votes, :asker, :tags)
+                     .where('asker_id = ?', params[:asker_id]).joins(:asker)
+                     .page(params[:page])
+      elsif params[:searchParams]
+        @questions = Question.includes(:votes, :asker, :votes)
+                     .where('LOWER(title) LIKE (?)', "%#{params[:searchParams].downcase}%") # LOWER() read more about this later
+                     .page(params[:page])
+      else
+        @questions = Question.includes(:votes, :asker, :tags)
+                     .page(params[:page])
+      end
+
       render :index
     end
 

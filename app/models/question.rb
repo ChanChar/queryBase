@@ -14,6 +14,7 @@
 class Question < ActiveRecord::Base
   validates :asker_id, :title, :views, presence: true
 
+  paginates_per 8
   acts_as_taggable
   belongs_to :asker, class_name: 'User', foreign_key: :asker_id
   has_many :comments, as: :commentable, dependent: :destroy

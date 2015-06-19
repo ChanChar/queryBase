@@ -33,6 +33,7 @@ QueryBase.Views.QuestionNew = Backbone.CompositeView.extend({
     var params = this.$('form').serializeJSON();
     var questions = this.collection;
     var question = this.model.set(params);
+    this.clearQuestionBody();
     question.save({}, {
       success: function () {
         questions.add(question);

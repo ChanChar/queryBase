@@ -456,8 +456,18 @@ body {
   background-color: #ecf0f1;
   max-width: 65%;
   border: none;
+
   h3 {
     font-family: Lora;
+  }
+
+  input, textarea {
+    border-style: none;
+    // transition: border-color 1.5s ease 0s;
+    // &:focus {
+    //   border-style: solid;
+    //   border-color: red;
+    // }
   }
 
   .space {
@@ -492,7 +502,7 @@ body {
   bottom: 3%;
   right: 3%;
   width: 150px;
-  z-index: 10000;
+  z-index: 10;
   display: table;
 
   a {

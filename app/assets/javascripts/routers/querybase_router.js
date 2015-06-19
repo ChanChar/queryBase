@@ -9,9 +9,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   routes: {
-    // '': 'landing',
 
     '': 'questionIndex',
+    'intro': 'intro',
     'questions/:id': 'questionShow',
     'questions/:id/edit': 'questionEdit',
 
@@ -27,13 +27,15 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   },
 
-  landing: function () {
+  intro: function () {
     var landingView = new QueryBase.Views.Landing();
     this._swapView(landingView);
   },
 
   questionIndex: function () {
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1 },
+    });
     var questionIndexView = new QueryBase.Views.QuestionsIndex({
       collection: this.questions
     });
@@ -49,7 +51,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   usersIndex: function () {
-    this.users.fetch();
+    this.users.fetch({
+      data: { page: 1 }
+    });
     var usersIndexView = new QueryBase.Views.UsersIndex({
       collection: this.users
     });
@@ -59,7 +63,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   userShow: function (id) {
     var user = this.users.getOrFetch(id);
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1, asker_id: id }
+    });
     var userShowView = new QueryBase.Views.UserShow({
       model: user, collection: this.questions
     });
@@ -68,7 +74,9 @@ QueryBase.Routers.Router = Backbone.Router.extend({
   },
 
   tagIndex: function () {
-    this.tagList.fetch();
+    this.tagList.fetch({
+      data: { page: 1 }
+    });
     var tagsIndexView = new QueryBase.Views.TagsIndex({
       collection: this.tagList
     });
@@ -78,15 +86,21 @@ QueryBase.Routers.Router = Backbone.Router.extend({
 
   tagShow: function (id) {
     var tag = this.tagList.getOrFetch(id);
+    this.questions.fetch({
+      data: { page: 1, tag_id: id }
+    });
+
     var tagShowView = new QueryBase.Views.TagShow({
-      model: tag
+      model: tag, collection: this.questions
     });
 
     this._swapView(tagShowView);
   },
 
   unansweredIndex: function () {
-    this.questions.fetch();
+    this.questions.fetch({
+      data: { page: 1 }
+    });
 
     var unansweredIndexView = new QueryBase.Views.UnansweredIndex({
       collection: this.questions
@@ -109,9 +123,4 @@ QueryBase.Routers.Router = Backbone.Router.extend({
     this.$rootEl.html(view.$el);
     view.render();
   }
-
-  // question show
-  // onrender function
-  // this.$().sortable();
-  // Backbone.CompositeView.prototypr.onRender.call(this);
 });
