@@ -3,10 +3,10 @@
 # Table name: badges
 #
 #  id          :integer          not null, primary key
+#  value       :integer          not null
 #  title       :string           not null
 #  description :text             not null
 #  image_url   :string
-#  user_id     :integer
 #  created_at  :datetime         not null
 #  updated_at  :datetime         not null
 #

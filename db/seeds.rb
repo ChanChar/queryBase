@@ -1,17 +1,20 @@
 User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password', image_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/681/original/charlie_lee.jpg?1429734840')
 User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing', image_url: 'http://rs386.pbsrc.com/albums/oo307/AlbusSPotter/02-Jon-Snow-played-by-Kit-Harington-1.jpg~c200')
-User.create(email: 'tenderlove@ruby.com', username: 'AaarnP', password: 'cats4life', image_url: 'https://pbs.twimg.com/profile_images/378800000325798111/ca48276f8ebbbbac9c6ce83aac3c8548_200x200.jpeg')
 User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
-User.create(email: 'remysharp@gmail.com', username: 'RSharp', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/rem/128.jpg')
-User.create(email: 'bradfrost@gmail.com', username: 'frostyBrad', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/adhamdannaway/128.jpg')
-User.create(email: 'adhamdannaway@gmail.com', username: 'adhamdannaway', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/brad_frost/128.jpg')
-User.create(email: 'mania@gmail.com', username: 'maniaaa', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/mantia/128.jpg')
-User.create(email: 'jina@gmail.com', username: 'jina', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/jina/128.jpg')
-User.create(email: 'peterme@gmail.com', username: 'mehpeter', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/peterme/128.jpg')
-User.create(email: 'ffaabs@gmail.com', username: 'ffabs', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/fffabs/128.jpg')
-User.create(email: 'johanton@gmail.com', username: 'jonnys', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/jonatan/128.jpg')
-User.create(email: 'whietlaw@gmail.com', username: 'whitelaw', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/darrellwhitelaw/128.jpg')
-User.create(email: 'dasksh@gmail.com', username: 'daksh', password: 'password', image_url: 'https://s3.amazonaws.com/uifaces/faces/twitter/dakshbhagya/128.jpg')
+
+10.times do
+  new_user = `curl http://uifaces.com/api/v1/random`
+  json_user = JSON.parse(new_user)
+  username = json_user['username']
+  image_url = json_user['image_urls']['epic']
+
+  created_user = User.create(email: 'sampleUser' + SecureRandom.base64 + '@gmail.com',
+              username: username, password: SecureRandom.base64,
+              image_url: image_url)
+
+  created_user.owned_badges.create({ badge_id: 1 })
+end
+
 
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",
@@ -41,52 +44,31 @@ Answer.create(question_id: 4, answerer_id: 2, body: 'It is any function that use
 Comment.create(commenter_id: 3, commentable_type: 'Question', commentable_id: 1, body: 'Do you have any examples that you want to have clarified?')
 
 Badge.create(
-  value: 10,
+  value: 1,
   title: 'Professional Beginner',
   description: 'Awarded for taking the first steps in becoming an awesome developer.',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
-  value: 10,
-  title: 'Professional Beginner',
-  description: 'Awarded for taking the first steps in becoming an awesome developer.',
-  image_url: 'http://placehold.it/150x100',
-  user_id: 1)
-
-Badge.create(
-  value: 25,
+  value: 2,
   title: 'Unconscious Incompetence',
   description: 'Awarded for knocking a few questions out of the park.',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
-  value: 25,
-  title: 'Unconscious Incompetence',
-  description: 'Awarded for knocking a few questions out of the park.',
-  image_url: 'http://placehold.it/150x100',
-  user_id: 1)
-
-Badge.create(
-  value: 50,
+  value: 3,
   title: 'Conscious Incompetence ',
   description: 'You understand that you understand nothing.',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
-  value: 50,
-  title: 'Conscious Incompetence ',
-  description: 'You understand that you understand nothing.',
-  image_url: 'http://placehold.it/150x100',
-  user_id: 1)
-
-Badge.create(
-  value: 100,
+  value: 4,
   title: 'Conscious Competence',
   description: 'Answered and asked questions that have helped many individuals. People have started to ask you, directly, to answer their questions',
   image_url: 'http://placehold.it/150x100')
 
 Badge.create(
-  value: 150,
+  value: 5,
   title: 'Unconscious Competence',
   description: 'You have become one with the matrix. You can tackle most questions and dish out answers on the fly.',
   image_url: 'http://placehold.it/150x100')

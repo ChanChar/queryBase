@@ -10,11 +10,11 @@ queryBase is a clone of Stack Overflow built on Rails and Backbone. Users can:
 - [x] Create an account
 - [x] Create sessions (log in)
 - [x] Post questions (title, description, tags)
-- [ ] Answer questions (and choose the 'best' answer)
+- [x] Answer questions (and choose the 'best' answer)
 - [x] Post comments to question or answers
-- [ ] View questions, answers, comments, user profiles
+- [x] View questions, answers, comments, user profiles
 - [ ] Follow questions
-- [ ] Search for questions by tag, keyword (eg. title)
+- [x] Search for questions by tag, keyword (eg. title)
 - [ ] Earn badges and/or points by asking and/or answering questions
 
 ## Design Docs
@@ -69,7 +69,7 @@ update user profile page to display points/badges, etc.
 - [ ] Follow lists of questions by topic/tag.
 - [ ] Look at unanswered, top, featured questions by week or month
 - [ ] Report/Flag questions, comments, answers
-- [ ] Pagination/infinite scroll
+- [x] Pagination/infinite scroll
 - [ ] Activity history using d3.js (points, question views, etc.)
 - [ ] Social media sharing
 - [ ] Anonymous user option when asking questions

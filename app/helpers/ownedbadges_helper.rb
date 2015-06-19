@@ -1,0 +1,2 @@
+module OwnedbadgesHelper
+end

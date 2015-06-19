@@ -18,6 +18,7 @@ class UsersController < ApplicationController
   def show
     @user = User.includes(:questions, :answers, :comments, :votes)
             .find(params[:id])
+    award_badges
     render 'api/users/show.json.jbuilder'
   end
 
@@ -26,10 +27,19 @@ class UsersController < ApplicationController
 
     if @user.save
       sign_in(@user)
+      @user.owned_badges.create(badge_id: 1)
       redirect_to root_url
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new
+    end
+  end
+
+  def award_badges
+    Badge.all.each do |badge|
+      if badge.value <= @user.points && !@user.badges.include?(badge)
+        @user.owned_badges.create(badge_id: badge.id)
+      end
     end
   end
 

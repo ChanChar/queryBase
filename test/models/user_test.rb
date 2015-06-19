@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  email           :string           not null
 #  username        :string           not null
+#  image_url       :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null

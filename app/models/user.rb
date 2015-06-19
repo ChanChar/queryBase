@@ -5,6 +5,7 @@
 #  id              :integer          not null, primary key
 #  email           :string           not null
 #  username        :string           not null
+#  image_url       :string
 #  password_digest :string           not null
 #  session_token   :string           not null
 #  created_at      :datetime         not null
@@ -22,7 +23,9 @@ class User < ActiveRecord::Base
   has_many :questions, class_name: 'Question', foreign_key: :asker_id
   has_many :answers, class_name: 'Answer', foreign_key: :answerer_id
   has_many :comments, class_name: 'Comment', foreign_key: :commenter_id
-  has_many :badges, class_name: 'Badge', foreign_key: :user_id
+  has_many :owned_badges, class_name: 'Ownedbadge', foreign_key: :owner_id
+
+  has_many :badges, through: :owned_badges, source: :badge
 
   has_many :votes, class_name: 'Vote', foreign_key: :voter_id
   has_many :question_votes, through: :votes, source: :votable
