@@ -17,6 +17,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     'click a.sign-out': 'signOut',
     'click a.show-question-form': 'revealQuestionForm',
     'click li.show-about-button': 'revealAbout',
+    'click .navbar-logo': 'redirectHome',
   },
 
   markNavActive: function (route) {
@@ -63,4 +64,9 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
       url: '/session',
     });
   },
+
+  redirectHome: function (event) {
+    event.preventDefault();
+    Backbone.history.navigate('#', { trigger: true });
+  }
 });

@@ -54,59 +54,59 @@ end
 Badge.create(
   value: 0,
   title: 'Professional Beginner',
-  description: 'Awarded for taking the first steps in becoming an awesome developer.',
-  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-2_iw8wuy.png')
+  description: 'Took the first step in becoming an awesome developer.',
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434853728/logo_6_gjnlh9.png')
 
 Badge.create(
   value: 10,
   title: 'Unconscious Incompetence',
-  description: 'Awarded for knocking a few questions out of the park.',
-  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752916/logo_4_lyhdjn.png')
+  description: "You aren't confused by these questions but you're also not answering them either.",
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434855926/logo_9_rgm2zz.png')
 
 Badge.create(
   value: 25,
   title: 'Conscious Incompetence ',
-  description: 'You understand that you understand nothing.',
-  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752916/logo_2_en5wno.png')
+  description: 'You understand that you understand very little.',
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434854278/house-stark_sdn4tz.png')
 
 Badge.create(
   value: 35,
   title: 'Conscious Competence',
-  description: 'Answered and asked questions that have helped many individuals. People have started to ask you, directly, to answer their questions',
+  description: 'You have answered and asked questions that have helped many individuals. People have started to ask you, directly, to answer their questions.',
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-4_opjffv.png')
 
 Badge.create(
   value: 55,
   title: 'Unconscious Competence',
-  description: 'You have become one with the matrix. You can tackle most questions and dish out answers on the fly.',
+  description: "You have become one with the matrix. You can tackle most questions and dish out answers on the fly. You've considered starting a podcast to reach a wider audience.",
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo_3_nys0yo.png')
 
 Badge.create(
   value: 100,
   title: 'TenderLove',
-  description: 'You have tackled on enough questions to be referenced by the community',
+  description: 'You have tackled on enough questions to be referenced by the community. Most people enjoy your company and they love your cat(s).',
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_1_m4apkk.png')
 
 Badge.create(
   value: 150,
   title: 'Guido van Rossum',
-  description: 'All the questions that you have asked and the answers you gave can all be compiled together to create a new programming language',
+  description: "All the questions that you have asked and the answers you gave can all be compiled together to create a new programming language. You've decided to call it Anaconda.",
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_2_aabcl3.png')
 
 Badge.create(
   value: 300,
   title: 'Javascript',
-  description: 'You prefer to be called ES6 from now on.',
+  description: 'You prefer to be called ES6 from now on. You wake up reciting the definition of a closure and you always callback.',
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_4_cy4uhm.png')
 
 Badge.create(
   value: 450,
   title: 'The CJ',
-  description: 'You brought the internet to Americans all across the world. America.',
+  description: 'You brought the internet to Americans all across the world. America. You also begin to feel old. Gee williker.',
   image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_3_iui45z.png')
 
 Badge.create(
   value: 500,
   title: 'Superstar',
-  description: "You've got it all. You can breathe now.",
-  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-5_nztxnl.png')
+  description: "You've got it all. You would take a breath of relief but you have programmed yourself to run on electrity.",
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434854397/logo_8_tahxzc.png')

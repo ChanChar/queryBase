@@ -2,7 +2,6 @@
   <div class="row">
 
     <div class="badge-details small-3 columns text-center">
-
       <div class="row">
         <img class='badge-image' src="<%= badge.escape('image_url') %>"/>
       </div>
@@ -10,19 +9,16 @@
       <div class="row">
         <h4 class='badge-title'><%= badge.escape('title') %></h4>
       </div>
-
     </div>
 
     <div class="small-6 columns left">
-      <h4>Description:</h4>
+      <% if (badge.id === 1) { %>
+        <h4>Awarded at sign up</h4>
+      <% } else { %>
+        <h4>Awarded at <%= badge.escape('value') %> points</h4>
+      <% } %>
       <p class='badge-description'><%= badge.escape('description') %></p>
     </div>
-
-    <!-- <div class="small-2 columns earned-check">
-      <h4 class='earned-text'>Earned!</h4>
-    </div> -->
-
   </div>
-
 </div>
 <hr>

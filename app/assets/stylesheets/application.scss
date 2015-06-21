@@ -516,15 +516,26 @@ body {
 
 .joyride-tip-guide {
   background-color: #22313F;
+  width: 18%;
 
   span.joyride-nub {
     // They used !important why...
-    border-color: #22313F;
+    border-color: #22313F !important;
   }
 
   .button {
     background-color: #6BB9F0;
     font-size: 0.675em;
     padding: 1em 1.5em;
+  }
+}
+
+.center-vertical {
+
+  display: table;
+
+  .center-vertical-item {
+    display: table-cell;
+    vertical-align: middle;
   }
 }
