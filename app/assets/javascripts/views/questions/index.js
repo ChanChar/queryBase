@@ -54,4 +54,5 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
   removeQuestionView: function (question) {
     this.removeModelSubview('.question-index-items', question);
   },
+
 });

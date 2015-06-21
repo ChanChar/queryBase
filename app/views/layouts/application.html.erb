@@ -12,9 +12,28 @@
   </head>
 
   <body>
-
-
     <%= yield %>
+
+    <!-- Site Tour -->
+
+    <ol class="joyride-list" data-joyride>
+
+      <li data-id="ask-question" data-text="Next" data-options="prev_button: false; tip_location: bottom">
+        <p>Ask your own question</p>
+      </li>
+
+      <li data-id="question-search-box" data-text="Next" data-prev-text="Previous" data-options="prev_button: false; next_button: false;">
+        <p>or search for a specific question you had in mind</p>
+        <a href="#" class="small button joyride-prev-tip">Previous</a>
+        <a href="#" class="move-to-tags small button joyride-next-tip">Next</a>
+      </li>
+
+      <li data-button="End" data-prev-text="Prev" class='text-center'>
+        <h4>fin</h4>
+        <p>Ask, answer, earn.</p>
+      </li>
+
+    </ol>
 
   </body>
 

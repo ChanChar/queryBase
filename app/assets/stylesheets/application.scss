@@ -17,6 +17,7 @@
 @import "answers";
 @import "navbar";
 @import "badges";
+@import "about";
 @import url(http://fonts.googleapis.com/css?family=Lora:400,700);
 
 * {
@@ -125,8 +126,9 @@ body {
       content: '';
       display: block;
       margin: auto;
-      height: 2px;
-      width: 0px;
+      height: 1px;
+      // width: 0px;
+      width: 80%;
       background: transparent;
       transition: width .5s ease, background-color .5s ease;
     }
@@ -191,7 +193,7 @@ body {
   transition: all 0.5s ease 0s;
 
   &:hover {
-    background-color: darken(#6BB9F0, 20%);
+    background-color: #f1c40f;
     color: #ecf0f1;
   }
 }
@@ -226,7 +228,7 @@ body {
     background-color: #f1c40f;
 
     &:hover {
-      background-color: darken(#f1c40f, 10%);
+      background-color: (#f1c40f, 10%);
     }
   }
 
@@ -452,22 +454,18 @@ body {
 
 // All modals
 
-#reveal-question-form, #reveal-edit-question-form, #reveal-edit-answer-form {
+#reveal-question-form, #reveal-edit-question-form,
+#reveal-edit-answer-form, #reveal-about {
   background-color: #ecf0f1;
   max-width: 65%;
   border: none;
 
-  h3 {
+  h3, h1, p {
     font-family: Lora;
   }
 
   input, textarea {
     border-style: none;
-    // transition: border-color 1.5s ease 0s;
-    // &:focus {
-    //   border-style: solid;
-    //   border-color: red;
-    // }
   }
 
   .space {
@@ -482,6 +480,7 @@ body {
   .submit-buttons {
     .success {
       background-color: #2ECC71;
+      margin-right: 15px;
       &:hover {
         background-color: darken(#2ECC71, 20%);
         transition: all 0.5s ease 0s;
@@ -512,5 +511,20 @@ body {
     font-family: Lora;
     background-color: #3498DB;
     font-size: 0.675em;
+  }
+}
+
+.joyride-tip-guide {
+  background-color: #22313F;
+
+  span.joyride-nub {
+    // They used !important why...
+    border-color: #22313F;
+  }
+
+  .button {
+    background-color: #6BB9F0;
+    font-size: 0.675em;
+    padding: 1em 1.5em;
   }
 }

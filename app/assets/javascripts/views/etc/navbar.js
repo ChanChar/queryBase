@@ -2,20 +2,21 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
 
   template: JST['navbar/navbar'],
 
-
-
   initialize: function (options) {
     this.router = options.router;
     this.questions = new QueryBase.Collections.Questions();
-    this.addQuestionForm();
-    this.listenTo(this.model, 'sync', this.render);
 
+    this.listenTo(this.model, 'sync', this.render);
     this.listenTo(this.router, 'route', this.markNavActive);
+
+    this.addQuestionForm();
+    this.addAboutView();
   },
 
   events: {
     'click a.sign-out': 'signOut',
     'click a.show-question-form': 'revealQuestionForm',
+    'click li.show-about-button': 'revealAbout',
   },
 
   markNavActive: function (route) {
@@ -31,7 +32,6 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     return this;
   },
 
-
   addQuestionForm: function () {
     this.questions.fetch();
     var newQuestion = new QueryBase.Models.Question();
@@ -40,6 +40,16 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     });
 
     this.addSubview('#reveal-question-form', questionNewView);
+  },
+
+  addAboutView: function () {
+    var aboutView = new QueryBase.Views.About();
+    this.addSubview('#reveal-about', aboutView);
+  },
+
+  revealAbout: function (event) {
+    event.preventDefault();
+    this.$('#reveal-about').foundation('reveal', 'open');
   },
 
   revealQuestionForm: function (event) {
@@ -53,5 +63,4 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
       url: '/session',
     });
   },
-
 });

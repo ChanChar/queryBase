@@ -8,8 +8,9 @@
 
     <section class="top-bar-section">
       <ul class="right">
-        <li class='signout-button'><a href="session/new">Sign Out</a></li>
         <li class='profile-button'><a href="#users/<%= user.id %>"><%= user.escape('username') %></a></li>
+        <li class='show-about-button'><a href="#about">About</a></li>
+        <li class='signout-button'><a href="session/new">Sign Out</a></li>
       </ul>
     </section>
   </nav>
@@ -22,11 +23,16 @@
         <li><a href="#users" class='button small usersIndex'>Users</a></li>
         <li><a href="#badges" class='button small badgesIndex'>Badges</a></li>
         <li><a href="#unanswered" class='button small unansweredIndex'>Unanswered</a></li>
-        <li><a class='button small show-question-form'>Ask a Question</a></li>
+        <li id='ask-question'><a class='button small show-question-form'>Ask a Question</a></li>
       </ul>
     </div>
   </section>
 
   <div id="reveal-question-form" class="reveal-modal" data-reveal
     aria-labelledby="reveal-question-form" aria-hidden="true" role="dialog">
+  </div>
+
+
+  <div id="reveal-about" class="reveal-modal" data-reveal
+    aria-labelledby="reveal-about" aria-hidden="true" role="dialog">
   </div>

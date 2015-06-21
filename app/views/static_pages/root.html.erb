@@ -7,14 +7,11 @@
 
 </div>
 
-<!-- Implement hover back to top button/link -->
 <div class="top-scroll hidden">
   <div class="back-to-top">
     <a class='button' href="#top">Back to Top</a>
   </div>
 </div>
-
-
 
 <script>
   var target = $("#navbar").offset().top;
@@ -24,5 +21,9 @@
     } else {
       $('.top-scroll').addClass('hidden');
     }
-  }, 250);
+  }, 500);
+
+  $(".back-to-top a").click(function() {
+    $("html, body").animate({ scrollTop: 0 }, "slow");
+  });
 </script>

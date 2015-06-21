@@ -3,6 +3,7 @@ json.extract! user, :id, :username, :email, :image_url
 json.points user.points
 json.question_points user.question_points_total
 json.answer_points user.answer_points_total
+json.num_badges user.badges.length
 
 json.questions_asked do
   json.array!(user.questions) do |question|

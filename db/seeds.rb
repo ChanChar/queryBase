@@ -1,8 +1,12 @@
-User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password', image_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/681/original/charlie_lee.jpg?1429734840')
-User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing', image_url: 'http://rs386.pbsrc.com/albums/oo307/AlbusSPotter/02-Jon-Snow-played-by-Kit-Harington-1.jpg~c200')
-User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
+me = User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password', image_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/681/original/charlie_lee.jpg?1429734840')
+jonsnow = User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing', image_url: 'http://rs386.pbsrc.com/albums/oo307/AlbusSPotter/02-Jon-Snow-played-by-Kit-Harington-1.jpg~c200')
+sample = User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
 
-10.times do
+[me, jonsnow, sample].each do |user|
+  user.owned_badges.create({ badge_id: 1 })
+end
+
+150.times do
   new_user = `curl http://uifaces.com/api/v1/random`
   json_user = JSON.parse(new_user)
   username = json_user['username']
@@ -43,62 +47,66 @@ Answer.create(question_id: 4, answerer_id: 2, body: 'It is any function that use
 
 Comment.create(commenter_id: 3, commentable_type: 'Question', commentable_id: 1, body: 'Do you have any examples that you want to have clarified?')
 
+User.all.each do |user|
+  user.votes.create({ votable_id: 1 + rand(6), votable_type: 'Question', value: 1 })
+end
+
 Badge.create(
-  value: 1,
+  value: 0,
   title: 'Professional Beginner',
   description: 'Awarded for taking the first steps in becoming an awesome developer.',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-2_iw8wuy.png')
 
 Badge.create(
-  value: 2,
+  value: 10,
   title: 'Unconscious Incompetence',
   description: 'Awarded for knocking a few questions out of the park.',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752916/logo_4_lyhdjn.png')
 
 Badge.create(
-  value: 3,
+  value: 25,
   title: 'Conscious Incompetence ',
   description: 'You understand that you understand nothing.',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752916/logo_2_en5wno.png')
 
 Badge.create(
-  value: 4,
+  value: 35,
   title: 'Conscious Competence',
   description: 'Answered and asked questions that have helped many individuals. People have started to ask you, directly, to answer their questions',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-4_opjffv.png')
 
 Badge.create(
-  value: 5,
+  value: 55,
   title: 'Unconscious Competence',
   description: 'You have become one with the matrix. You can tackle most questions and dish out answers on the fly.',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo_3_nys0yo.png')
+
+Badge.create(
+  value: 100,
+  title: 'TenderLove',
+  description: 'You have tackled on enough questions to be referenced by the community',
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_1_m4apkk.png')
+
+Badge.create(
+  value: 150,
+  title: 'Guido van Rossum',
+  description: 'All the questions that you have asked and the answers you gave can all be compiled together to create a new programming language',
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_2_aabcl3.png')
 
 Badge.create(
   value: 300,
-  title: 'TenderLove',
-  description: 'You have tackled on enough questions to be referenced by the community',
-  image_url: 'http://placehold.it/150x100')
+  title: 'Javascript',
+  description: 'You prefer to be called ES6 from now on.',
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_4_cy4uhm.png')
 
 Badge.create(
   value: 450,
-  title: 'Guido van Rossum',
-  description: 'All the questions that you have asked and the answers you gave can all be compiled together to create a new programming language',
-  image_url: 'http://placehold.it/150x100')
-
-Badge.create(
-  value: 600,
-  title: 'Javascript',
-  description: 'You prefer to be called ES6 from now on.',
-  image_url: 'http://placehold.it/150x100')
-
-Badge.create(
-  value: 750,
   title: 'The CJ',
   description: 'You brought the internet to Americans all across the world. America.',
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434755098/logo_3_iui45z.png')
 
 Badge.create(
-  value: 1000,
+  value: 500,
   title: 'Superstar',
   description: "You've got it all. You can breathe now.",
-  image_url: 'http://placehold.it/150x100')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434752915/logo-5_nztxnl.png')

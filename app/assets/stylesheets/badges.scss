@@ -41,8 +41,8 @@
       content: '';
       display: block;
       margin: auto;
-      height: 2px;
-      width: 0px;
+      height: 1px;
+      width: 50%;
       background: transparent;
       transition: width .5s ease, background-color .5s ease;
     }
@@ -52,7 +52,7 @@
   &:hover {
     .badge-title {
       &:after {
-        width: 50%;
+        width: 80%;
         background: lighten(#949DA4, 5%);
       }
     }
