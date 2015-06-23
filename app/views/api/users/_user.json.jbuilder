@@ -3,7 +3,7 @@ json.extract! user, :id, :username
 json.image_url user.image_url || 'http://res.cloudinary.com/charliecloud/image/upload/v1434941598/logo_cqo72p.png'
 json.owned user.id == current_user.id
 
-json.tour_enabled user.created_at > 5.minutes.ago
+json.tour_enabled user.created_at > 5.minutes.ago || user.username == 'CuriousUser'
 
 json.points user.points
 json.question_points user.question_points_total
