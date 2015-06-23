@@ -1,5 +1,9 @@
 QueryBase is a Q&A site made for students, aspiring developers and professionals to discuss computer programming. Ask questions, get answers and earn points.
 
+[Website link][website]
+
+[website]: http://querybase.me
+
 Easily post questions. Github flavored markdown fully supported.
 ![question-make](http://res.cloudinary.com/charliecloud/image/upload/v1434947928/charblog/Screen_Shot_2015-06-21_at_9.33.12_PM.png)
 
@@ -18,10 +22,6 @@ Earn badges when hitting point milestones.
 ## Ask, answer, earn.
 ---
 # queryBase Project Proposal
-
-[Heroku link][heroku]
-
-[heroku]: http://querybase.herokuapp.com/
 
 ## Minimum Viable Product
 queryBase is a Stack Overflow inspired project built on Rails and Backbone. Users can:
