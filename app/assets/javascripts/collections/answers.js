@@ -7,5 +7,9 @@ QueryBase.Collections.Answers = Backbone.Collection.extend({
     if (previousBest) {
       previousBest.save({ 'best': false });
     }
-  }
+  },
+
+  comparator: function (answer) {
+    return answer.get('score');
+  },
 });

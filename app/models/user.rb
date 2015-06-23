@@ -73,10 +73,6 @@ class User < ActiveRecord::Base
     question_points.inject(0) { |total, vote| total += vote.value }
   end
 
-  # def earned_badges
-  #   Badge.all.select { |badge| badge.value <= points }
-  # end
-
   #  Optimize votes later
   # Returns a hash of questions that the user has voted on.
   # def voted_questions

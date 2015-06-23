@@ -12,7 +12,7 @@ window.Guest = {
     $email.val('');
     $password.val('');
 
-		this.fillForm($email, 'curiousgeorge@monkey.com', function () {
+		this.fillForm($email, 'curious@question.com', function () {
 			that.fillForm( $password, 'banana', function () {
 				$signinButton.click();
 			});

@@ -10,8 +10,6 @@ QueryBase.Views.UserIndexItem = Backbone.CompositeView.extend({
 
   events: {
     'click .user-info': 'showUser',
-    // 'mouseenter .user-badges': 'toggleHighlightBadges',
-    // 'mouseleave .user-badges': 'toggleHighlightBadges'
   },
 
   render: function () {
@@ -25,10 +23,4 @@ QueryBase.Views.UserIndexItem = Backbone.CompositeView.extend({
     var userUrl = 'users/' + this.model.id;
     Backbone.history.navigate(userUrl, { trigger: true });
   },
-
-  // toggleHighlightBadges: function () {
-    // var badges = this.$('.user-badges img');
-    // badges.toggleClass('badge-highlight');
-  // },
-
 });

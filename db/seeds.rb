@@ -1,6 +1,6 @@
 me = User.create(email: 'charleschanlee@gmail.com', username: 'TheCharlie', password: 'password', image_url: 'http://s3-us-west-2.amazonaws.com/aa-progress-tracker/students/avatars/000/000/681/original/charlie_lee.jpg?1429734840')
 jonsnow = User.create(email: 'jonsnow@thewall.com', username: 'JonnySnow', password: 'nothing', image_url: 'http://rs386.pbsrc.com/albums/oo307/AlbusSPotter/02-Jon-Snow-played-by-Kit-Harington-1.jpg~c200')
-sample = User.create(email: 'curiousgeorge@monkey.com', username: 'C.George', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
+sample = User.create(email: 'curious@question.com', username: 'CuriousUser', password: 'banana', image_url: 'http://www-tc.pbskids.org/shell/images/content/show-bubbles/circle/curious-george.png')
 
 [me, jonsnow, sample].each do |user|
   user.owned_badges.create({ badge_id: 1 })
@@ -18,7 +18,6 @@ end
 
   created_user.owned_badges.create({ badge_id: 1 })
 end
-
 
 Question.create(asker_id: 1, title: 'How do you represent polymorphic associations in Backbone?',
                 description: "Currently trying to have comments and votes for a SO like project.",
@@ -67,7 +66,7 @@ Badge.create(
   value: 25,
   title: 'Conscious Incompetence ',
   description: 'You understand that you understand very little.',
-  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434854278/house-stark_sdn4tz.png')
+  image_url: 'http://res.cloudinary.com/charliecloud/image/upload/v1434942400/logo_3_fallqb.png')
 
 Badge.create(
   value: 35,

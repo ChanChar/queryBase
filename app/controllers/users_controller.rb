@@ -35,6 +35,20 @@ class UsersController < ApplicationController
     end
   end
 
+  def update
+    @user = User.find(params[:id])
+    if @user.update(user_params)
+      @user = User.includes(:questions, :answers, :comments, :votes)
+              .find(params[:id])
+      award_badges
+      render 'api/users/show.json.jbuilder'
+    else
+      render json: @user.errors.full_messages,
+             status: :unprocessable_entity
+    end
+
+  end
+
   def award_badges
     Badge.all.each do |badge|
       if badge.value <= @user.points && !@user.badges.include?(badge)
@@ -46,6 +60,6 @@ class UsersController < ApplicationController
   private
 
   def user_params
-    params.require(:user).permit(:email, :password, :username)
+    params.require(:user).permit(:email, :password, :username, :image_url)
   end
 end

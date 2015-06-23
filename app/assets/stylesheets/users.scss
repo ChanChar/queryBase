@@ -33,6 +33,11 @@
   .user-info, .user-page-info {
     text-align: center;
 
+
+    .change-photo-link {
+      cursor: pointer;
+    }
+
     .username {
       font-family: Lora;
       color: darken(#949DA4, 25%);

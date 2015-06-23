@@ -15,6 +15,15 @@ Backbone.CompositeView = Backbone.View.extend({
       this.$(selector).prepend(subview.$el);
     } else {
       this.$(selector).append(subview.$el);
+
+      if (selector == '.user-index-items') {
+          subview.$el.hide().fadeIn('slow');
+      }
+
+      if (selector == '.question-index-items') {
+        this.$(selector).hide().fadeIn('normal');
+      }
+
     }
     // Bind events in case `subview` has previously been removed from
     // DOM.

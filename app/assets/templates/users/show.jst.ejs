@@ -1,12 +1,12 @@
 <hr>
 <div class="row user-page-info">
   <div class="small-4 columns text-center">
+    <img src="<%= user.escape('image_url') %>" class="profile-image-show">
 
-    <% if (user.escape('image_url')) { %>
-      <img src="<%= user.escape('image_url') %>" class="profile-image-show">
-    <% } else { %>
-      <img src="http://placehold.it/200x200" class="profile-image-show">
+    <% if (user.get('owned')) { %>
+      <div class='change-photo-link'>Update Profile Picture</div>
     <% } %>
+
   </div>
 
   <div class="small-8 columns">

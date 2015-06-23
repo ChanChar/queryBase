@@ -63,6 +63,7 @@
 
   a {
     color: white;
+    transition: color .5s ease;
   }
 
   &:after {
@@ -76,6 +77,10 @@
   }
 
   &:hover {
+
+    a {
+      color: #F4D03F;
+    }
 
     &:after {
       width: 35%;

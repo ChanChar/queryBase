@@ -12,6 +12,10 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
     this.collection.each(this.addQuestionView.bind(this));
   },
 
+  events: {
+    'click .change-photo-link': 'showPhotoUpload',
+  },
+
   render: function () {
     var questions = this.askedQuestions();
     var userContent = this.template({ user: this.model, questions: questions });
@@ -20,6 +24,21 @@ QueryBase.Views.UserShow = Backbone.CompositeView.extend({
     this.renderMoreAskedQuestions();
     this.attachSubviews();
     return this;
+  },
+
+  showPhotoUpload: function (event) {
+    event.preventDefault();
+    var currentUser = this.model;
+    cloudinary.openUploadWidget(window.CLOUDINARY_OPTIONS, function(error, result){
+      var data = result[0];
+      currentUser.set({ image_url: data.url });
+      currentUser.save({}, {
+        success: function(){
+          Backbone.history.navigate('dummyView');
+          Backbone.history.navigate('#users/' + currentUser.id, { trigger: true });
+        }
+      });
+    });
   },
 
   renderMoreAskedQuestions: function () {

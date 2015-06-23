@@ -7,6 +7,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
     this.questions = new QueryBase.Collections.Questions();
 
     this.listenTo(this.model, 'sync', this.render);
+    this.listenTo(this.model, 'sync', this.newUserTour);
     this.listenTo(this.router, 'route', this.markNavActive);
 
     this.addQuestionForm();
@@ -59,6 +60,7 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
   },
 
   signOut: function (event) {
+    event.preventDefault();
     $.ajax({
       type: "DELETE",
       url: '/session',
@@ -68,5 +70,11 @@ QueryBase.Views.NavBar = Backbone.CompositeView.extend({
   redirectHome: function (event) {
     event.preventDefault();
     Backbone.history.navigate('#', { trigger: true });
+  },
+
+  newUserTour: function () {
+    if (this.model.get('tour_enabled')) {
+      $('#reveal-about').foundation('reveal', 'open');
+    }
   }
 });

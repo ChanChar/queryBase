@@ -19,7 +19,7 @@ module Api
     end
 
     def update
-      @answer = current_user.answers.find(params[:id])
+      @answer = Answer.find(params[:id])
 
       if @answer.update_attributes(answer_params)
         render :create
