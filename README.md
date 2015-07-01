@@ -34,7 +34,7 @@ queryBase is a Stack Overflow inspired project built on Rails and Backbone. User
 - [x] View questions, answers, comments, user profiles
 - [ ] Follow questions
 - [x] Search for questions by tag, keyword (eg. title)
-- [ ] Earn badges and/or points by asking and/or answering questions
+- [x] Earn badges and/or points by asking and/or answering questions
 
 ## Design Docs
 * [View Wireframes][views]

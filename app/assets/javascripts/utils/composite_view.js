@@ -21,7 +21,7 @@ Backbone.CompositeView = Backbone.View.extend({
       }
 
       if (selector == '.question-index-items') {
-        this.$(selector).hide().fadeIn('normal');
+        subview.$el.hide().fadeIn('normal');
       }
 
     }

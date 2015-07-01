@@ -508,10 +508,10 @@ body {
   width: 150px;
   z-index: 10;
   display: table;
+  box-shadow: 2px 4px 3px -1px darken(#3498DB, 25%);
 
   a {
     display: table-cell;
-
     vertical-align: middle;
     font-family: Lora;
     background-color: #3498DB;

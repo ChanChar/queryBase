@@ -43,7 +43,6 @@ QueryBase.Views.QuestionsIndex = Backbone.CompositeView.extend({
     var questionsIndexView = this;
     var searchParams = $('.questions-search').val();
     this.collection.search(searchParams);
-    // _.debounce(this.renderSearchResults(questions), 500);
   },
 
   addQuestionView: function (question) {
