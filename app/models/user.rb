@@ -14,7 +14,7 @@
 
 class User < ActiveRecord::Base
   attr_reader :password
-  paginates_per 9
+  paginates_per 18
 
   validates :email, :session_token, :username, presence: true
   validates :password, length: { minimum: 5, allow_nil: true }
