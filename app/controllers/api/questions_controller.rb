@@ -21,7 +21,7 @@ module Api
 
     def index
       if params[:tag_id]
-        @questions = Question.includes(:votes, :asker, :tags)
+        @questions = Question.includes(:votes, :asker)
                      .where('tags.id = ?', params[:tag_id]).joins(:tags)
                      .page(params[:page])
       elsif params[:asker_id]
