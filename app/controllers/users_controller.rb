@@ -5,7 +5,7 @@ class UsersController < ApplicationController
   def index
     if params[:searchParams]
       @users = User.includes(:questions, :answers, :comments, :votes)
-               .where('LOWER(username) LIKE (?)', "%#{params[:searchParams].downcase}%") # LOWER() read more about this later
+               .where('LOWER(username) LIKE (?)', "%#{params[:searchParams].downcase}%")
                .page(params[:page])
     else
       @users = User.includes(:questions, :answers, :comments, :votes)

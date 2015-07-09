@@ -30,7 +30,7 @@ module Api
                      .page(params[:page])
       elsif params[:searchParams]
         @questions = Question.includes(:votes, :asker, :votes, :tags)
-                     .where('LOWER(title) LIKE (?)', "%#{params[:searchParams].downcase}%") # LOWER() read more about this later
+                     .where('LOWER(title) LIKE (?)', "%#{params[:searchParams].downcase}%")
                      .page(params[:page])
       else
         @questions = Question.includes(:votes, :asker, :tags)
@@ -45,7 +45,6 @@ module Api
         :asker, :tags, :votes, :answers, :comments,
         answers: :comments, answers: :votes).find(params[:id])
       @vote = @question.votes.find_by(voter_id: current_user.id)
-      # @tags = @question.tags
       render :show
     end
 
