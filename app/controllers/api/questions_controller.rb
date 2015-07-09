@@ -49,6 +49,7 @@ module Api
     end
 
     def update
+      update_view_count
       @question = current_user.questions.find(params[:id])
       if @question.update(question_params)
         render json: @question
@@ -61,7 +62,15 @@ module Api
     private
 
     def question_params
-      params.require(:question).permit(:title, :description, :views, :tag_list)
+      params.require(:question).permit(:title, :description, :tag_list)
     end
+
+    def update_view_count
+      if params[:views]
+        question = Question.find(params[:id])
+        question.update({ views: params[:views] })
+      end
+    end
+
   end
 end

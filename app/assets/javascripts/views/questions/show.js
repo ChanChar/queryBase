@@ -4,6 +4,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/show'],
 
   initialize: function () {
+
     this.answers = this.model.answers();
     this.comments = this.model.comments();
     this.tag_list = this.model.tag_list();
