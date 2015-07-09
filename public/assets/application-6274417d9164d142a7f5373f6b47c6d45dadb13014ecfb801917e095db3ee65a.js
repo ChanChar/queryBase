@@ -22915,7 +22915,7 @@ QueryBase.Models.Question = Backbone.Model.extend({
     this.set('score', score - 1);
   },
 
-  incrementView: function (viewer_id) {
+  incrementView: function () {
     var views = this.get('views');
     this.set('views', views + 1);
     this.save();
@@ -23964,6 +23964,7 @@ QueryBase.Views.QuestionShow = Backbone.CompositeView.extend({
   template: JST['questions/show'],
 
   initialize: function () {
+
     this.answers = this.model.answers();
     this.comments = this.model.comments();
     this.tag_list = this.model.tag_list();
