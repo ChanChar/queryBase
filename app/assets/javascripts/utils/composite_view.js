@@ -17,11 +17,11 @@ Backbone.CompositeView = Backbone.View.extend({
       this.$(selector).append(subview.$el);
 
       if (selector == '.user-index-items') {
-          subview.$el.hide().fadeIn('slow');
+          subview.$el.hide().fadeIn();
       }
 
       if (selector == '.question-index-items') {
-        subview.$el.hide().fadeIn('normal');
+        subview.$el.hide().fadeIn();
       }
 
     }

@@ -2,6 +2,7 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
 
   url: 'api/questions',
   model: QueryBase.Models.Question,
+  fetchParams: { searchParams: "", page: 0 },
 
   parse: function (response) {
     this.page_number = parseInt(response.page_number);
@@ -18,15 +19,12 @@ QueryBase.Collections.Questions = Backbone.Collection.extend({
     if (str == this.fetchParams.searchParams) {
       this.fetchNextPage({ remove: false });
     } else {
-      // refactor
       this.fetchParams.searchParams = str;
       this.fetchParams.page = 0;
       this.fetchNextPage({ remove: true });
     }
     return this;
   },
-
-  fetchParams: { searchParams: "", page: 0 },
 
   getOrFetch: function (id) {
     var question = this.get(id);

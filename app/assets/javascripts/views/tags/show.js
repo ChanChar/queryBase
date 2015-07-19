@@ -37,7 +37,6 @@ QueryBase.Views.TagShow = Backbone.CompositeView.extend({
     var view = this;
     if ($(window).scrollTop() > $(document).height() - $(window).height() - 50) {
       if (view.questionsWithTag.page_number < view.questionsWithTag.total_pages) {
-        console.log(view.model.get('name'));
         view.questionsWithTag.fetch({
           data: {
             page: view.questionsWithTag.page_number + 1,

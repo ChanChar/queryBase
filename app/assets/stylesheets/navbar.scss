@@ -9,6 +9,15 @@
       background: darken(#6BB9F0, 20%);
       transition: all 0.5s ease 0s;
     }
+
+  }
+
+  .button-group li .show-question-form {
+    background-color: #2ECC71;
+
+    &:hover {
+      background-color: #368a55
+    }
   }
 }
 
